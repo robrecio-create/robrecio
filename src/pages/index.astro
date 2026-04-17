@@ -50,6 +50,8 @@ const sites = [
         <a href="tel:2282576001">228-257-6001</a>
         <span class="divider">·</span>
         <a href="mailto:robrecio@gmail.com">robrecio@gmail.com</a>
+        <span class="divider">·</span>
+        <a href="https://theseawallms.com" target="_blank" rel="noopener noreferrer" class="newsletter-link">Newsletter</a>
       </div>
     </header>
 
@@ -70,7 +72,11 @@ const sites = [
   </main>
 
   <footer>
-    <p>© {new Date().getFullYear()} Rob Recio</p>
+    <p>
+      <a href="https://theseawallms.com" target="_blank" rel="noopener noreferrer" class="footer-newsletter">Newsletter</a>
+      <span class="footer-divider">·</span>
+      © {new Date().getFullYear()} Rob Recio
+    </p>
   </footer>
 
 </body>
@@ -285,5 +291,38 @@ const sites = [
     font-size: 0.8125rem;
     color: var(--gray-500);
     border-top: 1px solid var(--gray-100);
+  }
+
+  /* Newsletter link (header) */
+  .contact a.newsletter-link {
+    color: var(--white);
+    background: var(--black);
+    border: 1px solid var(--black);
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+  .contact a.newsletter-link:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--white);
+  }
+  /* Newsletter link (footer) */
+  footer .footer-newsletter {
+    color: var(--gray-800);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid var(--gray-200);
+    padding-bottom: 1px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  footer .footer-newsletter:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+  footer .footer-divider {
+    color: var(--gray-200);
+    margin: 0 0.5rem;
   }
 </style>
