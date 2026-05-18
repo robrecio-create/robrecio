@@ -1,0 +1,606 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+
+const tiers = [
+  {
+    code: 'TIER 1',
+    name: 'Regular (under 65)',
+    savings: 'Up to $300 / year',
+    blurb: 'Graduated tax credit, capped at $300 per year. Applies only to the county and school portions of the bill — the city portion is paid in full.',
+    detail: 'Practically: every Coast home assessed above $7,351 (= true value over ~$73,500) maxes out the credit. So almost every Gulf Coast homeowner gets $300/year — no more, no less.',
+  },
+  {
+    code: 'TIER 2',
+    name: '65+ or totally disabled',
+    savings: '~$700 – $1,500 / year',
+    blurb: 'The first $7,500 of assessed value (= $75,000 of true value) is exempt from all ad valorem taxes — county, city, AND school. Much stronger than Tier 1.',
+    detail: 'Plus, since 2018, the assessed value of a special-homestead parcel is frozen at the year you qualify. Future appreciation does not push the tax bill up (improvements you add are not frozen).',
+  },
+  {
+    code: 'TIER 3',
+    name: '100% DAV / 90+ veteran / KIA spouse',
+    savings: '$0 property tax',
+    blurb: 'Service-connected 100% disabled American veterans (honorably discharged), honorably discharged veterans 90+ on Jan 1, and unremarried surviving spouses of any of the above (or of a servicemember killed on active duty) pay zero ad valorem tax on the homestead.',
+    detail: 'New for 2026: unremarried surviving spouses of someone qualifying for the total-disability exemption also qualify (effective Jan 1, 2026, per the Sept 2, 2025 revision to MS Admin Code 35.VI.3.03).',
+  },
+];
+
+const counties = [
+  {
+    name: 'Hancock County',
+    cities: 'Bay St. Louis, Waveland, Diamondhead, Kiln, Pearlington',
+    assessor: 'Jimmie Ladner, Jr.',
+    mainPhone: '228-467-4425',
+    homesteadLine: '228-467-5727',
+    mainOffice: 'P.O. Box 2428, Bay St. Louis, MS 39521',
+    annex: 'Annex: 854 Highway 90, Suite C, Bay St. Louis',
+    satellite: 'Kiln satellite: 18335 Highway 603 · 228-255-8746 / 228-255-8747',
+    hours: 'Hours not published — call before visiting.',
+    site: 'hancockcounty.ms.gov/199/Tax-Assessor',
+    note: 'The Kiln satellite is the only assessor satellite north of US-90 on the Coast — useful for Diamondhead and Kiln-area buyers.',
+  },
+  {
+    name: 'Harrison County',
+    cities: 'Gulfport, Biloxi, Long Beach, Pass Christian, D’Iberville, Saucier',
+    assessor: 'Paula Ladner',
+    mainPhone: '228-865-4043',
+    homesteadLine: null,
+    mainOffice: 'P.O. Box 462, Gulfport, MS 39502',
+    annex: '1st District (Gulfport): 1801 23rd Avenue · 2nd District (Biloxi): 730 Dr. Martin Luther King Jr. Blvd.',
+    satellite: null,
+    hours: 'Hours vary by office — call to confirm.',
+    site: 'harrisoncountyms.gov/goverment/tax_assessor/homestead.php',
+    note: 'Harrison has two judicial-district offices (Gulfport + Biloxi) — you can file at either, but call first.',
+  },
+  {
+    name: 'Jackson County',
+    cities: 'Pascagoula, Ocean Springs, Moss Point, Gautier, Vancleave, St. Martin, Hurley',
+    assessor: 'Nick Elmore',
+    mainPhone: '228-769-3070 (Option 4)',
+    homesteadLine: null,
+    mainOffice: '2915 Canty St, Pascagoula, MS 39567',
+    annex: 'West Jackson County office: 6912 Washington Ave, Ocean Springs · 228-875-3367',
+    satellite: null,
+    hours: 'Mon–Fri 8:00–5:00 Pascagoula · 8:00–4:50 Ocean Springs',
+    site: 'co.jackson.ms.us/427/Homestead-Exemption',
+    note: 'Two physical offices — Ocean Springs is the closer file for the western half of Jackson County.',
+  },
+];
+---
+
+<SiteLayout
+  title="Mississippi Homestead Exemption — A Plain-Talk Guide for Coast Homeowners | Rob Recio"
+  description="What the Mississippi homestead exemption actually saves you (under 65, 65+, disabled veteran), how to file in Hancock/Harrison/Jackson counties, and the April 1 deadline that quietly costs people money every year."
+  robots="noindex, nofollow, noarchive, nosnippet"
+>
+
+  <main class="guide">
+
+    <header class="guide-hero">
+      <p class="eyebrow">Coast Guides · Property Tax</p>
+      <h1>Mississippi homestead exemption, <em>plain-talk for Coast homeowners.</em></h1>
+
+      <aside class="pre-license-banner" role="note" aria-label="Pre-licensure notice">
+        <p><strong>Heads up.</strong> I'm in real-estate-licensure training and not yet licensed in Mississippi. This guide is informational only — it is not a solicitation, an offering of services, or an agency relationship. Once my MS salesperson license is issued and I'm affiliated with Real Broker, LLC, I'll update this site with my license number, sponsoring-broker information, and a normal contact-and-engage flow.</p>
+      </aside>
+
+      <p class="lede">Three tiers, very different savings. <strong>Under 65, the exemption is a $300/year credit.</strong> <strong>Sixty-five or totally disabled, it's roughly $700–$1,500/year</strong> and an assessment freeze. <strong>For 100% service-connected disabled veterans (and a few other tiers), property tax on the homestead is zero.</strong> Here is what each one actually means, where to file by county, and the April 1 deadline that quietly costs people money every year.</p>
+    </header>
+
+    <section class="guide-section">
+      <h2>The three tiers</h2>
+      <p class="section-sub">Authority: Miss. Code Ann. §§ 27-33-1 through 27-33-79. Administered by the Mississippi Department of Revenue, applied locally by the county Tax Assessor.</p>
+
+      <div class="zone-grid tier-grid">
+        {tiers.map(t => (
+          <div class="zone-card">
+            <div class="zone-code">{t.code}</div>
+            <h3>{t.name}</h3>
+            <p class="tier-savings">{t.savings}</p>
+            <p class="zone-blurb">{t.blurb}</p>
+            <p class="zone-detail">{t.detail}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="guide-section">
+      <h2>The April 1 deadline — no exceptions, no back-dating</h2>
+      <p>The single most common way Coast homeowners leave money on the table.</p>
+      <ul class="bullets">
+        <li><strong>Filing window: January 1 (or the first business day) through April 1 every year.</strong> Miss. Code Ann. § 27-33-31.</li>
+        <li><strong>Filed in person, at your county Tax Assessor's office.</strong> Not by mail. Not online. Hancock, Harrison, and Jackson counties all require in-person filing as of 2026.</li>
+        <li><strong>Cannot be back-dated.</strong> Miss April 1, you wait until next year — and forfeit this year's savings.</li>
+        <li><strong>Taxes are collected one year in arrears.</strong> A homestead filed Jan–Apr 2026 applies to the 2026 tax bill (collected by Feb 1, 2027). It does not retroactively change the 2025 bill.</li>
+        <li><strong>Your deed must be recorded with the Chancery Clerk by January 7.</strong> Even if you closed on December 30 — if the deed wasn't recorded by January 7, no homestead for that year. § 27-33-17.</li>
+      </ul>
+      <p class="callout"><strong>The 65th-birthday upgrade.</strong> Turning 65 does not automatically move you from Tier 1 to Tier 2. You have to refile, in person, in the next January–April window with proof of age. Coast retirees miss this every year. The dollar cost: $700–$1,500/year for as long as you don't refile.</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>How the math actually works</h2>
+      <p>Mississippi taxes property by formula:</p>
+      <pre class="formula">True value × Assessment ratio = Assessed value
+Assessed value × Millage rate    = Gross tax
+Gross tax − Homestead credit     = Net tax due</pre>
+      <p>Single-family owner-occupied residential is <strong>Class I, assessed at 10% of true value</strong> (Miss. Const. art. 4, § 112). So a $300,000 owner-occupied Coast home has an assessed value of $30,000 before any exemption.</p>
+      <p>Millage rates are set annually each September by the county Board of Supervisors, the city, and the school district. One mill = $1 of tax per $1,000 of assessed value. <strong>Coast effective rates run roughly 0.6%–1.4% of true value</strong>, depending on which city you're in. I am not going to put a specific dollar tax bill on this page — pull current millage from your property's actual tax district before counting on a number.</p>
+      <p>What each tier does to that math:</p>
+      <ul class="bullets">
+        <li><strong>Tier 1 (under 65):</strong> reduces the county + school portion of the bill by up to $300. Does not touch the city portion. Effectively: your final bill is $300 lower than gross, period.</li>
+        <li><strong>Tier 2 (65+ or totally disabled):</strong> subtracts $7,500 from assessed value before millage is applied — and it applies to all three portions (county, city, school). On a $300K Coast home at typical Coast millage, the savings run $700 to $1,500/year. Plus the special-homestead assessment freeze means future appreciation does not push the bill up.</li>
+        <li><strong>Tier 3 (100% DAV / 90+ veteran / KIA surviving spouse):</strong> the entire homestead is exempt from ad valorem tax. Net bill on the homestead parcel: zero.</li>
+      </ul>
+    </section>
+
+    <section class="guide-section">
+      <h2>Eligibility — who can claim, who can't</h2>
+      <p>To claim the regular (Tier 1) homestead exemption, you must:</p>
+      <ul class="bullets">
+        <li><strong>Be a natural person.</strong> Not an LLC, corporation, partnership, or estate. (§ 27-33-17.)</li>
+        <li><strong>Be head of a family.</strong> One head per homestead, statewide. (§ 27-33-13.)</li>
+        <li><strong>Have eligible ownership</strong> under § 27-33-17 — fee, life estate, joint tenancy, tenancy in common, or qualifying express trust of record. Trust ownership <em>may</em> qualify; confirm with your county Tax Assessor before relying.</li>
+        <li><strong>Occupy the property as your primary residence on January 1</strong> of the tax year. Physical address required; P.O. Box not accepted.</li>
+        <li><strong>Be a Mississippi resident</strong> who files a Mississippi resident income tax return. Claiming residency in another state for income tax disqualifies.</li>
+        <li><strong>Be in compliance with MS income tax and road & bridge privilege tax laws.</strong> If a vehicle in your possession is tagged out of state or out of county, the homestead is denied. This is a common trap for new transplants. Get MS tags before filing.</li>
+      </ul>
+      <p>Tier 2 adds: age 65+ on or before January 1, <em>or</em> totally disabled as defined under federal Social Security, Railroad Retirement, or IRC rules — with documentation. For a married couple with joint ownership, only one spouse needs to be 65+ for the household to qualify.</p>
+      <p>Tier 3 requires honorable-discharge documentation (DD Form 214), a VA letter stating 100% permanent-and-total service-connected disability (for the DAV tier), age proof for the 90+ veteran tier, or a death certificate plus DD-214 for the surviving-spouse tiers.</p>
+      <p>You are <strong>not</strong> eligible if the property is held in an LLC, used as a rental or short-term-rental business, used as a second home or camp, or if you claim residency in another state for income tax purposes.</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>Where to file — Gulf Coast</h2>
+      <p class="section-sub">All three Coast counties require in-person filing. Online filing is not available as of May 2026.</p>
+
+      <div class="county-stack">
+        {counties.map(c => (
+          <div class="county-card">
+            <h3>{c.name}</h3>
+            <p class="county-cities">{c.cities}</p>
+            <dl>
+              <div>
+                <dt>Tax Assessor</dt>
+                <dd>{c.assessor}</dd>
+              </div>
+              <div>
+                <dt>Phone</dt>
+                <dd>{c.mainPhone}{c.homesteadLine ? <span> · Homestead line <strong>{c.homesteadLine}</strong></span> : null}</dd>
+              </div>
+              <div>
+                <dt>Main office</dt>
+                <dd>{c.mainOffice}</dd>
+              </div>
+              {c.annex ? (
+                <div>
+                  <dt>Other offices</dt>
+                  <dd>{c.annex}</dd>
+                </div>
+              ) : null}
+              {c.satellite ? (
+                <div>
+                  <dt>Satellite</dt>
+                  <dd>{c.satellite}</dd>
+                </div>
+              ) : null}
+              <div>
+                <dt>Hours</dt>
+                <dd>{c.hours}</dd>
+              </div>
+              <div>
+                <dt>Site</dt>
+                <dd><a href={`https://${c.site}`} target="_blank" rel="noopener">{c.site}</a></dd>
+              </div>
+            </dl>
+            <p class="county-note">{c.note}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="guide-section">
+      <h2>What to bring when you file</h2>
+      <ul class="bullets">
+        <li><strong>Recorded deed</strong> (on file with the Chancery Clerk by January 7).</li>
+        <li><strong>Social Security numbers</strong> for all applicants and your spouse.</li>
+        <li><strong>Dates of birth</strong> for applicants and spouse.</li>
+        <li><strong>Physical street address</strong> (no P.O. Box).</li>
+        <li><strong>Total purchase price</strong> and down payment; bring your HUD closing / settlement statement if you have it.</li>
+        <li><strong>All MS auto tag numbers</strong> for vehicles you own or possess, including company vehicles. Out-of-state or out-of-county tags must be transferred first.</li>
+        <li><strong>MS driver's license.</strong></li>
+        <li><strong>Tier 2 / 3 add-ons:</strong> age proof, SS disability documentation, VA letter, DD-214, death certificate as applicable.</li>
+      </ul>
+      <p>You sign an affidavit under oath; the office stamps a copy and gives it back to you. The application then flows to the Board of Supervisors and the MS Department of Revenue.</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>Common mistakes that cost money</h2>
+      <ul class="bullets">
+        <li><strong>Missing April 1.</strong> No back-dating. The single most common loss.</li>
+        <li><strong>Deed recorded after January 7.</strong> Even closing before New Year's doesn't matter if the deed wasn't on file with the Chancery Clerk by January 7. Push for prompt recording at closing.</li>
+        <li><strong>Holding title in an LLC.</strong> Disqualifies the property. Buyers tempted to use an LLC for liability protection should weigh up to $1,500/year (Tier 2) against the perceived asset-protection benefit. For most primary residences, the math doesn't favor the LLC.</li>
+        <li><strong>Out-of-state or out-of-county vehicle tag.</strong> Disqualifies. New transplants should get MS tags before filing.</li>
+        <li><strong>Claiming residency in another state for income tax.</strong> Snowbirds with Florida or Louisiana income tax filings will be disqualified.</li>
+        <li><strong>Renting out part of the home.</strong> A garage apartment on Airbnb for 200+ nights/year can knock down or eliminate the homestead under § 27-33-21.</li>
+        <li><strong>Not refiling after a life event.</strong> Marriage, divorce, remarriage, death of a co-owner, addition of land, the disability/age upgrade — all of these require refiling in the next January–April window.</li>
+        <li><strong>Forgetting the 65th-birthday upgrade.</strong> Worth saying twice. Calendar it.</li>
+        <li><strong>Two homesteads.</strong> One per claimant, statewide. Don't try.</li>
+        <li><strong>Assuming homestead transfers with the property.</strong> It does not. When you buy a home, the seller's homestead does not follow it to you. You must file at your county Tax Assessor's office in the next January–April window, in your own name.</li>
+      </ul>
+    </section>
+
+    <section class="guide-section">
+      <h2>Penalties for false claims</h2>
+      <p>Miss. Code Ann. § 27-33-59 has teeth:</p>
+      <ul class="bullets">
+        <li><strong>Perjury</strong> for swearing to a false statement on the application.</li>
+        <li><strong>Misdemeanor</strong> for knowingly making a false claim or helping someone else file a false claim — up to $500 fine, up to 6 months in jail on conviction.</li>
+        <li><strong>Civil clawback of double the tax savings</strong> obtained illegally.</li>
+        <li><strong>Felony</strong> for a fraudulent application under § 27-33-31.</li>
+      </ul>
+      <p>The piece buyers should hear: filing for homestead on a rental, on a second house, or while still claiming homestead in another state can result in <strong>clawback of twice the tax savings</strong> plus criminal exposure. The system reconciles applications across counties and against MS income-tax filings — these things get caught.</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>Buying or selling? Things to know</h2>
+      <p>Both sides of a Coast transaction touch homestead in different ways:</p>
+      <ul class="bullets">
+        <li><strong>If you're buying:</strong> Your homestead doesn't start automatically. File between January 1 and April 1 of the year after your purchase. The closing year's tax bill reflects the seller's homestead status, not yours.</li>
+        <li><strong>If you're buying and closing late in the year:</strong> Make sure the deed is recorded with the Chancery Clerk by January 7 to qualify for the following year's exemption.</li>
+        <li><strong>If you're selling:</strong> The buyer should know that your homestead doesn't transfer. Letting them know early avoids confusion at closing.</li>
+        <li><strong>If you're buying in an LLC:</strong> You forfeit Tier 2 savings ($700–$1,500/year, indefinitely). Talk to a Mississippi attorney or CPA about whether the asset-protection benefit is worth that math.</li>
+        <li><strong>If you're 65+ buying for the first time on the Coast:</strong> Plan the move so January 1 occupancy + Jan 7 recorded deed + April 1 filing all fall in the right calendar order. The Tier 2 savings start year one if you stage it.</li>
+      </ul>
+    </section>
+
+    <section class="cta-block">
+      <h2>Have a homestead question?</h2>
+      <p>The first call should always be your county Tax Assessor's office — they handle the application directly. If you want a second set of eyes on the closing-and-deadline math, or you're trying to plan a move-and-file sequence on the Coast, glad to walk through it. Once I'm licensed (mid-2026), I'll be able to bring this into a full buyer or seller conversation. For now: it's a neighborly call, not a service call.</p>
+      <div class="cta-buttons">
+        <a href="tel:+12282576001" class="btn btn-primary">Call or text Rob — (228) 257-6001</a>
+        <a href="mailto:robrecio@gmail.com" class="btn btn-ghost">Email Rob</a>
+      </div>
+      <p class="cta-note">Rob is in training and not yet licensed. This is general information about Mississippi homestead exemption, not legal or tax advice. For application questions, contact your county Tax Assessor. For legal or tax questions, consult a Mississippi-licensed real-estate attorney or CPA.</p>
+    </section>
+
+    <aside class="sources">
+      <h3>Sources</h3>
+      <ul>
+        <li>MS Department of Revenue — Homestead Exemption: <a href="https://www.dor.ms.gov/county-services/homestead-exemption" target="_blank" rel="noopener">dor.ms.gov/county-services/homestead-exemption</a></li>
+        <li>MS Department of Revenue — Property Tax FAQ: <a href="https://www.dor.ms.gov/county-services/property-tax-frequently-asked-questions" target="_blank" rel="noopener">dor.ms.gov/county-services/property-tax-frequently-asked-questions</a></li>
+        <li>MS Administrative Code 35.VI.3.03 (revised effective Sept 2, 2025) — primary rule on applicant duties, tier definitions, penalties, 2026 surviving-spouse expansion</li>
+        <li>Miss. Code Ann. §§ 27-33-3, 27-33-13, 27-33-17, 27-33-19, 27-33-21, 27-33-31, 27-33-59, 27-33-67, 27-33-75</li>
+        <li>Stennis Institute (MSU) — "Homestead Exemption in Mississippi" (Joe B. Young, 2018)</li>
+        <li>Hancock County Tax Assessor — <a href="https://www.hancockcounty.ms.gov/199/Tax-Assessor" target="_blank" rel="noopener">hancockcounty.ms.gov</a></li>
+        <li>Harrison County Tax Assessor — <a href="https://harrisoncountyms.gov/goverment/tax_assessor/homestead.php" target="_blank" rel="noopener">harrisoncountyms.gov</a></li>
+        <li>Jackson County Tax Assessor — <a href="https://www.co.jackson.ms.us/427/Homestead-Exemption" target="_blank" rel="noopener">co.jackson.ms.us/427/Homestead-Exemption</a></li>
+      </ul>
+      <p class="sources-note"><strong>Verified May 2026.</strong> Section numbers and tier definitions cross-checked against MS DOR and MS Admin Code 35.VI.3.03 (most recent revision Sept 2, 2025). Coast millage rates change every September — confirm the property's current tax district before counting on a specific dollar number. Next planned refresh: after the 2026 legislative session adjourns and the 2027 millage rates are set.</p>
+    </aside>
+
+  </main>
+
+</SiteLayout>
+
+<style>
+  .guide {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 3rem 1.5rem 4rem;
+  }
+
+  .guide-hero {
+    max-width: var(--max-prose);
+    margin: 0 auto 4rem;
+    text-align: left;
+  }
+  .eyebrow {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gulf);
+    margin-bottom: 1.2rem;
+  }
+  .guide-hero h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(2.25rem, 4.8vw, 3.4rem);
+    line-height: 1.07;
+    letter-spacing: -0.022em;
+    color: var(--ink);
+  }
+  .guide-hero h1 em {
+    font-style: italic;
+    color: var(--gulf-deep);
+  }
+  .pre-license-banner {
+    margin-top: 1.6rem;
+    padding: 1rem 1.3rem;
+    background: var(--sand);
+    border: 1px solid var(--line-strong);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+  }
+  .pre-license-banner p {
+    font-size: 0.93rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin: 0;
+  }
+  .pre-license-banner strong { color: var(--ink); }
+  .lede {
+    font-size: 1.18rem;
+    color: var(--ink-soft);
+    margin-top: 1.5rem;
+    line-height: 1.6;
+  }
+  .lede strong { color: var(--ink); }
+
+  .guide-section {
+    max-width: var(--max-prose);
+    margin: 0 auto;
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--line);
+  }
+  .guide-section h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(1.6rem, 3.2vw, 2.1rem);
+    line-height: 1.15;
+    letter-spacing: -0.018em;
+    color: var(--ink);
+    margin-bottom: 1.2rem;
+  }
+  .guide-section p {
+    font-size: 1.06rem;
+    color: var(--ink-soft);
+    margin-bottom: 1.1rem;
+    line-height: 1.7;
+  }
+  .guide-section p:first-of-type { color: var(--ink); }
+  .guide-section .section-sub {
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    margin-top: -0.4rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .bullets {
+    margin: 0 0 1.2rem 0;
+    padding-left: 1.4rem;
+    color: var(--ink-soft);
+  }
+  .bullets li {
+    margin-bottom: 0.85rem;
+    line-height: 1.65;
+  }
+  .bullets li strong { color: var(--ink); }
+
+  /* Tiers grid (3-up, like the FEMA zones grid on the flood-zones page) */
+  .tier-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .zone-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.5rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .zone-code {
+    display: inline-block;
+    background: var(--gulf);
+    color: var(--paper);
+    font-family: var(--serif);
+    font-weight: 600;
+    padding: 0.25rem 0.7rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.7rem;
+    align-self: flex-start;
+  }
+  .zone-card h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.18rem;
+    color: var(--ink);
+    margin-bottom: 0.55rem;
+  }
+  .tier-savings {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.08rem !important;
+    color: var(--gulf-deep) !important;
+    margin-bottom: 0.7rem !important;
+  }
+  .zone-blurb {
+    font-size: 0.97rem !important;
+    color: var(--ink) !important;
+    margin-bottom: 0.7rem !important;
+    line-height: 1.55 !important;
+  }
+  .zone-detail {
+    font-size: 0.92rem !important;
+    color: var(--ink-soft) !important;
+    line-height: 1.55 !important;
+    margin-bottom: 0 !important;
+  }
+  @media (max-width: 880px) {
+    .tier-grid { grid-template-columns: 1fr; }
+  }
+
+  .formula {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--gulf);
+    border-radius: 8px;
+    padding: 1rem 1.3rem;
+    font-family: 'SF Mono', 'Monaco', 'Menlo', 'Consolas', monospace;
+    font-size: 0.92rem;
+    color: var(--ink);
+    line-height: 1.55;
+    margin: 1.2rem 0;
+    white-space: pre-wrap;
+    overflow-x: auto;
+  }
+
+  .callout {
+    background: var(--sand);
+    border-left: 3px solid var(--gulf);
+    padding: 1.1rem 1.3rem;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.98rem !important;
+    color: var(--ink) !important;
+  }
+  .callout strong { color: var(--gulf-deep); }
+
+  /* County cards — vertical stack */
+  .county-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    margin-top: 1.5rem;
+  }
+  .county-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.6rem 1.8rem;
+  }
+  .county-card h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.35rem;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+  }
+  .county-cities {
+    font-size: 0.92rem !important;
+    color: var(--ink-soft) !important;
+    margin-bottom: 1.1rem !important;
+    font-style: italic;
+  }
+  .county-card dl {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 0.35rem 1rem;
+    margin-bottom: 1rem;
+  }
+  .county-card dl > div {
+    display: contents;
+  }
+  .county-card dt {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    color: var(--gulf);
+    align-self: start;
+    padding-top: 0.18rem;
+  }
+  .county-card dd {
+    font-size: 0.96rem;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .county-card dd strong { color: var(--gulf-deep); }
+  .county-card a {
+    color: var(--gulf);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .county-card a:hover { color: var(--gulf-deep); border-color: var(--gulf); }
+  .county-note {
+    font-size: 0.92rem !important;
+    color: var(--ink-soft) !important;
+    font-style: italic;
+    margin-bottom: 0 !important;
+    padding-top: 0.5rem;
+    border-top: 1px dashed var(--line);
+  }
+  @media (max-width: 560px) {
+    .county-card dl { grid-template-columns: 1fr; gap: 0.1rem; }
+    .county-card dt { margin-top: 0.6rem; }
+  }
+
+  .cta-block {
+    max-width: var(--max-prose);
+    margin: 4rem auto 0;
+    padding: 2.5rem 2rem;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    text-align: center;
+  }
+  .cta-block h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: var(--ink);
+    margin-bottom: 0.8rem;
+  }
+  .cta-block p {
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+  .cta-note {
+    font-size: 0.82rem !important;
+    color: var(--ink-soft) !important;
+    font-style: italic;
+    margin-bottom: 0 !important;
+  }
+
+  .sources {
+    max-width: var(--max-prose);
+    margin: 3rem auto 0;
+    padding: 1.6rem 1.8rem;
+    background: var(--sand);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+  }
+  .sources h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.8rem;
+  }
+  .sources ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+  .sources li {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    padding: 0.35rem 0;
+    border-bottom: 1px dashed var(--line-strong);
+  }
+  .sources li:last-child { border-bottom: none; }
+  .sources-note {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin: 0;
+  }
+</style>

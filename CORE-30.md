@@ -66,10 +66,10 @@ Pure informational, lowest compliance risk, highest local-SEO value. These ship 
 
 | # | Slug | Status | Notes |
 |---|------|--------|-------|
-| 23 | `/guides/coastal-ms-flood-zones` | 🟡 DRAFT | v1 up on `feat/core-30-content` — flood zones, Risk Rating 2.0, Wind Pool, ECs, Coast context |
+| 23 | `/guides/coastal-ms-flood-zones` | 🟡 DRAFT v2 | Compliance audit + cost audit applied. MUST/SHOULD fixes in. Cost figures verified to May 2026 primary sources. Pre-licensure banner added under H1, page-level `noindex, nofollow, noarchive, nosnippet`. |
 | 24 | `/guides/ms-coast-hurricane-insurance` | ⚪ TODO | Wind Pool (MWUA) deep dive, named-storm deductibles, FORTIFIED discounts |
 | 25 | `/guides/property-taxes-ms-coast` | ⚪ TODO | County millage, homestead, ad valorem math |
-| 26 | `/guides/ms-homestead-exemption` | ⚪ TODO | How to file, deadlines, savings — high-search local intent |
+| 26 | `/guides/ms-homestead-exemption` | 🟡 DRAFT | v1 up — three exemption tiers, April 1 deadline, county tax-assessor contacts (Hancock/Harrison/Jackson) verified May 2026, § 27-33-X cites, penalties. |
 | 27 | `/guides/coast-school-districts` | ⚪ TODO | Ocean Springs, Long Beach, Pass — district-level |
 | 28 | `/guides/ms-property-condition-disclosure` | ⚪ TODO | PCDS — what sellers must disclose |
 | 29 | `/guides/new-vs-existing-coast` | ⚪ TODO | Slab vs. raised, post-Katrina build standards, insurance impact |
@@ -81,16 +81,17 @@ Pure informational, lowest compliance risk, highest local-SEO value. These ship 
 
 ## Open work tracker (cross-cutting)
 
-- [ ] Homepage voice rewrite — bundled on this branch, drops alongside topic-page wave
-- [ ] Compliance pass on existing Buy/Sell cards (`index.astro`) — soften "I'll walk you through…" / "I'll help you price it right…" to "When licensed, I'll…" or pull cards entirely
-- [ ] Add `/guides/` index landing page (a TOC of topic pages — improves crawlability + UX)
-- [ ] Add `/areas/` index landing page (same — Coast overview + city grid)
-- [ ] Real Broker affiliated-agent marketing rules — pull the agent handbook, document constraints in `tasks/`
-- [ ] Cross-link strategy: every topic page → relevant area pages and vice versa; tie into 13 Jackson County guides
-- [ ] When license drops: remove `noindex, nofollow` (globally in `SiteLayout.astro`), submit sitemap, set up GSC
+- [x] Compliance pass on existing Buy/Sell cards (`index.astro`) — softened to "Once I'm licensed, I'll…" framing on 2026-05-18.
+- [x] Site-wide "Realtor" → "real estate agent" swap pre-license — applied on 2026-05-18 (homepage title, meta description, hero H1, hero lede). Will swap back to "Realtor®" once Rob is on the Gulf Coast Association of REALTORS® board.
+- [ ] Homepage voice rewrite — partial (compliance edits done). Open: whether to extend the orange pre-licensure banner to the homepage too. Flagged with Rob 2026-05-18.
+- [ ] Add `/guides/` index landing page (a TOC of topic pages — improves crawlability + UX). Becomes more useful as Wave 1 fills out.
+- [ ] Add `/areas/` index landing page (same — Coast overview + city grid).
+- [ ] Real Broker affiliated-agent marketing rules — Brand Guidelines are agent-portal-only (verified by compliance audit). Recommend Rob get written sign-off from Real's MS Designated Broker on Day 1 of licensure.
+- [ ] Cross-link strategy: every topic page → relevant area pages and vice versa; tie into 13 Jackson County guides.
+- [ ] When license drops: remove `noindex, nofollow` (globally in `SiteLayout.astro` and per-page overrides), add Real Broker MS Designated Broker name + phone in equal-or-larger typeface (MREC Rule 3.3(B)), add Rob's MS salesperson license number, submit sitemap, set up GSC.
 
 ---
 
 ## Last updated
 
-2026-05-18 — Brenda · status: Wave 1 page #23 (flood zones) in DRAFT on `feat/core-30-content`.
+2026-05-18 — Brenda · status: Wave 1 pages #23 (flood zones, v2) and #26 (homestead exemption, v1) in DRAFT on `feat/core-30-content`. Homepage compliance bundle applied. Awaiting Rob's review.
