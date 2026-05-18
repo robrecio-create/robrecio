@@ -1,29 +1,37 @@
 ---
-const sites = [
-  {
-    name: "Jackson County MS Connect",
-    url: "https://www.jacksoncountyms.com",
-    description: "Local business directories for the Mississippi Gulf Coast — Jackson, Harrison & Hancock counties.",
-    preview: "/previews/jacksoncountyms.com.jpg",
-  },
+const ventures = [
   {
     name: "SudsyCo Rentals",
     url: "https://www.sudsycorentals.com",
-    description: "Washer & dryer rentals delivered to your door on the Gulf Coast.",
-    preview: "/previews/sudsycorentals.com.jpg",
+    description: "Washer & dryer rentals on the Gulf Coast.",
   },
   {
     name: "MapPulse Agency",
     url: "https://www.mappulse.agency",
-    description: "Gulf Coast local SEO agency helping businesses rank in Google Maps.",
-    preview: "/previews/mappulse.agency.jpg",
+    description: "Gulf Coast local SEO.",
   },
   {
-    name: "US County Directory",
-    url: "https://www.uscountydirectory.com",
-    description: "Nationwide local business directory organized by county.",
-    preview: "/previews/uscountydirectory.com.jpg",
+    name: "Jackson County MS Connect",
+    url: "https://www.jacksoncountyms.com",
+    description: "Local business directories — Jackson, Harrison & Hancock counties.",
   },
+  {
+    name: "The Seawall",
+    url: "https://theseawallms.com",
+    description: "Twice-weekly newsletter for the MS Gulf Coast.",
+  },
+];
+
+const areas = [
+  "Biloxi",
+  "Gulfport",
+  "Ocean Springs",
+  "D'Iberville",
+  "Gautier",
+  "Long Beach",
+  "Pascagoula",
+  "Pass Christian",
+  "Moss Point",
 ];
 ---
 
@@ -32,51 +40,130 @@ const sites = [
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Rob Recio — Gulf Coast entrepreneur. Founder of SudsyCo Rentals, MapPulse Agency, and county business directories." />
-  <title>Rob Recio</title>
+  <meta name="description" content="Rob Recio — Mississippi Gulf Coast realtor (in training with Real Broker, LLC). Born and raised on the Coast, here to help your family find home." />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Rob Recio · Gulf Coast Realtor (in training)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <main>
-    <header>
-      <div class="name-block">
-        <h1>Rob Recio</h1>
-        <p class="tagline">Builder. Gulf Coast.</p>
-      </div>
-      <div class="contact">
-        <a href="tel:2282576001">228-257-6001</a>
-        <span class="divider">·</span>
-        <a href="mailto:robrecio@gmail.com">robrecio@gmail.com</a>
-        <span class="divider">·</span>
-        <a href="https://theseawallms.com" target="_blank" rel="noopener noreferrer" class="newsletter-link">Newsletter</a>
-      </div>
-    </header>
+  <nav class="topnav">
+    <a href="#top" class="brand">Rob Recio</a>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#areas">Areas</a>
+      <a href="#help">How I Help</a>
+      <a href="#contact" class="cta-link">Contact</a>
+    </div>
+  </nav>
 
-    <section class="grid">
-      {sites.map(site => (
-        <a href={site.url} target="_blank" rel="noopener" class="card">
-          <div class="preview">
-            <img src={site.preview} alt={`${site.name} homepage`} loading="lazy" />
-          </div>
-          <div class="card-body">
-            <h2>{site.name}</h2>
-            <p>{site.description}</p>
-            <span class="link-label">{site.url.replace('https://www.', '')} →</span>
-          </div>
-        </a>
-      ))}
+  <main>
+
+    <!-- Hero -->
+    <section id="top" class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">Mississippi Gulf Coast · in training with Real Broker, LLC</p>
+        <h1>Helping Gulf Coast families<br/><em>find home.</em></h1>
+        <p class="lede">Lifelong Coast local. Builder, business owner, neighbor. Soon a licensed realtor — and already here to talk through your next move.</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary">Talk to Rob</a>
+          <a href="#areas" class="btn btn-ghost">See the areas I serve</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="/rob-hero.jpg" alt="Rob Recio" width="1600" height="1800" loading="eager" />
+      </div>
     </section>
+
+    <!-- About -->
+    <section id="about" class="about">
+      <div class="section-header">
+        <p class="section-eyebrow">About</p>
+        <h2>Born here. Built here. Staying here.</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-body">
+          <p>I'm Rob Recio. Ocean Springs is home. My wife Carla and our kids Drake and Quinn keep me grounded — the Coast has been good to our family, and I want the same for yours.</p>
+          <p>For years I've been running businesses on the Gulf Coast — appliance rentals, local SEO, county business directories, our community newsletter. What that taught me is what makes this stretch of coastline work: the neighborhoods, the schools, the small operators, the rhythm of summer and storm season.</p>
+          <p>Now I'm bringing that local know-how into real estate. I've joined Real Broker, LLC and I'm finishing my Mississippi license. When it's in hand, I'll be here to help you buy or sell. Until then — let's talk, get to know each other, get you ready.</p>
+          <p class="signoff">— Rob</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Areas -->
+    <section id="areas" class="areas">
+      <div class="section-header">
+        <p class="section-eyebrow">Where I serve</p>
+        <h2>The Mississippi Gulf Coast.</h2>
+        <p class="section-sub">Across Harrison, Jackson, and Hancock counties — from Pass Christian to Moss Point. If it's on the Coast, I know it.</p>
+      </div>
+      <ul class="area-grid">
+        {areas.map(a => <li><span>{a}</span></li>)}
+      </ul>
+    </section>
+
+    <!-- How I Help -->
+    <section id="help" class="help">
+      <div class="section-header">
+        <p class="section-eyebrow">How I help</p>
+        <h2>Buying or selling on the Coast.</h2>
+      </div>
+      <div class="help-grid">
+        <div class="help-card">
+          <h3>If you're buying</h3>
+          <p>Whether it's your first home, an investment, or relocating to be near family — I'll walk you through neighborhoods, schools, flood zones, and the deals that don't make it to Zillow.</p>
+          <a href="#contact" class="card-link">Start a conversation →</a>
+        </div>
+        <div class="help-card">
+          <h3>If you're selling</h3>
+          <p>I'll help you price it right for this market, get it ready, and reach the right buyers. The Coast is a specific market — generic strategies underperform here.</p>
+          <a href="#contact" class="card-link">Start a conversation →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+      <div class="section-header">
+        <p class="section-eyebrow">Get in touch</p>
+        <h2>Let's grab a coffee.</h2>
+        <p class="section-sub">Easiest way to reach me is a call or text. I read every message.</p>
+      </div>
+      <div class="contact-grid">
+        <a href="tel:+12282576001" class="contact-card">
+          <p class="contact-label">Call or text</p>
+          <p class="contact-value">(228) 257-6001</p>
+        </a>
+        <a href="mailto:rob@robrecio.com" class="contact-card">
+          <p class="contact-label">Email</p>
+          <p class="contact-value">rob@robrecio.com</p>
+        </a>
+      </div>
+    </section>
+
   </main>
 
+  <!-- Other Ventures -->
+  <section class="ventures">
+    <p class="ventures-label">My other Gulf Coast projects:</p>
+    <ul>
+      {ventures.map(v => (
+        <li><a href={v.url} target="_blank" rel="noopener">{v.name}</a></li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- Footer / Disclosures -->
   <footer>
-    <p>
-      <a href="https://theseawallms.com" target="_blank" rel="noopener noreferrer" class="footer-newsletter">Newsletter</a>
-      <span class="footer-divider">·</span>
-      © {new Date().getFullYear()} Rob Recio
-    </p>
+    <div class="footer-inner">
+      <p class="disclosure">
+        Rob Recio is currently <strong>in training and not yet licensed</strong> as a Mississippi real estate agent. Joining <strong>Real Broker, LLC</strong>. This site is informational. No services are offered, and no agency relationship is created, until licensure is complete. Content will be updated upon licensure.
+      </p>
+      <p class="copy">© {new Date().getFullYear()} Rob Recio · Ocean Springs, MS</p>
+    </div>
   </footer>
 
 </body>
@@ -86,243 +173,407 @@ const sites = [
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --black: #0a0a0a;
-    --white: #ffffff;
-    --gray-100: #f5f5f5;
-    --gray-200: #e5e5e5;
-    --gray-500: #737373;
-    --gray-800: #262626;
-    --accent: #0ea5e9;
-    --radius: 12px;
+    --bg: #fdfcf9;
+    --paper: #ffffff;
+    --ink: #0e1c2b;
+    --ink-soft: #41546b;
+    --line: #e8e4dd;
+    --line-strong: #d8d2c8;
+    --sand: #f4efe6;
+    --gulf: #2a6f8c;
+    --gulf-deep: #1e5168;
+    --accent: #c87a3f;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --max: 1180px;
   }
 
-  html { font-size: 16px; }
-
+  html { font-size: 16px; scroll-behavior: smooth; }
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: var(--white);
-    color: var(--black);
-    line-height: 1.6;
-    min-height: 100vh;
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Top nav */
+  .topnav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem 1.5rem;
+    background: rgba(253, 252, 249, 0.92);
+    backdrop-filter: saturate(180%) blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .brand {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+  .navlinks {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  .navlinks a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: color 0.15s;
+  }
+  .navlinks a:hover { color: var(--gulf); }
+  .navlinks a.cta-link {
+    background: var(--gulf);
+    color: var(--paper);
+    padding: 0.45rem 0.95rem;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+  .navlinks a.cta-link:hover { background: var(--gulf-deep); color: var(--paper); }
+
+  @media (max-width: 640px) {
+    .navlinks a:not(.cta-link) { display: none; }
   }
 
   main {
-    flex: 1;
-    max-width: 1100px;
+    max-width: var(--max);
     margin: 0 auto;
-    padding: 4rem 1.5rem 2rem;
-    width: 100%;
+    padding: 0 1.5rem;
   }
 
-  /* Header */
-  header {
-    margin-bottom: 4rem;
+  /* Section common */
+  .section-header {
+    margin-bottom: 2.5rem;
   }
-
-  .name-block {
-    margin-bottom: 1rem;
-  }
-
-  h1 {
-    font-size: clamp(2.5rem, 6vw, 4rem);
+  .section-eyebrow {
+    font-size: 0.78rem;
     font-weight: 600;
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-    color: var(--black);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gulf);
+    margin-bottom: 0.6rem;
+  }
+  h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(2rem, 4.6vw, 3rem);
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+    color: var(--ink);
+  }
+  .section-sub {
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    margin-top: 0.85rem;
+    max-width: 600px;
   }
 
-  .tagline {
-    font-size: 1rem;
-    color: var(--gray-500);
-    font-weight: 400;
-    margin-top: 0.4rem;
-    letter-spacing: 0.02em;
-  }
-
-  .contact {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-    margin-top: 1.25rem;
-  }
-
-  .contact a {
-    font-size: 0.9375rem;
-    color: var(--gray-800);
-    text-decoration: none;
-    font-weight: 500;
-    border-bottom: 1px solid var(--gray-200);
-    padding-bottom: 1px;
-    transition: color 0.15s, border-color 0.15s;
-  }
-
-  .contact a:hover {
-    color: var(--accent);
-    border-color: var(--accent);
-  }
-
-  .divider {
-    color: var(--gray-200);
-    font-size: 1.1rem;
-  }
-
-  /* Grid */
-  .grid {
+  /* Hero */
+  .hero {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 3.5rem;
+    align-items: center;
+    padding: 4rem 0 5rem;
   }
-
-  @media (max-width: 640px) {
-    main {
-      padding: 2rem 1.25rem 1rem;
-    }
-
-    header {
-      margin-bottom: 2rem;
-    }
-
-    h1 {
-      font-size: 2.25rem;
-    }
-
-    .grid {
-      grid-template-columns: 1fr;
-      gap: 0.75rem;
-    }
-
-    .preview {
-      display: none;
-    }
-
-    .card-body {
-      padding: 1rem 1rem 1.125rem;
-    }
-
-    .card-body p {
-      display: none;
-    }
-
-    .link-label {
-      margin-top: 0.25rem;
-    }
+  .eyebrow {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gulf);
+    margin-bottom: 1.5rem;
   }
-
-  /* Card */
-  .card {
+  h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(2.75rem, 6.5vw, 4.4rem);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--gulf-deep);
+  }
+  .lede {
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    margin-top: 1.5rem;
+    max-width: 540px;
+    line-height: 1.55;
+  }
+  .hero-cta {
     display: flex;
-    flex-direction: column;
-    border: 1px solid var(--gray-200);
-    border-radius: var(--radius);
-    overflow: hidden;
+    gap: 0.85rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.85rem 1.6rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.97rem;
     text-decoration: none;
-    color: inherit;
-    transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
-    background: var(--white);
+    transition: all 0.18s;
+    border: 1px solid transparent;
   }
-
-  .card:hover {
-    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-    transform: translateY(-3px);
-    border-color: var(--gray-200);
+  .btn-primary {
+    background: var(--gulf);
+    color: var(--paper);
   }
-
-  .preview {
-    width: 100%;
-    aspect-ratio: 16 / 9;
+  .btn-primary:hover {
+    background: var(--gulf-deep);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(30, 81, 104, 0.25);
+  }
+  .btn-ghost {
+    color: var(--ink);
+    border-color: var(--line-strong);
+    background: transparent;
+  }
+  .btn-ghost:hover {
+    background: var(--sand);
+    border-color: var(--ink);
+  }
+  .hero-photo {
+    aspect-ratio: 16 / 18;
     overflow: hidden;
-    background: var(--gray-100);
-    border-bottom: 1px solid var(--gray-200);
+    border-radius: 14px;
+    box-shadow: 0 30px 80px -30px rgba(14, 28, 43, 0.4);
+    background: var(--sand);
   }
-
-  .preview img {
+  .hero-photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top;
+    object-position: center 25%;
     display: block;
-    transition: transform 0.4s ease;
   }
 
-  .card:hover .preview img {
-    transform: scale(1.03);
+  @media (max-width: 880px) {
+    .hero {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      padding: 2.5rem 0 3rem;
+    }
+    .hero-photo {
+      max-height: 460px;
+    }
   }
 
-  .card-body {
-    padding: 1.25rem 1.5rem 1.5rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
+  /* About */
+  .about {
+    padding: 5rem 0;
+    border-top: 1px solid var(--line);
+  }
+  .about-body p {
+    font-size: 1.08rem;
+    color: var(--ink-soft);
+    margin-bottom: 1.1rem;
+    max-width: 720px;
+    line-height: 1.7;
+  }
+  .about-body p:first-of-type { color: var(--ink); }
+  .signoff {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--ink) !important;
+    margin-top: 0.5rem !important;
   }
 
-  .card-body h2 {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--black);
-    letter-spacing: -0.01em;
+  /* Areas */
+  .areas {
+    padding: 5rem 0;
+    border-top: 1px solid var(--line);
   }
-
-  .card-body p {
-    font-size: 0.875rem;
-    color: var(--gray-500);
-    line-height: 1.5;
-    flex: 1;
+  .area-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.85rem;
   }
-
-  .link-label {
-    font-size: 0.8125rem;
-    color: var(--accent);
+  .area-grid li {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1.1rem 1.3rem;
+    font-family: var(--serif);
+    font-size: 1.1rem;
     font-weight: 500;
-    margin-top: 0.5rem;
+    color: var(--ink);
+    transition: all 0.15s;
+  }
+  .area-grid li:hover {
+    border-color: var(--gulf);
+    transform: translateY(-2px);
+    background: var(--paper);
+  }
+  @media (max-width: 700px) {
+    .area-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 420px) {
+    .area-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Help */
+  .help {
+    padding: 5rem 0;
+    border-top: 1px solid var(--line);
+  }
+  .help-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+  .help-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 2rem 2rem 1.75rem;
+    transition: all 0.2s;
+  }
+  .help-card:hover {
+    border-color: var(--gulf);
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px -20px rgba(14, 28, 43, 0.18);
+  }
+  .help-card h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+  }
+  .help-card p {
+    color: var(--ink-soft);
+    margin-bottom: 1.25rem;
+    line-height: 1.65;
+  }
+  .card-link {
+    font-weight: 600;
+    color: var(--gulf);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.15s;
+  }
+  .card-link:hover { color: var(--gulf-deep); }
+  @media (max-width: 700px) {
+    .help-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Contact */
+  .contact {
+    padding: 5rem 0 4rem;
+    border-top: 1px solid var(--line);
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+  .contact-card {
     display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 1.8rem 2rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .contact-card:hover {
+    border-color: var(--gulf);
+    transform: translateY(-2px);
+    box-shadow: 0 18px 40px -20px rgba(14, 28, 43, 0.18);
+  }
+  .contact-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gulf);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  .contact-value {
+    font-family: var(--serif);
+    font-size: 1.55rem;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  @media (max-width: 700px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    .contact-value { font-size: 1.3rem; }
+  }
+
+  /* Ventures */
+  .ventures {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 3rem 1.5rem 1rem;
+    border-top: 1px solid var(--line);
+  }
+  .ventures-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  .ventures ul {
+    list-style: none;
+    display: flex;
+    gap: 0.6rem 1.6rem;
+    flex-wrap: wrap;
+  }
+  .ventures li a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 2px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .ventures li a:hover {
+    color: var(--gulf);
+    border-color: var(--gulf);
   }
 
   /* Footer */
   footer {
+    padding: 2.5rem 1.5rem 3rem;
+  }
+  .footer-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+  .disclosure {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    background: var(--sand);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1.1rem 1.4rem;
+    line-height: 1.55;
+  }
+  .disclosure strong { color: var(--ink); }
+  .copy {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
     text-align: center;
-    padding: 2rem 1.5rem;
-    font-size: 0.8125rem;
-    color: var(--gray-500);
-    border-top: 1px solid var(--gray-100);
-  }
-
-  /* Newsletter link (header) */
-  .contact a.newsletter-link {
-    color: var(--white);
-    background: var(--black);
-    border: 1px solid var(--black);
-    padding: 0.3rem 0.75rem;
-    border-radius: 999px;
-    font-weight: 600;
-    font-size: 0.85rem;
-  }
-  .contact a.newsletter-link:hover {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: var(--white);
-  }
-  /* Newsletter link (footer) */
-  footer .footer-newsletter {
-    color: var(--gray-800);
-    text-decoration: none;
-    font-weight: 600;
-    border-bottom: 1px solid var(--gray-200);
-    padding-bottom: 1px;
-    transition: color 0.15s, border-color 0.15s;
-  }
-  footer .footer-newsletter:hover {
-    color: var(--accent);
-    border-color: var(--accent);
-  }
-  footer .footer-divider {
-    color: var(--gray-200);
-    margin: 0 0.5rem;
+    margin-top: 1.5rem;
   }
 </style>
+</html>
