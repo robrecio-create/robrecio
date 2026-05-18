@@ -1,0 +1,439 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+
+const zones = [
+  {
+    code: 'VE',
+    name: 'Coastal High Hazard',
+    blurb: 'The strictest zone. Storm-surge wave action of 3+ feet during the 1% annual flood. Tight construction rules — pile foundation, breakaway walls, no enclosed habitable space below Base Flood Elevation.',
+    detail: 'Flood insurance is required by mortgage lenders. Most expensive to insure. Common south of Highway 90 in places that took the worst of Katrina — parts of Bay St. Louis, Waveland, Pass Christian, the beachfront strips of Long Beach, Gulfport, and Biloxi.',
+  },
+  {
+    code: 'AE',
+    name: 'Special Flood Hazard',
+    blurb: '1% annual chance of flooding, but not coastal wave action. Base Flood Elevation is mapped for every AE parcel.',
+    detail: 'Covers large portions of the first mile inland across all three counties, plus back-bay frontage, bayous, and riverine flood zones farther in. Flood insurance is required by federally-backed mortgages.',
+  },
+  {
+    code: 'X (shaded)',
+    name: '0.2% Annual Chance',
+    blurb: 'Outside the 1% floodplain, but inside the 500-year floodplain. Formerly called Zone B.',
+    detail: 'Flood insurance is not required, but I would still carry it on the Coast. Katrina surge reached some shaded-X areas, and heavy rainfall events regularly flood "X" parcels that do not drain well.',
+  },
+  {
+    code: 'X',
+    name: 'Minimal Hazard',
+    blurb: 'Outside both the 100-year and 500-year floodplains. Lowest-cost flood zone.',
+    detail: 'Flood insurance is optional. NFIP "Preferred Risk" policies are cheap here — often the cheapest flood premium you will see on the Coast. Still, ask your neighbors about water history. Maps are not the whole story.',
+  },
+];
+
+const insuranceStack = [
+  { component: 'Homeowners (ex-wind)', range: '$1,800 – $3,500' },
+  { component: 'Wind Pool (MWUA)', range: '$2,500 – $5,500' },
+  { component: 'Flood (NFIP)', range: '$800 – $4,000+ (AE/VE can run higher)' },
+  { component: 'Total annual insurance', range: '$5,000 – $13,000+', total: true },
+];
+---
+
+<SiteLayout
+  title="Mississippi Gulf Coast Flood Zones — A Plain-Talk Guide | Rob Recio"
+  description="VE, AE, X — what FEMA flood zones actually mean on the Mississippi Gulf Coast, how to find your property's zone, and what flood insurance really costs in 2026."
+>
+
+  <main class="guide">
+
+    <header class="guide-hero">
+      <p class="eyebrow">Coast Guides · Flood &amp; Insurance</p>
+      <h1>Mississippi Gulf Coast flood zones, <em>explained without the runaround.</em></h1>
+      <p class="lede">If you are buying or selling on the Coast, flood zone is the conversation. It drives insurance, it drives financing, it drives whether the deal makes sense. Here is what those letters on the map actually mean, where to find your zone, and what it costs.</p>
+    </header>
+
+    <section class="guide-section">
+      <h2>The four zones you will see on Coast listings</h2>
+      <p class="section-sub">FEMA's National Flood Insurance Program (NFIP) divides land into Flood Hazard Areas. On the Mississippi Gulf Coast, four of them do the work.</p>
+
+      <div class="zone-grid">
+        {zones.map(z => (
+          <div class="zone-card">
+            <div class="zone-code">{z.code}</div>
+            <h3>{z.name}</h3>
+            <p class="zone-blurb">{z.blurb}</p>
+            <p class="zone-detail">{z.detail}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="guide-section">
+      <h2>How to find your property's flood zone</h2>
+      <p>Three places, in this order:</p>
+      <ol class="steps">
+        <li>
+          <strong>FEMA Map Service Center — <a href="https://msc.fema.gov" target="_blank" rel="noopener">msc.fema.gov</a>.</strong>
+          Search by address, pull the current Flood Insurance Rate Map (FIRM) panel. This is the official source. Print or save the panel — your insurance agent will want it.
+        </li>
+        <li>
+          <strong>MEMA's MSFloodMaps portal.</strong> Cross-check against the state portal. Hancock, Harrison, and Jackson counties all also publish flood overlays in their county GIS — useful for second opinions.
+        </li>
+        <li>
+          <strong>An Elevation Certificate, if it is a borderline parcel.</strong> Licensed surveyors and engineers issue these. Cost on the Coast runs roughly $400–$800 with a 1–3 week turnaround. More on that below.
+        </li>
+      </ol>
+    </section>
+
+    <section class="guide-section">
+      <h2>What flood insurance actually costs (Risk Rating 2.0)</h2>
+      <p>FEMA changed how NFIP prices policies between 2021 and 2023. Two things to know:</p>
+      <ul class="bullets">
+        <li><strong>Pricing is now individual-property, not zone-based.</strong> Premiums reflect distance to water, elevation, rebuilding cost, and flood frequency — not just whether the parcel is AE or X.</li>
+        <li><strong>Legacy policies were capped at 18% annual increases during the transition.</strong> Some Coast properties are on a multi-year ramp to "full risk" rates. Always ask the seller what they pay today <em>and</em> what their renewal notice projects.</li>
+      </ul>
+
+      <p>And flood is only one of three policies most Coast homes carry. The real annual insurance stack on a roughly $300K home south of I-10 looks something like this:</p>
+
+      <div class="cost-table" role="table" aria-label="Representative annual insurance stack, $300K Gulf Coast home, 2025–2026">
+        {insuranceStack.map(row => (
+          <div class={row.total ? 'cost-row cost-row-total' : 'cost-row'} role="row">
+            <div class="cost-label" role="cell">{row.component}</div>
+            <div class="cost-value" role="cell">{row.range}</div>
+          </div>
+        ))}
+      </div>
+
+      <p class="cost-note">An inland MS home at the same price point typically pays $1,500–$2,500 total. That delta is real monthly cost — roughly $300–$850 added to PITI — and it moves what you can afford.</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>Wind Pool is its own conversation</h2>
+      <p>Flood insurance does not cover wind. On the Coast, most homes south of I-10 carry a separate wind-and-hail policy through the <strong>Mississippi Windstorm Underwriting Association</strong> — the Wind Pool, or "MWUA." It is the state's residual market for properties the private market declined to write for wind.</p>
+      <p>Three policies on one home — homeowners ex-wind, Wind Pool, and flood — is normal here. The deductibles are where buyers get surprised:</p>
+      <ul class="bullets">
+        <li><strong>Named-storm deductibles are a percentage of dwelling coverage, not a flat number.</strong> A 5% named-storm deductible on a $400K home is $20,000 out of pocket before coverage kicks in.</li>
+        <li><strong>The three policies' deductibles apply independently.</strong> A hurricane that drops water and wind can carry $30K+ in stacked deductibles before dollar one of payout.</li>
+        <li><strong>Discounts exist.</strong> IBHS FORTIFIED roofs, hurricane shutters, impact glass, newer construction — all of those move premiums down. Mississippi has run state grant programs to subsidize FORTIFIED upgrades; status varies year to year.</li>
+      </ul>
+      <p class="callout">A wind-and-flood guide is on the way — for now, the short version: get a real quote from a Coast-local independent agent before you fall in love with a house. Online estimates from national sites are not what you will pay.</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>When you need an Elevation Certificate</h2>
+      <p>An Elevation Certificate (FEMA Form 086-0-33) documents a structure's elevation relative to Base Flood Elevation. It lists the lowest floor, lowest adjacent grade, BFE, flood zone, construction details, and photos. Insurers use it to rate flood policies. Lenders use it to verify floodplain compliance.</p>
+      <p>Order one when:</p>
+      <ul class="bullets">
+        <li>The property is in AE or VE — almost always worth having.</li>
+        <li>It is a pre-FIRM property (built before the first flood map for that parcel).</li>
+        <li>You want to challenge a zone designation with a Letter of Map Amendment (LOMA).</li>
+        <li>An elevated home could prove a lower premium under Risk Rating 2.0.</li>
+      </ul>
+      <p>Licensed Mississippi surveyors, registered professional engineers, and registered architects can issue them. Plan on $400–$800 and a 1–3 week wait.</p>
+    </section>
+
+    <section class="guide-section guide-section-context">
+      <h2>The Coast context: why all of this exists</h2>
+      <p>You cannot read a Mississippi Gulf Coast flood map without reading it through Katrina.</p>
+      <p>On August 29, 2005, storm surge peaked at 27–28 feet in Hancock County (Waveland and Bay St. Louis took the worst of it) and 20–24 feet across Harrison County. Bay St. Louis, Waveland, Pass Christian, and the first three to four blocks of Biloxi, Gulfport, and Long Beach south of the railroad tracks were essentially leveled. An estimated 65,000+ homes across our three counties were destroyed or severely damaged.</p>
+      <p>What you see now is the answer to that storm. Post-Katrina construction is elevated on pilings — often 16–24+ feet above grade near the water — with hurricane-rated windows and doors, engineered tie-downs, 150+ mph wind-zone framing, and metal roofs becoming common. FEMA revised the flood maps between 2009 and 2011 and pushed Base Flood Elevations significantly higher for coastal properties. Homes built to post-2011 maps are dramatically more insurable than the slab-on-grade cottages that came before.</p>
+      <p>That is also why some lots south of US-90 sit empty. Some pre-Katrina homes in flood zones that were "substantially damaged" — defined as more than 50% of pre-storm market value — had to be brought up to current code when rebuilt. Some never rebuilt at all. Some pre-Katrina stock under that threshold was repaired in place without elevation, which is why you can still find slab homes in AE today.</p>
+      <p>I have spent my career as a builder and a small-business owner on this Coast. I know what these maps mean on the ground. When we sit down to talk about a property, the zone designation is the first thing I will pull up.</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>Buying on the Coast: things to know</h2>
+      <ul class="bullets">
+        <li><strong>Get a real insurance quote early.</strong> Before you fall in love with a house, ask a Coast-local independent agent for a hard quote — flood, wind, and homeowners. Premiums can vary 2x based on things you cannot see from the curb.</li>
+        <li><strong>Ask what the seller pays now and what renewal projects.</strong> Risk Rating 2.0 transition policies are still ramping.</li>
+        <li><strong>Read the elevation certificate if one exists.</strong> If it does not, decide whether you need one before closing.</li>
+        <li><strong>Add the insurance stack to your PITI.</strong> Inland affordability math does not work on the Coast.</li>
+      </ul>
+    </section>
+
+    <section class="guide-section">
+      <h2>Selling on the Coast: things to know</h2>
+      <ul class="bullets">
+        <li><strong>Know your zone and BFE before you list.</strong> Buyers and their lenders will look it up. Be the one with the answer.</li>
+        <li><strong>If you have an Elevation Certificate, surface it early.</strong> Lower buyer-side premiums make your house more affordable to a wider pool.</li>
+        <li><strong>If your home is FORTIFIED, shutters-equipped, or built to the post-2011 maps, those are pricing wins.</strong> Insurance carriers reward them. Buyers should know.</li>
+        <li><strong>Disclosure matters.</strong> Mississippi's Property Condition Disclosure Statement asks about prior flood damage and claim history. Be straight on the form. (More in our PCDS guide — coming soon.)</li>
+      </ul>
+    </section>
+
+    <section class="cta-block">
+      <h2>Questions about a specific property?</h2>
+      <p>I am happy to talk through any address — zone, elevation, what the insurance picture probably looks like, what the construction tells us. No pitch. Just a conversation.</p>
+      <div class="cta-buttons">
+        <a href="tel:+12282576001" class="btn btn-primary">Call or text Rob — (228) 257-6001</a>
+        <a href="mailto:robrecio@gmail.com" class="btn btn-ghost">Email Rob</a>
+      </div>
+      <p class="cta-note">Rob is in training and not yet licensed. This is informational. No services, fees, or agency relationship are offered until licensure is complete.</p>
+    </section>
+
+    <aside class="sources">
+      <h3>Sources</h3>
+      <ul>
+        <li>FEMA Map Service Center — <a href="https://msc.fema.gov" target="_blank" rel="noopener">msc.fema.gov</a></li>
+        <li>NFIP Risk Rating 2.0 documentation — FEMA / NFIP</li>
+        <li>Mississippi Windstorm Underwriting Association — <a href="https://www.mwua.com" target="_blank" rel="noopener">mwua.com</a></li>
+        <li>Mississippi Department of Insurance — <a href="https://www.mid.ms.gov" target="_blank" rel="noopener">mid.ms.gov</a></li>
+        <li>MEMA MSFloodMaps — Mississippi Emergency Management Agency</li>
+        <li>NOAA National Hurricane Center post-Katrina reports; Sun Herald archival coverage</li>
+      </ul>
+      <p class="sources-note">Insurance premium ranges are representative for 2025–2026 and move every quarter. Always verify on a specific property with a Coast-local independent agent.</p>
+    </aside>
+
+  </main>
+
+</SiteLayout>
+
+<style>
+  .guide {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 3rem 1.5rem 4rem;
+  }
+
+  .guide-hero {
+    max-width: var(--max-prose);
+    margin: 0 auto 4rem;
+    text-align: left;
+  }
+  .eyebrow {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gulf);
+    margin-bottom: 1.2rem;
+  }
+  .guide-hero h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(2.25rem, 4.8vw, 3.4rem);
+    line-height: 1.07;
+    letter-spacing: -0.022em;
+    color: var(--ink);
+  }
+  .guide-hero h1 em {
+    font-style: italic;
+    color: var(--gulf-deep);
+  }
+  .lede {
+    font-size: 1.18rem;
+    color: var(--ink-soft);
+    margin-top: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .guide-section {
+    max-width: var(--max-prose);
+    margin: 0 auto;
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--line);
+  }
+  .guide-section h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(1.6rem, 3.2vw, 2.1rem);
+    line-height: 1.15;
+    letter-spacing: -0.018em;
+    color: var(--ink);
+    margin-bottom: 1.2rem;
+  }
+  .guide-section p {
+    font-size: 1.06rem;
+    color: var(--ink-soft);
+    margin-bottom: 1.1rem;
+    line-height: 1.7;
+  }
+  .guide-section p:first-of-type { color: var(--ink); }
+  .guide-section .section-sub {
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    margin-top: -0.4rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .bullets, .steps {
+    margin: 0 0 1.2rem 0;
+    padding-left: 1.4rem;
+    color: var(--ink-soft);
+  }
+  .bullets li, .steps li {
+    margin-bottom: 0.85rem;
+    line-height: 1.65;
+  }
+  .bullets li strong, .steps li strong { color: var(--ink); }
+
+  .zone-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .zone-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.5rem 1.6rem;
+  }
+  .zone-code {
+    display: inline-block;
+    background: var(--gulf);
+    color: var(--paper);
+    font-family: var(--serif);
+    font-weight: 600;
+    padding: 0.25rem 0.7rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.7rem;
+  }
+  .zone-card h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+  }
+  .zone-blurb {
+    font-size: 0.98rem !important;
+    color: var(--ink) !important;
+    margin-bottom: 0.7rem !important;
+    line-height: 1.55 !important;
+  }
+  .zone-detail {
+    font-size: 0.94rem !important;
+    color: var(--ink-soft) !important;
+    line-height: 1.55 !important;
+    margin-bottom: 0 !important;
+  }
+  @media (max-width: 700px) {
+    .zone-grid { grid-template-columns: 1fr; }
+  }
+
+  .cost-table {
+    margin: 1.5rem 0;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--paper);
+  }
+  .cost-row {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    padding: 0.95rem 1.3rem;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+  }
+  .cost-row:last-child { border-bottom: none; }
+  .cost-row-total {
+    background: var(--sand);
+    font-weight: 600;
+  }
+  .cost-label {
+    color: var(--ink);
+    font-size: 0.97rem;
+  }
+  .cost-value {
+    color: var(--ink-soft);
+    font-size: 0.97rem;
+    font-family: var(--serif);
+  }
+  .cost-row-total .cost-value { color: var(--ink); }
+  .cost-note {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  .callout {
+    background: var(--sand);
+    border-left: 3px solid var(--gulf);
+    padding: 1.1rem 1.3rem;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.98rem !important;
+    color: var(--ink) !important;
+  }
+
+  .guide-section-context p:first-of-type {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  .cta-block {
+    max-width: var(--max-prose);
+    margin: 4rem auto 0;
+    padding: 2.5rem 2rem;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    text-align: center;
+  }
+  .cta-block h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: var(--ink);
+    margin-bottom: 0.8rem;
+  }
+  .cta-block p {
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+  .cta-note {
+    font-size: 0.82rem !important;
+    color: var(--ink-soft) !important;
+    font-style: italic;
+    margin-bottom: 0 !important;
+  }
+
+  .sources {
+    max-width: var(--max-prose);
+    margin: 3rem auto 0;
+    padding: 1.6rem 1.8rem;
+    background: var(--sand);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+  }
+  .sources h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.8rem;
+  }
+  .sources ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+  .sources li {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    padding: 0.35rem 0;
+    border-bottom: 1px dashed var(--line-strong);
+  }
+  .sources li:last-child { border-bottom: none; }
+  .sources-note {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin: 0;
+  }
+</style>

@@ -1,0 +1,187 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>{title}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <nav class="topnav">
+    <a href="/" class="brand">Rob Recio</a>
+    <div class="navlinks">
+      <a href="/#about">About</a>
+      <a href="/#areas">Areas</a>
+      <a href="/#help">How I Help</a>
+      <a href="/guides/">Guides</a>
+      <a href="/#contact" class="cta-link">Contact</a>
+    </div>
+  </nav>
+
+  <slot />
+
+  <!-- Footer / Disclosures -->
+  <footer>
+    <div class="footer-inner">
+      <p class="disclosure">
+        Rob Recio is currently <strong>in training and not yet licensed</strong> as a Mississippi real estate agent. Joining <strong>Real Broker, LLC</strong>. This site is informational. No services are offered, and no agency relationship is created, until licensure is complete. Content will be updated upon licensure.
+      </p>
+      <p class="copy">© {new Date().getFullYear()} Rob Recio · Ocean Springs, MS</p>
+    </div>
+  </footer>
+
+</body>
+</html>
+
+<style is:global>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #fdfcf9;
+    --paper: #ffffff;
+    --ink: #0e1c2b;
+    --ink-soft: #41546b;
+    --line: #e8e4dd;
+    --line-strong: #d8d2c8;
+    --sand: #f4efe6;
+    --gulf: #2a6f8c;
+    --gulf-deep: #1e5168;
+    --accent: #c87a3f;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --max: 1180px;
+    --max-prose: 720px;
+  }
+
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--gulf); }
+  a:hover { color: var(--gulf-deep); }
+
+  /* Top nav */
+  .topnav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem 1.5rem;
+    background: rgba(253, 252, 249, 0.92);
+    backdrop-filter: saturate(180%) blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .brand {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+  .navlinks {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  .navlinks a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: color 0.15s;
+  }
+  .navlinks a:hover { color: var(--gulf); }
+  .navlinks a.cta-link {
+    background: var(--gulf);
+    color: var(--paper);
+    padding: 0.45rem 0.95rem;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+  .navlinks a.cta-link:hover { background: var(--gulf-deep); color: var(--paper); }
+
+  @media (max-width: 640px) {
+    .navlinks a:not(.cta-link) { display: none; }
+  }
+
+  /* Buttons (reusable across pages) */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.85rem 1.6rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.97rem;
+    text-decoration: none;
+    transition: all 0.18s;
+    border: 1px solid transparent;
+  }
+  .btn-primary {
+    background: var(--gulf);
+    color: var(--paper);
+  }
+  .btn-primary:hover {
+    background: var(--gulf-deep);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(30, 81, 104, 0.25);
+  }
+  .btn-ghost {
+    color: var(--ink);
+    border-color: var(--line-strong);
+    background: transparent;
+  }
+  .btn-ghost:hover {
+    background: var(--sand);
+    border-color: var(--ink);
+  }
+
+  /* Footer */
+  footer {
+    padding: 2.5rem 1.5rem 3rem;
+    border-top: 1px solid var(--line);
+    margin-top: 4rem;
+  }
+  .footer-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+  .disclosure {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    background: var(--sand);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1.1rem 1.4rem;
+    line-height: 1.55;
+  }
+  .disclosure strong { color: var(--ink); }
+  .copy {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+</style>
