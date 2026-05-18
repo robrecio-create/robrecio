@@ -1,0 +1,407 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+
+const tenantQualityCriteria = [
+  { label: 'Verified credit', detail: 'Hard-pull credit reports through a screening service — not a self-reported score on Zillow.' },
+  { label: 'Background check', detail: 'Criminal and eviction history pulled the same way every time.' },
+  { label: 'Income documented', detail: 'Pay stubs, tax returns, employment verification — usually a 3x-rent income standard.' },
+  { label: 'Rental history', detail: 'Calls to prior landlords with a structured set of questions, not just whatever the applicant volunteered.' },
+  { label: 'Asset confirmation', detail: 'Bank statements where it matters — the deposit-and-first-month math checks out before move-in.' },
+  { label: 'Employment stability', detail: 'Length of employment, role, manager confirmation. The system catches the things the gut misses.' },
+];
+
+const services = [
+  'Pricing the lease against active and recently-rented comparable properties on the Coast — not gut-feel.',
+  'Professional listing photos (and you keep them — useful for re-rents).',
+  'MLS listing plus syndication to the public rental sites prospective tenants actually use.',
+  'Handling every inbound inquiry and tenant question — your phone gets quieter, not louder.',
+  'Hosting a single open-house showing instead of a string of individual appointments.',
+  'Running each applicant through a consistent screening pipeline (credit, background, income, rental history).',
+  'Presenting the top two or three vetted applicants for your final call.',
+  'Lease paperwork and signing coordination.',
+  'Facilitating first-month rent and security-deposit handoff.',
+];
+
+const process = [
+  {
+    n: '01',
+    title: 'Initial conversation',
+    body: 'I introduce myself, learn about your property and what is or is not working with the current rental process, and walk you through what I do and what it costs. Honest read on whether it makes sense for your situation.',
+  },
+  {
+    n: '02',
+    title: 'Listing presentation',
+    body: 'A focused walk-through of what tenants in your area are actually paying right now, what the comparable rentals look like, where your property fits on the price curve, and what services I provide. Phone, Zoom, or in person — whichever works.',
+  },
+  {
+    n: '03',
+    title: 'Marketing the lease',
+    body: 'Professional photos, an MLS listing, and an open-house window so all serious tenant prospects come through the property in one visit. No drip of one-off tours scattered through your week.',
+  },
+  {
+    n: '04',
+    title: 'Application + screening',
+    body: 'Every interested tenant runs through the same screening pipeline — credit, background, income, rental history, assets. You get a clean comparison of who is actually qualified.',
+  },
+  {
+    n: '05',
+    title: 'Top applicants to you',
+    body: 'I present the two or three strongest applicants. You pick the tenant. Your property, your decision — my job is to make sure each name on the list deserves to be there.',
+  },
+  {
+    n: '06',
+    title: 'Lease signing + handoff',
+    body: 'Tenant and owner meet, paperwork is signed, first-month rent goes to you, my fee comes out separately. Tenant moves in. Property is occupied.',
+  },
+  {
+    n: '07',
+    title: '90 days before lease end — the check-in',
+    body: 'I call your tenant 90 days before the lease is up and learn what they plan to do. If they renew, I let you know early. If they move out, I am already lined up to re-list the property for you. You spend less of your year wondering whether your unit is about to be vacant.',
+  },
+];
+---
+
+<SiteLayout
+  title="For Coast Landlords — Lease Listings & Tenant Placement | Rob Recio"
+  description="When licensed, Rob Recio's first focus will be lease listings for For Rent By Owner (FRBO) landlords and absentee owners on the Mississippi Gulf Coast — vetted tenants, full marketing, and ongoing re-rental support."
+  robots="noindex, nofollow, noarchive, nosnippet"
+>
+
+  <main class="page">
+
+    <header class="page-hero">
+      <p class="eyebrow">For Coast landlords · Launching when licensed</p>
+      <h1>Better tenants. Less hassle. <em>The first thing I'll do when I'm licensed.</em></h1>
+
+      <aside class="pre-license-banner" role="note" aria-label="Pre-licensure notice">
+        <p><strong>Heads up.</strong> I'm in real-estate-licensure training and not yet licensed in Mississippi. This page describes the lease-listing service I plan to offer when my license is issued (target ~mid-2026, with Real Broker, LLC). It is not a current offering of services and no agency relationship is created here. Nothing on this page is a solicitation to list a property today. Once I'm licensed, I'll update the site with my license number, sponsoring-broker information, and a normal contact-and-engage flow.</p>
+      </aside>
+
+      <p class="lede">If you're a landlord on the Mississippi Gulf Coast renting your property out yourself, this is for you. When my license is issued, my first lane will be working with For Rent By Owner landlords and absentee owners to <strong>list your rental, find you a properly screened tenant, and handle the paperwork end-to-end</strong> — with a re-rent process that quietly keeps your unit occupied year after year.</p>
+    </header>
+
+    <section class="page-section">
+      <h2>Who this is built for</h2>
+      <ul class="bullets">
+        <li><strong>For Rent By Owner (FRBO) landlords</strong> — you're handling your own rental, fielding the calls, screening the applicants. It works, but it eats your week and you're never sure the tenant in front of you is the strongest candidate that was going to apply.</li>
+        <li><strong>Absentee owners</strong> — your property is on the Coast, you live somewhere else, and managing it remotely is harder than it should be.</li>
+        <li><strong>Owners between management companies</strong> — you're not happy with full property management, but you also don't want to do every step yourself.</li>
+      </ul>
+      <p>If your property is a primary single-family home, a Gulf Coast condo, or a small portfolio of rentals — this is the lane.</p>
+    </section>
+
+    <section class="page-section">
+      <h2>Why I'm starting here, plainly</h2>
+      <p>I'm honest with myself about it. Lease listings make sense as a starting lane for a newly-licensed agent for a few reasons:</p>
+      <ul class="bullets">
+        <li><strong>Quick to deliver.</strong> The process is shorter than a sale, the work is concentrated, and the result is measurable: occupied or not occupied.</li>
+        <li><strong>It builds real skill.</strong> Pricing, marketing, applicant screening, owner communication, lease paperwork — every step is a rep at something a full-service agent uses on the sales side too.</li>
+        <li><strong>It builds a database.</strong> Tenants today are buyers in two or three years. Owners renting today often become sellers later. I get to know both sides honestly.</li>
+        <li><strong>It's recurring.</strong> Once I do this for a landlord once, the next lease, and the lease after that, comes back to me. Sales is one-and-done. Lease listings re-rent.</li>
+      </ul>
+      <p>I'd rather start here, build the discipline, and earn the right to your bigger transactions later than show up at your sale and ask you to trust me with a $400,000 listing the first time we meet.</p>
+    </section>
+
+    <section class="page-section">
+      <h2>What "qualified tenant" actually means</h2>
+      <p class="section-sub">The single biggest thing I'll do differently from a DIY rental search is run every applicant through the same screening pipeline.</p>
+      <div class="card-grid">
+        {tenantQualityCriteria.map(c => (
+          <div class="card-small">
+            <h3>{c.label}</h3>
+            <p>{c.detail}</p>
+          </div>
+        ))}
+      </div>
+      <p>That consistency is the point. When the strongest applicant rises to the top, it's because the same questions got asked of everyone — not because they happened to be the first call you took on a Tuesday.</p>
+    </section>
+
+    <section class="page-section">
+      <h2>What I'll handle, end-to-end</h2>
+      <ul class="bullets">
+        {services.map(s => <li>{s}</li>)}
+      </ul>
+      <p>Your phone goes quieter, not louder. You see the top two or three vetted applicants. You make the call on who gets the lease.</p>
+    </section>
+
+    <section class="page-section">
+      <h2>How it'll work — start to finish</h2>
+      <ol class="process-list">
+        {process.map(p => (
+          <li>
+            <span class="process-n">{p.n}</span>
+            <div>
+              <h3>{p.title}</h3>
+              <p>{p.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="page-section">
+      <h2>What it'll cost</h2>
+      <p>One month's rent — paid only if I find you a qualified tenant who signs and moves in. If no qualified applicant shows up, you don't owe a fee.</p>
+      <p>On a Coast rental at $2,000/month, that's a $2,000 one-time cost for a tenant you didn't have to find yourself, screening you didn't have to run, paperwork you didn't have to manage, and (usually) a property that's been re-marketed in a way that performs better than your own listing would. The math works when the tenant stays a year and pays on time. The math works even better when they renew and I do it all over again.</p>
+      <p>Final fee structure, exact contract terms, and brokerage-required disclosures are something I'll lock in with Real Broker, LLC on Day 1 of licensure and update here.</p>
+    </section>
+
+    <section class="page-section">
+      <h2>The unfair advantage: the 90-day call</h2>
+      <p>Most landlords don't find out their tenant is moving out until the lease is already up and the unit's empty.</p>
+      <p>Ninety days before your lease ends, I'm on the phone with your tenant. I learn what they plan to do — renew, move within the Coast, move out of state, buy. You get that information weeks ahead of an empty calendar. If they stay, that's a renewal you didn't have to chase. If they move, I'm already preparing photos, comp analysis, and a re-list — your unit isn't vacant for two months waiting for someone to start the process.</p>
+      <p>That single habit is the difference between a unit that earns 12 months of rent a year and one that earns 9.</p>
+    </section>
+
+    <section class="cta-block">
+      <h2>Want to be the first call when I'm licensed?</h2>
+      <p>I'm not taking listings right now and won't until my Mississippi license is issued. But if you've got a Coast rental and you want to talk through whether this model fits your situation — or you just want me on your radar for when I'm live — let's connect. No pitch, no sign-up, no agency relationship. Just a conversation so we both know each other when the time comes.</p>
+      <div class="cta-buttons">
+        <a href="tel:+12282576001" class="btn btn-primary">Call or text Rob — (228) 257-6001</a>
+        <a href="mailto:robrecio@gmail.com" class="btn btn-ghost">Email Rob</a>
+      </div>
+      <p class="cta-note">Rob is in training and not yet licensed. This page describes a future service offering, not a current one. No services, fees, or agency relationship are offered until licensure is complete. The fee structure described above is illustrative and subject to final brokerage agreement.</p>
+    </section>
+
+    <aside class="sources">
+      <h3>Framework note</h3>
+      <p>This service approach is informed by reverse-selling.com's lease-listing model for newly-licensed real estate agents — a methodology Rob has been studying as part of his licensure training. The mechanics described above (FRBO targeting, the listing presentation flow, the 90-day pre-lease-end check-in, the recurring re-rental relationship) are drawn from that framework and adapted for the Mississippi Gulf Coast market and Mississippi real estate law.</p>
+    </aside>
+
+  </main>
+
+</SiteLayout>
+
+<style>
+  .page {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 3rem 1.5rem 4rem;
+  }
+
+  .page-hero {
+    max-width: var(--max-prose);
+    margin: 0 auto 4rem;
+    text-align: left;
+  }
+  .eyebrow {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gulf);
+    margin-bottom: 1.2rem;
+  }
+  .page-hero h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(2.25rem, 4.8vw, 3.4rem);
+    line-height: 1.07;
+    letter-spacing: -0.022em;
+    color: var(--ink);
+  }
+  .page-hero h1 em {
+    font-style: italic;
+    color: var(--gulf-deep);
+  }
+  .pre-license-banner {
+    margin-top: 1.6rem;
+    padding: 1rem 1.3rem;
+    background: var(--sand);
+    border: 1px solid var(--line-strong);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+  }
+  .pre-license-banner p {
+    font-size: 0.93rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin: 0;
+  }
+  .pre-license-banner strong { color: var(--ink); }
+  .lede {
+    font-size: 1.18rem;
+    color: var(--ink-soft);
+    margin-top: 1.5rem;
+    line-height: 1.6;
+  }
+  .lede strong { color: var(--ink); }
+
+  .page-section {
+    max-width: var(--max-prose);
+    margin: 0 auto;
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--line);
+  }
+  .page-section h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(1.6rem, 3.2vw, 2.1rem);
+    line-height: 1.15;
+    letter-spacing: -0.018em;
+    color: var(--ink);
+    margin-bottom: 1.2rem;
+  }
+  .page-section p {
+    font-size: 1.06rem;
+    color: var(--ink-soft);
+    margin-bottom: 1.1rem;
+    line-height: 1.7;
+  }
+  .page-section p:first-of-type { color: var(--ink); }
+  .page-section .section-sub {
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    margin-top: -0.4rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .bullets {
+    margin: 0 0 1.2rem 0;
+    padding-left: 1.4rem;
+    color: var(--ink-soft);
+  }
+  .bullets li {
+    margin-bottom: 0.85rem;
+    line-height: 1.65;
+  }
+  .bullets li strong { color: var(--ink); }
+
+  /* Tenant-quality cards — 3-col grid */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.9rem;
+    margin: 1.5rem 0;
+  }
+  .card-small {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1.1rem 1.2rem;
+  }
+  .card-small h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.02rem;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+  .card-small p {
+    font-size: 0.9rem !important;
+    color: var(--ink-soft) !important;
+    line-height: 1.5 !important;
+    margin-bottom: 0 !important;
+  }
+  @media (max-width: 880px) {
+    .card-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) {
+    .card-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Process list — numbered with big numerals */
+  .process-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0;
+    counter-reset: none;
+  }
+  .process-list > li {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 1.2rem;
+    align-items: start;
+    padding: 1.4rem 0;
+    border-top: 1px solid var(--line);
+  }
+  .process-list > li:first-child { border-top: none; padding-top: 0.5rem; }
+  .process-n {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.85rem;
+    color: var(--gulf);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    padding-top: 0.2rem;
+  }
+  .process-list h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .process-list p {
+    font-size: 1rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin: 0;
+  }
+  @media (max-width: 560px) {
+    .process-list > li { grid-template-columns: 1fr; gap: 0.4rem; }
+    .process-n { font-size: 1.4rem; }
+  }
+
+  .cta-block {
+    max-width: var(--max-prose);
+    margin: 4rem auto 0;
+    padding: 2.5rem 2rem;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    text-align: center;
+  }
+  .cta-block h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: var(--ink);
+    margin-bottom: 0.8rem;
+  }
+  .cta-block p {
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+  .cta-note {
+    font-size: 0.82rem !important;
+    color: var(--ink-soft) !important;
+    font-style: italic;
+    margin-bottom: 0 !important;
+  }
+
+  .sources {
+    max-width: var(--max-prose);
+    margin: 3rem auto 0;
+    padding: 1.4rem 1.6rem;
+    background: var(--sand);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+  }
+  .sources h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.6rem;
+  }
+  .sources p {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin: 0;
+  }
+</style>

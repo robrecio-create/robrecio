@@ -92,6 +92,14 @@ Pure informational, lowest compliance risk, highest local-SEO value. These ship 
 
 ---
 
+## Additional pages (outside Core 30 framework)
+
+| Slug | Status | Notes |
+|------|--------|-------|
+| `/for-landlords` | 🟡 DRAFT | Service-positioning page for Rob's planned first focus post-license: FRBO + absentee-owner lease listings. Methodology from reverse-selling.com / Mike Mulrenin. Forward-looking framing, pre-licensure banner, illustrative fee structure flagged for Day-1-of-license brokerage finalization. Open: homepage entry-point section linking here. |
+
+---
+
 ## Last updated
 
-2026-05-18 — Brenda · status: Wave 1 pages #23 (flood zones, v2) and #26 (homestead exemption, v1) in DRAFT on `feat/core-30-content`. Homepage compliance bundle applied. Awaiting Rob's review.
+2026-05-18 — Brenda · status: Wave 1 pages #23 (flood zones, v2), #26 (homestead exemption, v1), plus `/for-landlords` in DRAFT on `feat/core-30-content`. Homepage compliance bundle applied. Awaiting Rob's review.
