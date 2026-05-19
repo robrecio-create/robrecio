@@ -1,6 +1,25 @@
 ---
 import SiteLayout from '../../layouts/SiteLayout.astro';
 
+// Image slots — flip null → '/areas/ocean-springs/<file>.jpg' when Rob delivers the shot.
+// Keep paths even when null so the shot list stays visible inline as code comments.
+const hero = {
+  image: null, // '/areas/ocean-springs/hero.jpg' — Washington Ave looking south from the railroad tracks, golden hour
+  alt: 'Washington Avenue, Ocean Springs — looking south from the railroad tracks, live oaks framing the view down to the harbor.',
+};
+const galleryCart = {
+  image: null, // '/areas/ocean-springs/golf-cart.jpg' — a registered cart on Washington Ave or driving Porter at dusk
+  alt: 'A registered golf cart on Washington Avenue in downtown Ocean Springs.',
+};
+const galleryMuseum = {
+  image: null, // '/areas/ocean-springs/walter-anderson.jpg' — Walter Anderson Museum of Art exterior
+  alt: 'Walter Anderson Museum of Art in downtown Ocean Springs.',
+};
+const galleryBayou = {
+  image: null, // '/areas/ocean-springs/davis-bayou.jpg' — Gulf Islands National Seashore Davis Bayou unit, marsh trail
+  alt: 'Marsh trail at Davis Bayou, Gulf Islands National Seashore, Ocean Springs.',
+};
+
 const neighborhoods = [
   {
     code: 'NORTH OF THE TRACKS',
@@ -8,6 +27,8 @@ const neighborhoods = [
     walk: 'Walk-to-downtown',
     blurb: 'The Washington Avenue corridor and the streets running off it — Porter, Robinson, Iberville, Bowen, Calhoun. Most homes pre-date Katrina and most pre-date the 1960s; a lot pre-date 1920. Live oaks the size of houses, painted cottages, the occasional Creole-style or Craftsman.',
     detail: 'Sits in the local Historic Preservation District — exterior changes visible from the street (windows, roof, additions, fences) need Preservation Commission approval. Interior work, paint colors, and routine maintenance are not regulated, but verify against current ordinance before counting on it. Mostly Zone X for flood; a handful of AE pockets near the bayous.',
+    image: null, // '/areas/ocean-springs/historic-district.jpg' — a live-oak street with a painted cottage in frame (Porter/Iberville at 6:30 PM)
+    imageAlt: 'A historic Ocean Springs cottage under a canopy of live oaks.',
   },
   {
     code: 'SOUTH OF THE TRACKS',
@@ -15,6 +36,8 @@ const neighborhoods = [
     walk: 'Walk-to-water, drive-to-downtown',
     blurb: 'The waterfront half of town — Front Beach Drive, the Inner Harbor, the bayfront homes east toward Marsh Road and East Beach. Mix of pre-Katrina survivors, post-Katrina elevated rebuilds on pilings, and a few empty lots that have not come back.',
     detail: 'Flood-zone heavy: AE through most of it, VE on the immediate beachfront. Mortgage flood insurance required almost everywhere; coastal elevation requirements (pile foundations, breakaway walls below BFE) apply to anything built since 2011. Premiums are real — get a current Elevation Certificate and a flood quote before falling in love.',
+    image: null, // '/areas/ocean-springs/front-beach.jpg' — Front Beach pier from the side OR Inner Harbor with shrimp boats
+    imageAlt: 'Ocean Springs Inner Harbor with working shrimp boats, looking out toward the Mississippi Sound.',
   },
   {
     code: 'WEST SIDE',
@@ -22,6 +45,8 @@ const neighborhoods = [
     walk: 'Drive-only',
     blurb: 'The 1920s-platted Gulf Hills resort and the St. Andrews bayou/golf-course neighborhoods running west toward Biloxi Back Bay. Lots are larger, water frontage on Old Fort Bayou is common, the Gulf Hills Hotel and golf course anchor the area.',
     detail: 'Mix of mid-century and newer build. Bayou and water-adjacent parcels often AE; uphill from the water mostly X. Different flavor from downtown — quieter, more spread out, no historic-district overlay. Drive into downtown is 5–10 minutes.',
+    image: null, // '/areas/ocean-springs/gulf-hills.jpg' — Old Fort Bayou from the Gulf Hills bridge or the Gulf Hills Hotel sign
+    imageAlt: 'Old Fort Bayou viewed from the Gulf Hills neighborhood in Ocean Springs.',
   },
   {
     code: 'NORTH SIDE',
@@ -29,6 +54,8 @@ const neighborhoods = [
     walk: 'Drive-only',
     blurb: 'The neighborhoods north of US-90, running up toward Beachview Drive, Holcomb Boulevard, and the I-10 corridor. Newer subdivisions, mid-1990s and on, plus pockets of older ranch stock. Family-driven inventory — three-and-fours on quarter-acre lots.',
     detail: 'Predominantly Zone X, lower flood-insurance exposure than the south side. Closer to the Ocean Springs schools cluster (more on that below) and to the Highway 90 / I-10 commute. The "starter family home" half of Ocean Springs lives mostly here.',
+    image: null, // '/areas/ocean-springs/north-side.jpg' — a Beachview or Holcomb live-oak residential street
+    imageAlt: 'A residential street in the Beachview / Holcomb area of north Ocean Springs.',
   },
 ];
 
@@ -81,6 +108,12 @@ const marketBeats = [
       <p class="lede">I moved to Ocean Springs in March 2005 — five months before Katrina — raised my kids here, and never left. Ocean Springs is the part of the Mississippi Gulf Coast people drive an extra fifteen minutes for. Below: <strong>what the four corners of town actually look like</strong>, <strong>which side of the railroad tracks shapes your insurance bill</strong>, <strong>how the schools are organized</strong>, and <strong>the local pieces I'd want a transplant or first-time buyer to know before they put in an offer</strong>.</p>
     </header>
 
+    {hero.image && (
+      <figure class="hero-figure">
+        <img src={hero.image} alt={hero.alt} loading="eager" width="1440" height="810" />
+      </figure>
+    )}
+
     <section class="guide-section">
       <h2>The town in one paragraph</h2>
       <p>Ocean Springs sits on the east side of Biloxi Bay in Jackson County, population around <strong>18,000</strong>, anchored by a walkable historic downtown along Washington Avenue and bordered on the south by the Mississippi Sound and Davis Bayou (part of Gulf Islands National Seashore). The town calls itself "the city of discovery." The art-town reputation is earned — Walter Anderson lived here, the Walter Anderson Museum of Art is the anchor, and there's a real gallery walk on Washington Avenue most Fridays from spring through fall. Day-to-day it's quiet in the way coast towns are quiet: you recognize people at the grocery store, the Saturday farmer's market gets crowded by 9 AM, and shrimp boats and sailboats share the Inner Harbor.</p>
@@ -94,11 +127,18 @@ const marketBeats = [
       <div class="zone-grid neighborhood-grid">
         {neighborhoods.map(n => (
           <div class="zone-card">
-            <div class="zone-code">{n.code}</div>
-            <h3>{n.name}</h3>
-            <p class="walk-tag">{n.walk}</p>
-            <p class="zone-blurb">{n.blurb}</p>
-            <p class="zone-detail">{n.detail}</p>
+            {n.image && (
+              <div class="zone-card-image">
+                <img src={n.image} alt={n.imageAlt} loading="lazy" width="800" height="500" />
+              </div>
+            )}
+            <div class="zone-card-body">
+              <div class="zone-code">{n.code}</div>
+              <h3>{n.name}</h3>
+              <p class="walk-tag">{n.walk}</p>
+              <p class="zone-blurb">{n.blurb}</p>
+              <p class="zone-detail">{n.detail}</p>
+            </div>
           </div>
         ))}
       </div>
@@ -160,6 +200,29 @@ const marketBeats = [
       </ul>
 
       <p class="callout"><strong>The golf cart thing.</strong> Ocean Springs has a real golf-cart-on-public-streets ordinance — City Code Chapter 14, Article V — that's actively used. Registered carts (annual registration + inspection through City Hall, around $51) can run any city street with a 30 mph or lower speed limit, and can cross higher-speed roads. Practically that's downtown, the historic district, much of the south-of-tracks half, and a lot of the residential streets on the west side. The Highway 90 corridor cuts the town in half for carts — if you live on the east end, you trailer in. Once you live here you'll see them everywhere from spring through fall. It's not a gimmick; it's part of how downtown actually works.</p>
+
+      {galleryCart.image && (
+        <figure class="inline-figure inline-figure-wide">
+          <img src={galleryCart.image} alt={galleryCart.alt} loading="lazy" width="1440" height="810" />
+        </figure>
+      )}
+
+      {(galleryMuseum.image || galleryBayou.image) && (
+        <div class="inline-pair">
+          {galleryMuseum.image && (
+            <figure class="inline-figure">
+              <img src={galleryMuseum.image} alt={galleryMuseum.alt} loading="lazy" width="800" height="600" />
+              <figcaption>Walter Anderson Museum of Art</figcaption>
+            </figure>
+          )}
+          {galleryBayou.image && (
+            <figure class="inline-figure">
+              <img src={galleryBayou.image} alt={galleryBayou.alt} loading="lazy" width="800" height="600" />
+              <figcaption>Davis Bayou · Gulf Islands National Seashore</figcaption>
+            </figure>
+          )}
+        </div>
+      )}
     </section>
 
     <section class="guide-section">
@@ -310,6 +373,56 @@ const marketBeats = [
   }
   .callout strong { color: var(--gulf-deep); }
 
+  /* Hero figure — full prose-max width, just under the lede */
+  .hero-figure {
+    max-width: var(--max);
+    margin: 0 auto 3rem;
+    padding: 0 1.5rem;
+  }
+  .hero-figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 14px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  /* Inline figures — single wide, or 2-up grid */
+  .inline-figure {
+    margin: 1.5rem 0 0.4rem;
+  }
+  .inline-figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  .inline-figure-wide img {
+    aspect-ratio: 16 / 9;
+  }
+  .inline-figure figcaption {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin-top: 0.45rem;
+    text-align: center;
+  }
+  .inline-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .inline-pair .inline-figure {
+    margin: 0;
+  }
+  @media (max-width: 640px) {
+    .inline-pair { grid-template-columns: 1fr; }
+  }
+
   /* Neighborhood grid — 2-up on desktop, 1-up mobile */
   .neighborhood-grid {
     display: grid;
@@ -321,6 +434,18 @@ const marketBeats = [
     background: var(--paper);
     border: 1px solid var(--line);
     border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .zone-card-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+  .zone-card-body {
     padding: 1.5rem 1.4rem;
     display: flex;
     flex-direction: column;
