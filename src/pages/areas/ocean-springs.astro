@@ -1,0 +1,507 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+
+const neighborhoods = [
+  {
+    code: 'NORTH OF THE TRACKS',
+    name: 'Old Ocean Springs / Historic District',
+    walk: 'Walk-to-downtown',
+    blurb: 'The Washington Avenue corridor and the streets running off it — Porter, Robinson, Iberville, Bowen, Calhoun. Most homes pre-date Katrina and most pre-date the 1960s; a lot pre-date 1920. Live oaks the size of houses, painted cottages, the occasional Creole-style or Craftsman.',
+    detail: 'Sits in the local Historic Preservation District — exterior changes visible from the street (windows, roof, additions, fences) need Preservation Commission approval. Interior work, paint colors, and routine maintenance are not regulated, but verify against current ordinance before counting on it. Mostly Zone X for flood; a handful of AE pockets near the bayous.',
+  },
+  {
+    code: 'SOUTH OF THE TRACKS',
+    name: 'Front Beach / East Beach / Inner Harbor',
+    walk: 'Walk-to-water, drive-to-downtown',
+    blurb: 'The waterfront half of town — Front Beach Drive, the Inner Harbor, the bayfront homes east toward Marsh Road and East Beach. Mix of pre-Katrina survivors, post-Katrina elevated rebuilds on pilings, and a few empty lots that have not come back.',
+    detail: 'Flood-zone heavy: AE through most of it, VE on the immediate beachfront. Mortgage flood insurance required almost everywhere; coastal elevation requirements (pile foundations, breakaway walls below BFE) apply to anything built since 2011. Premiums are real — get a current Elevation Certificate and a flood quote before falling in love.',
+  },
+  {
+    code: 'WEST SIDE',
+    name: 'Gulf Hills / St. Andrews',
+    walk: 'Drive-only',
+    blurb: 'The 1920s-platted Gulf Hills resort and the St. Andrews bayou/golf-course neighborhoods running west toward Biloxi Back Bay. Lots are larger, water frontage on Old Fort Bayou is common, the Gulf Hills Hotel and golf course anchor the area.',
+    detail: 'Mix of mid-century and newer build. Bayou and water-adjacent parcels often AE; uphill from the water mostly X. Different flavor from downtown — quieter, more spread out, no historic-district overlay. Drive into downtown is 5–10 minutes.',
+  },
+  {
+    code: 'NORTH SIDE',
+    name: 'Beachview / Holcomb / inland subdivisions',
+    walk: 'Drive-only',
+    blurb: 'The neighborhoods north of US-90, running up toward Beachview Drive, Holcomb Boulevard, and the I-10 corridor. Newer subdivisions, mid-1990s and on, plus pockets of older ranch stock. Family-driven inventory — three-and-fours on quarter-acre lots.',
+    detail: 'Predominantly Zone X, lower flood-insurance exposure than the south side. Closer to the Ocean Springs schools cluster (more on that below) and to the Highway 90 / I-10 commute. The "starter family home" half of Ocean Springs lives mostly here.',
+  },
+];
+
+const schools = [
+  { level: 'Elementary', name: 'Pecan Park Elementary · Magnolia Park Elementary · Oak Park Elementary' },
+  { level: 'Middle', name: 'Ocean Springs Middle School' },
+  { level: 'High', name: 'Ocean Springs High School (Greyhounds)' },
+];
+
+const marketBeats = [
+  {
+    label: 'Inventory character',
+    value: 'A meaningful share of the housing stock is pre-2005 (pre-Katrina). New construction is concentrated north of US-90 and in pockets of post-storm waterfront rebuild.',
+  },
+  {
+    label: 'Insurance reality',
+    value: 'Most properties south of the railroad tracks touch the Mississippi Windstorm Underwriting Association (Wind Pool) for wind-and-hail coverage plus a separate ex-wind homeowners policy. North-of-tracks parcels often qualify for standard-carrier wind coverage. Flood is its own conversation — see the flood-zone guide.',
+  },
+  {
+    label: 'Build era matters',
+    value: 'Pre-2005 slab homes in flood zones are the hardest to insure affordably. Post-2011 elevated builds tend to insure cleanest. The build year on the listing is one of the first things to check.',
+  },
+  {
+    label: 'Historic-district overlay',
+    value: 'If the address is in the Ocean Springs Historic Preservation District, exterior changes visible from the street need Commission approval. Buyers regularly miss this until they want to replace windows. Flag at showing.',
+  },
+  {
+    label: 'Talk to Rob signal',
+    value: 'Out-of-state transplants from Mobile, NOLA, Keesler, or "we vacationed in 30A and want quieter" are the most common Ocean Springs inbound. Rob lives here. The market intel is current.',
+  },
+];
+---
+
+<SiteLayout
+  title="Ocean Springs, MS — Coast Area Guide | Rob Recio"
+  description="A plain-talk Ocean Springs area guide for buyers and sellers — neighborhoods, schools, flood profile, market beats, and the things Rob wishes every transplant knew before they put in an offer."
+  robots="noindex, nofollow, noarchive, nosnippet"
+>
+
+  <main class="guide">
+
+    <header class="guide-hero">
+      <p class="eyebrow">Coast Areas · Jackson County</p>
+      <h1>Ocean Springs, <em>my hometown.</em></h1>
+
+      <aside class="pre-license-banner" role="note" aria-label="Pre-licensure notice">
+        <p><strong>Heads up.</strong> I'm in real-estate-licensure training and not yet licensed in Mississippi. This page is informational only — it is not a solicitation, an offering of services, or an agency relationship. Once my MS salesperson license is issued and I'm affiliated with Real Broker, LLC, I'll update this site with my license number, sponsoring-broker information, and a normal contact-and-engage flow.</p>
+      </aside>
+
+      <p class="lede">I grew up here, raised my kids here, and I still live here. Ocean Springs is the part of the Mississippi Gulf Coast people drive an extra fifteen minutes for. Below: <strong>what the four corners of town actually look like</strong>, <strong>which side of the railroad tracks shapes your insurance bill</strong>, <strong>how the schools are organized</strong>, and <strong>the local pieces I'd want a transplant or first-time buyer to know before they put in an offer</strong>.</p>
+    </header>
+
+    <section class="guide-section">
+      <h2>The town in one paragraph</h2>
+      <p>Ocean Springs sits on the east side of Biloxi Bay in Jackson County, population around <strong>18,000</strong>, anchored by a walkable historic downtown along Washington Avenue and bordered on the south by the Mississippi Sound and Davis Bayou (part of Gulf Islands National Seashore). The town calls itself "the city of discovery." The art-town reputation is earned — Walter Anderson lived here, the Walter Anderson Museum of Art is the anchor, and there's a real gallery walk on Washington Avenue most Fridays from spring through fall. Day-to-day it's quiet in the way coast towns are quiet: you recognize people at the grocery store, the Saturday farmer's market gets crowded by 9 AM, and shrimp boats and sailboats share the Inner Harbor.</p>
+      <p class="callout"><strong>The railroad tracks matter.</strong> The CSX line cuts east-west through the middle of town. North of the tracks the elevation is higher, the flood exposure is lower, and most of the housing stock made it through Katrina. South of the tracks is the waterfront half — beautiful, but the insurance math is fundamentally different. You'll see "north of the tracks" and "south of the tracks" used as shorthand in every Ocean Springs conversation. Worth learning early.</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>The four corners of town</h2>
+      <p class="section-sub">Ocean Springs splits into roughly four areas. Each has a different character, a different price band, and a different insurance profile.</p>
+
+      <div class="zone-grid neighborhood-grid">
+        {neighborhoods.map(n => (
+          <div class="zone-card">
+            <div class="zone-code">{n.code}</div>
+            <h3>{n.name}</h3>
+            <p class="walk-tag">{n.walk}</p>
+            <p class="zone-blurb">{n.blurb}</p>
+            <p class="zone-detail">{n.detail}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="guide-section">
+      <h2>Schools</h2>
+      <p>The <strong>Ocean Springs School District</strong> is one of the bigger reasons families relocate here from elsewhere on the Coast or from out of state. It is the only school district in Mississippi that operates entirely within a single municipality — meaning every Ocean Springs city address feeds into Ocean Springs schools, regardless of which corner of town.</p>
+
+      <div class="school-grid">
+        {schools.map(s => (
+          <div class="school-row">
+            <span class="school-level">{s.level}</span>
+            <span class="school-name">{s.name}</span>
+          </div>
+        ))}
+      </div>
+
+      <p class="school-note">District ratings change year to year — the Mississippi Department of Education publishes annual accountability ratings at <a href="https://www.mdek12.org/" target="_blank" rel="noopener">mdek12.org</a>. Don't take any single year's letter grade as the whole story; the district has been consistently high-performing for two decades. For families considering private school: St. Patrick Catholic, Magnolia Park Academy, and Mater Dei (Biloxi) are the most common Coast options.</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>Flood profile, in plain terms</h2>
+      <p>Ocean Springs straddles the full FEMA flood-zone spectrum. The short version:</p>
+      <ul class="bullets">
+        <li><strong>Zone VE (Velocity / Coastal High Hazard):</strong> immediate beachfront on Front Beach and East Beach, plus parts of the Inner Harbor. Wave action in a 1% annual flood. Strict construction requirements — pile foundation, breakaway walls below Base Flood Elevation, no enclosed habitable space below BFE. Mortgage lenders require flood insurance. Highest premiums of any zone.</li>
+        <li><strong>Zone AE (1% annual chance, known BFE):</strong> most of the south-of-tracks half, plus bayou-adjacent parcels north of the tracks. Flood insurance required by federally-backed mortgages. BFE is listed on the FIRM panel for every AE parcel.</li>
+        <li><strong>Zone X / Shaded X:</strong> most of the north-of-tracks half. Flood insurance is optional but still worth quoting — shaded X has flooded in heavy-rain events on the Coast even outside a named storm.</li>
+      </ul>
+      <p>For any specific address, pull the current FEMA FIRM panel at <a href="https://msc.fema.gov" target="_blank" rel="noopener">msc.fema.gov</a> before counting on a zone designation. Designations can change after map updates. I have a longer walk-through of the FEMA zones on the <a href="/guides/coastal-ms-flood-zones">Coast flood-zone guide</a>.</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>Market beats every Ocean Springs buyer or seller should hear</h2>
+      <p class="section-sub">Stable patterns — not month-to-month price talk. These are the things that come up in every real Ocean Springs transaction.</p>
+
+      <dl class="beats">
+        {marketBeats.map(b => (
+          <div class="beat">
+            <dt>{b.label}</dt>
+            <dd>{b.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+    <section class="guide-section">
+      <h2>Day-to-day in Ocean Springs</h2>
+      <p>Stuff that's actually here, in case you're trying to picture life on the ground:</p>
+      <ul class="bullets">
+        <li><strong>Downtown:</strong> Washington Avenue runs from the harbor up past the railroad tracks. Galleries, restaurants, bookstore, a couple of bars, the farmer's market on Saturday mornings.</li>
+        <li><strong>Walter Anderson Museum of Art:</strong> the anchor cultural institution. Anderson was a local who painted Horn Island wildlife. The work is strange and beautiful, the museum has rotating exhibits, and it draws regional traffic into town.</li>
+        <li><strong>Gulf Islands National Seashore — Davis Bayou:</strong> in-town piece of a federal park. Marsh trails, fishing pier, boat launch, kayak access. Free to walk; $25 annual pass if you launch a boat regularly.</li>
+        <li><strong>Front Beach:</strong> small, calm, not Panama City. Good for wading and sunset; the water is the Mississippi Sound, not the open Gulf — calmer and murkier by design.</li>
+        <li><strong>Horn Island:</strong> 12 miles offshore, completely undeveloped, no facilities. You need a boat. Camping is allowed. Walter Anderson lived out here for stretches.</li>
+        <li><strong>Inner Harbor:</strong> working shrimp boats and recreational sailboats share the same water. Worth a walk even if you're not getting on a boat.</li>
+        <li><strong>Friday Gallery Walks:</strong> spring through fall. Galleries open late, live music somewhere, low-key.</li>
+        <li><strong>Day-trip math:</strong> Biloxi 15 minutes west · Pascagoula 20 minutes east · Mobile 1 hour east · New Orleans 90 minutes west · Keesler AFB 20 minutes.</li>
+      </ul>
+    </section>
+
+    <section class="guide-section">
+      <h2>Who tends to buy here</h2>
+      <p>The Ocean Springs buyer pool I see breaks down roughly like this — useful context whether you're moving in or thinking about who might end up in your house when you sell:</p>
+      <ul class="bullets">
+        <li><strong>Coast locals trading up.</strong> Biloxi, Gulfport, D'Iberville buyers move east into Ocean Springs for the schools and the walkable downtown.</li>
+        <li><strong>Mobile-area commuters.</strong> Mobile is an hour east; Ocean Springs is cheaper and quieter than the Mobile suburbs people are leaving.</li>
+        <li><strong>Keesler military.</strong> PCS cycles drive a steady wave — Keesler is 20 minutes west. Schools and the slower pace pull families east of base.</li>
+        <li><strong>NOLA refugees.</strong> Cost-of-living and quality-of-life moves out of the New Orleans metro. 90 minutes west on I-10.</li>
+        <li><strong>30A / Florida Panhandle alumni.</strong> "We loved the beach but it got too busy / too expensive" — Ocean Springs is the quiet Gulf-town those buyers wish they'd found ten years ago.</li>
+        <li><strong>Retirees.</strong> Mid-South retirees who want Gulf Coast access without Florida property taxes or Florida summer humidity (yes, ours is different — barely).</li>
+      </ul>
+    </section>
+
+    <section class="cta-block">
+      <h2>Thinking about Ocean Springs?</h2>
+      <p>Whether you're scouting from out of state, weighing a move east from Gulfport or Biloxi, or trying to figure out which corner of town fits your life — happy to talk. I live here, my kids go to school here, and I know which streets are which. Once I'm licensed (mid-2026), I'll be able to bring this into a full buyer or seller conversation. For now: it's a neighborly call, not a service call.</p>
+      <div class="cta-buttons">
+        <a href="tel:+12282576001" class="btn btn-primary">Call or text Rob — (228) 257-6001</a>
+        <a href="mailto:robrecio@gmail.com" class="btn btn-ghost">Email Rob</a>
+      </div>
+      <p class="cta-note">Rob is in training and not yet licensed. This guide is general information about Ocean Springs as a place to live — not real-estate advice, legal advice, or a solicitation. For specific property questions, flood determinations, insurance quotes, or legal/tax matters, consult the appropriate Mississippi-licensed professional.</p>
+    </section>
+
+    <aside class="sources">
+      <h3>Sources & cross-links</h3>
+      <ul>
+        <li>City of Ocean Springs — <a href="https://www.oceanspringsms.gov" target="_blank" rel="noopener">oceanspringsms.gov</a> (city government, Historic Preservation Commission, ordinances)</li>
+        <li>Ocean Springs School District — <a href="https://www.ossdms.org" target="_blank" rel="noopener">ossdms.org</a></li>
+        <li>Mississippi Department of Education accountability ratings — <a href="https://www.mdek12.org/" target="_blank" rel="noopener">mdek12.org</a></li>
+        <li>FEMA Map Service Center (flood zones) — <a href="https://msc.fema.gov" target="_blank" rel="noopener">msc.fema.gov</a></li>
+        <li>Gulf Islands National Seashore — Davis Bayou unit — <a href="https://www.nps.gov/guis" target="_blank" rel="noopener">nps.gov/guis</a></li>
+        <li>Walter Anderson Museum of Art — <a href="https://www.walterandersonmuseum.org" target="_blank" rel="noopener">walterandersonmuseum.org</a></li>
+        <li>Related on this site: <a href="/guides/coastal-ms-flood-zones">Coast flood-zone guide</a> · <a href="/guides/ms-homestead-exemption">MS homestead exemption</a></li>
+      </ul>
+      <p class="sources-note"><strong>Verified May 2026.</strong> School district structure, historic-district scope, and FEMA-zone patterns cross-checked against city, district, MDE, and FEMA sources. Specific parcel-level flood zones, school attendance boundaries, and millage rates change — verify against current sources before counting on a number for a specific address. Next planned refresh: after the 2026–27 school accountability ratings are published and after any FEMA map revisions.</p>
+    </aside>
+
+  </main>
+
+</SiteLayout>
+
+<style>
+  .guide {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 3rem 1.5rem 4rem;
+  }
+
+  .guide-hero {
+    max-width: var(--max-prose);
+    margin: 0 auto 4rem;
+    text-align: left;
+  }
+  .eyebrow {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gulf);
+    margin-bottom: 1.2rem;
+  }
+  .guide-hero h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(2.25rem, 4.8vw, 3.4rem);
+    line-height: 1.07;
+    letter-spacing: -0.022em;
+    color: var(--ink);
+  }
+  .guide-hero h1 em {
+    font-style: italic;
+    color: var(--gulf-deep);
+  }
+  .pre-license-banner {
+    margin-top: 1.6rem;
+    padding: 1rem 1.3rem;
+    background: var(--sand);
+    border: 1px solid var(--line-strong);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+  }
+  .pre-license-banner p {
+    font-size: 0.93rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin: 0;
+  }
+  .pre-license-banner strong { color: var(--ink); }
+  .lede {
+    font-size: 1.18rem;
+    color: var(--ink-soft);
+    margin-top: 1.5rem;
+    line-height: 1.6;
+  }
+  .lede strong { color: var(--ink); }
+
+  .guide-section {
+    max-width: var(--max-prose);
+    margin: 0 auto;
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--line);
+  }
+  .guide-section h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(1.6rem, 3.2vw, 2.1rem);
+    line-height: 1.15;
+    letter-spacing: -0.018em;
+    color: var(--ink);
+    margin-bottom: 1.2rem;
+  }
+  .guide-section p {
+    font-size: 1.06rem;
+    color: var(--ink-soft);
+    margin-bottom: 1.1rem;
+    line-height: 1.7;
+  }
+  .guide-section p:first-of-type { color: var(--ink); }
+  .guide-section .section-sub {
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    margin-top: -0.4rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .bullets {
+    margin: 0 0 1.2rem 0;
+    padding-left: 1.4rem;
+    color: var(--ink-soft);
+  }
+  .bullets li {
+    margin-bottom: 0.85rem;
+    line-height: 1.65;
+  }
+  .bullets li strong { color: var(--ink); }
+
+  .callout {
+    background: var(--sand);
+    border-left: 3px solid var(--gulf);
+    padding: 1.1rem 1.3rem;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.98rem !important;
+    color: var(--ink) !important;
+    margin-top: 1.2rem;
+  }
+  .callout strong { color: var(--gulf-deep); }
+
+  /* Neighborhood grid — 2-up on desktop, 1-up mobile */
+  .neighborhood-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .zone-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.5rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .zone-code {
+    display: inline-block;
+    background: var(--gulf);
+    color: var(--paper);
+    font-family: var(--serif);
+    font-weight: 600;
+    padding: 0.25rem 0.7rem;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.7rem;
+    align-self: flex-start;
+  }
+  .zone-card h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.22rem;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+  .walk-tag {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.95rem !important;
+    color: var(--gulf-deep) !important;
+    margin-bottom: 0.7rem !important;
+  }
+  .zone-blurb {
+    font-size: 0.97rem !important;
+    color: var(--ink) !important;
+    margin-bottom: 0.7rem !important;
+    line-height: 1.55 !important;
+  }
+  .zone-detail {
+    font-size: 0.92rem !important;
+    color: var(--ink-soft) !important;
+    line-height: 1.55 !important;
+    margin-bottom: 0 !important;
+  }
+  @media (max-width: 760px) {
+    .neighborhood-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Schools — simple row layout */
+  .school-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin: 1.2rem 0 1rem;
+    padding: 1.2rem 1.4rem;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+  }
+  .school-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 1rem;
+    align-items: baseline;
+  }
+  .school-level {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    color: var(--gulf);
+  }
+  .school-name {
+    font-size: 0.98rem;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .school-note {
+    font-size: 0.92rem !important;
+    color: var(--ink-soft) !important;
+    font-style: italic;
+  }
+  @media (max-width: 560px) {
+    .school-row { grid-template-columns: 1fr; gap: 0.1rem; }
+  }
+
+  /* Market beats — definition list */
+  .beats {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.2rem;
+  }
+  .beat {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--gulf);
+    border-radius: 0 10px 10px 0;
+    padding: 1rem 1.3rem;
+  }
+  .beat dt {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    color: var(--gulf-deep);
+    margin-bottom: 0.3rem;
+  }
+  .beat dd {
+    font-size: 0.98rem;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  .cta-block {
+    max-width: var(--max-prose);
+    margin: 4rem auto 0;
+    padding: 2.5rem 2rem;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    text-align: center;
+  }
+  .cta-block h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: var(--ink);
+    margin-bottom: 0.8rem;
+  }
+  .cta-block p {
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+  .cta-note {
+    font-size: 0.82rem !important;
+    color: var(--ink-soft) !important;
+    font-style: italic;
+    margin-bottom: 0 !important;
+  }
+
+  .sources {
+    max-width: var(--max-prose);
+    margin: 3rem auto 0;
+    padding: 1.6rem 1.8rem;
+    background: var(--sand);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+  }
+  .sources h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.8rem;
+  }
+  .sources ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+  .sources li {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    padding: 0.35rem 0;
+    border-bottom: 1px dashed var(--line-strong);
+  }
+  .sources li:last-child { border-bottom: none; }
+  .sources-note {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin: 0;
+  }
+</style>
