@@ -22,18 +22,19 @@ const ventures = [
   },
 ];
 
+// ready: true → card links to its /areas/<slug> page. Flip to true as each city page ships.
 const areas = [
-  "Biloxi",
-  "Gulfport",
-  "Ocean Springs",
-  "D'Iberville",
-  "Gautier",
-  "Long Beach",
-  "Pascagoula",
-  "Pass Christian",
-  "Moss Point",
-  "Bay St. Louis",
-  "Diamondhead",
+  { name: "Biloxi", slug: "biloxi", ready: true },
+  { name: "Gulfport", slug: "gulfport", ready: true },
+  { name: "Ocean Springs", slug: "ocean-springs", ready: true },
+  { name: "D'Iberville", slug: "diberville", ready: true },
+  { name: "Gautier", slug: "gautier", ready: false },
+  { name: "Long Beach", slug: "long-beach", ready: false },
+  { name: "Pascagoula", slug: "pascagoula", ready: false },
+  { name: "Pass Christian", slug: "pass-christian", ready: false },
+  { name: "Moss Point", slug: "moss-point", ready: false },
+  { name: "Bay St. Louis", slug: "bay-st-louis", ready: true },
+  { name: "Diamondhead", slug: "diamondhead", ready: false },
 ];
 ---
 
@@ -121,7 +122,13 @@ const areas = [
         <p class="section-sub">Across Harrison, Jackson, and Hancock counties — from Pass Christian to Moss Point. If it's on the Coast, I know it.</p>
       </div>
       <ul class="area-grid">
-        {areas.map(a => <li><span>{a}</span></li>)}
+        {areas.map(a => (
+          <li class={a.ready ? "area-ready" : "area-soon"}>
+            {a.ready
+              ? <a href={`/areas/${a.slug}`}>{a.name} <span class="area-arrow" aria-hidden="true">&rarr;</span></a>
+              : <span>{a.name}</span>}
+          </li>
+        ))}
       </ul>
     </section>
 
@@ -480,6 +487,23 @@ const areas = [
     transform: translateY(-2px);
     background: var(--paper);
   }
+  .area-grid li a {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+  .area-arrow {
+    color: var(--gulf);
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+  .area-ready:hover .area-arrow { opacity: 1; }
+  .area-soon { color: var(--ink-soft); }
+  .area-soon:hover { transform: none; border-color: var(--line); }
   @media (max-width: 700px) {
     .area-grid { grid-template-columns: repeat(2, 1fr); }
   }

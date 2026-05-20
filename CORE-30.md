@@ -43,16 +43,16 @@ Framed as informational area guides — neighborhood character, schools, flood p
 
 | # | Slug | County | Status | Notes |
 |---|------|--------|--------|-------|
-| 9 | `/areas/biloxi` | Harrison | ⚪ TODO | Largest market, casino corridor, Keesler AFB |
-| 10 | `/areas/gulfport` | Harrison | ⚪ TODO | Coast's commercial core, NCBC Gulfport |
-| 11 | `/areas/ocean-springs` | Jackson | ⚪ TODO | Rob's hometown — anchor page, strongest local voice |
-| 12 | `/areas/diberville` | Harrison | ⚪ TODO | Newer subdivisions, family-driven market |
+| 9 | `/areas/biloxi` | Harrison | 🟢 LIVE | Casino corridor, Keesler AFB, peninsula/Back Bay/North Biloxi submarkets. Shipped 2026-05-20. |
+| 10 | `/areas/gulfport` | Harrison | 🟢 LIVE | Largest Coast city, Seabees/Port/Memorial; South vs. north-of-I-10 split + school-zone nuance. Shipped 2026-05-20. |
+| 11 | `/areas/ocean-springs` | Jackson | 🟢 LIVE | Rob's hometown — anchor page, strongest local voice. Shipped 2026-05-20. |
+| 12 | `/areas/diberville` | Harrison | 🟢 LIVE | Newer construction north of Back Bay, higher ground/lower flood as the selling point. Shipped 2026-05-20. |
 | 13 | `/areas/gautier` | Jackson | ⚪ TODO | Singing River, retirees, river/marsh frontage |
 | 14 | `/areas/long-beach` | Harrison | ⚪ TODO | Walkable downtown, "Friendly City" |
 | 15 | `/areas/pascagoula` | Jackson | ⚪ TODO | Ingalls Shipbuilding, working-class core |
 | 16 | `/areas/pass-christian` | Harrison | ⚪ TODO | High-end coastal, Old Town historic |
 | 17 | `/areas/moss-point` | Jackson | ⚪ TODO | Affordable entry, redevelopment story |
-| 18 | `/areas/bay-st-louis` | Hancock | ⚪ TODO | Old Town arts/restaurant scene, historic district |
+| 18 | `/areas/bay-st-louis` | Hancock | 🟢 LIVE | Old Town arts scene + historic district; Katrina rebuild story, NOLA-weekender pull. Shipped 2026-05-20. |
 | 19 | `/areas/diamondhead` | Hancock | ⚪ TODO | Master-planned, golf-and-marina, retiree-heavy |
 | 20 | `/areas/harrison-county` | — | ⚪ TODO | County hub for #9, 10, 12, 14, 16 |
 | 21 | `/areas/jackson-county` | — | ⚪ TODO | County hub for #11, 13, 15, 17 |
@@ -103,3 +103,5 @@ Pure informational, lowest compliance risk, highest local-SEO value. These ship 
 ## Last updated
 
 2026-05-18 — Brenda · status: Wave 1 pages #23 (flood zones, v2), #26 (homestead exemption, v1), plus `/for-landlords` in DRAFT on `feat/core-30-content`. Homepage compliance bundle applied. Awaiting Rob's review.
+
+2026-05-20 — Brenda · **Merged everything to `main` + LIVE** (hero video, Wave 1 topic pages, Ocean Springs). Then shipped **5 of 14 location pages LIVE**: #11 ocean-springs, #9 biloxi, #10 gulfport, #12 diberville, #18 bay-st-louis (built from the Gulf Coast market snapshot, fair-housing-reviewed, noindex, compliance-clean). Homepage city cards now link to the 5 live pages; the other 6 stay non-linked until built. **Remaining location pages (TODO): gautier, long-beach, pascagoula, pass-christian, moss-point, diamondhead + 3 county hubs.** Next: finish remaining city pages, then the tourism-style city guides (Things to Do / Best Restaurants per city, modeled on jacksoncountyms.com/guides — port/adapt the 13 Jackson County guides). Done at Rob's "start building" direction; he confirmed cities = Core 30 location tier.
