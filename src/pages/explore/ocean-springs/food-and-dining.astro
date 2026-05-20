@@ -1,0 +1,155 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+
+const groups = [
+  {
+    heading: 'The classics',
+    intro: 'The spots that have been here forever, for good reason.',
+    places: [
+      { name: 'Phoenicia Gourmet', meta: 'Lebanese · Government St · cash only', note: 'Been downtown for decades and earns it. The hummus is the standard every other hummus is measured against; get the lamb kebabs if they have them. Cash only — hit an ATM first.' },
+      { name: 'Aunt Jenny’s Catfish', meta: 'Fried catfish · Highway 90', note: 'Exactly what it sounds like — fried catfish, hush puppies, slaw, plastic tables. Order at the counter and try not to overdo it. You will overdo it.' },
+      { name: 'The Shed BBQ', meta: 'Barbecue · award-winning', note: 'Pulled pork, ribs, the whole deal. Award-winning and actually good — a rare combo. Beat the lunch rush or settle in for a wait.' },
+    ],
+  },
+  {
+    heading: 'Downtown',
+    intro: 'Walkable from Washington Avenue — date nights and easy lunches.',
+    places: [
+      { name: 'Vestige', meta: 'Fine dining · seasonal', note: 'The nice dinner spot. Local ingredients, a menu that changes with the season, cocktails someone clearly thought about. Where locals take out-of-towners to show off.' },
+      { name: 'Mosaic', meta: 'Tapas · wine bar', note: 'Small plates and a real wine list. Good for a date or when nobody can agree on one cuisine. The outdoor seating on a nice evening is hard to beat.' },
+      { name: 'Government Street Grocery', meta: 'Deli · sandwiches', note: 'Deli-market hybrid with excellent sandwiches. Grab one and walk it down to the harbor — that’s a perfect Ocean Springs lunch.' },
+    ],
+  },
+  {
+    heading: 'Seafood (obviously)',
+    intro: 'You’re on the Gulf Coast. This part is mandatory.',
+    places: [
+      { name: 'Pop’s Poboys', meta: 'Po-boys', note: 'The fried-shrimp po-boy that ruins other sandwiches for you. The bread matters and they get it right.' },
+      { name: 'Half Shell Oyster House', meta: 'Oysters · gumbo', note: 'Reliable oysters several ways — chargrilled if you want them hot, raw if you’re a purist — plus a solid gumbo.' },
+      { name: 'Bozo’s Seafood', meta: 'Seafood market + kitchen · since 1929', note: 'A seafood market that also feeds you, around since 1929. The fried platter is absurd in the best way.' },
+    ],
+  },
+  {
+    heading: 'Coffee & breakfast',
+    intro: 'Start the morning right before the market or the beach.',
+    places: [
+      { name: 'Tatonut', meta: 'Donuts', note: 'Excellent donuts made with a potato-flour recipe. Get there early on weekends or the good ones are gone — the maple bacon is worth the trip.' },
+      { name: 'Five Oaks Market & Coffee', meta: 'Coffee · breakfast', note: 'Breakfast sandwiches, decent coffee, a nice patio, and good people-watching.' },
+    ],
+  },
+];
+---
+
+<SiteLayout
+  title="Best Restaurants in Ocean Springs, MS — Where Locals Eat | Rob Recio"
+  description="A local’s guide to eating in Ocean Springs, Mississippi — Phoenicia, Vestige, the po-boy joints, Tatonut donuts, and the seafood worth the drive."
+  robots="noindex, nofollow, noarchive, nosnippet"
+>
+
+  <main class="guide">
+
+    <header class="guide-hero">
+      <p class="eyebrow"><a href="/explore" class="crumb">Explore</a> · <a href="/explore/ocean-springs" class="crumb">Ocean Springs</a> · Food &amp; Dining</p>
+      <h1>Where to eat in Ocean Springs, <em>according to someone who lives here.</em></h1>
+      <p class="lede">Ocean Springs punches way above its weight on food. For a town of 18,000, the dining would make cities five times the size jealous. Here&rsquo;s where the locals actually eat — no flip-flops judged, just show up hungry.</p>
+    </header>
+
+    {groups.map(g => (
+      <section class="guide-section">
+        <h2>{g.heading}</h2>
+        <p class="section-sub">{g.intro}</p>
+        <div class="place-list">
+          {g.places.map(p => (
+            <div class="place">
+              <div class="place-head">
+                <h3>{p.name}</h3>
+                <span class="place-meta">{p.meta}</span>
+              </div>
+              <p>{p.note}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    ))}
+
+    <section class="guide-section">
+      <h2>The deal</h2>
+      <p>Ocean Springs isn&rsquo;t trying to be New Orleans or Mobile. It&rsquo;s its own thing — a weird little art town on the water that happens to have great food. The vibe is casual everywhere; reservations only really matter at Vestige on a weekend. When you&rsquo;re done eating, the <a href="/explore/ocean-springs/activities">things-to-do guide</a> and the <a href="/explore/ocean-springs/exploration">outdoors guide</a> pick up from here.</p>
+    </section>
+
+    <section class="cta-block">
+      <h2>Eating your way down the Coast?</h2>
+      <p>I track new openings, pop-ups, and the spots worth the drive across all three counties in <strong>The Seawall</strong>, my twice-weekly Coast newsletter.</p>
+      <div class="cta-buttons">
+        <a href="/explore/ocean-springs" class="btn btn-primary">More Ocean Springs guides</a>
+        <a href="mailto:robrecio@gmail.com" class="btn btn-ghost">Ask Rob</a>
+      </div>
+      <p class="cta-note">Rob Recio lives in Ocean Springs and is in real-estate-licensure training in Mississippi. This is informational visitor content, not real-estate advice or a solicitation.</p>
+    </section>
+
+    <aside class="sources">
+      <h3>Good to know</h3>
+      <p class="sources-note"><strong>Verified May 2026.</strong> Restaurants come and go and hours shift with the season — call ahead for anything time-sensitive (and bring cash for Phoenicia). Spotted a place that closed or one I&rsquo;m missing? <a href="mailto:robrecio@gmail.com">Let me know</a> and I&rsquo;ll update it.</p>
+    </aside>
+
+  </main>
+
+</SiteLayout>
+
+<style>
+  .guide { max-width: var(--max); margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+  .guide-hero { max-width: var(--max-prose); margin: 0 auto 3rem; text-align: left; }
+  .eyebrow {
+    font-size: 0.78rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gulf); margin-bottom: 1.2rem;
+  }
+  .crumb { color: var(--gulf); text-decoration: none; }
+  .crumb:hover { text-decoration: underline; }
+  .guide-hero h1 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(2.25rem, 4.8vw, 3.4rem); line-height: 1.07;
+    letter-spacing: -0.022em; color: var(--ink);
+  }
+  .guide-hero h1 em { font-style: italic; color: var(--gulf-deep); }
+  .lede { font-size: 1.18rem; color: var(--ink-soft); margin-top: 1.5rem; line-height: 1.6; }
+
+  .guide-section { max-width: var(--max-prose); margin: 0 auto; padding: 2.5rem 0; border-top: 1px solid var(--line); }
+  .guide-section h2 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(1.6rem, 3.2vw, 2.1rem); line-height: 1.15;
+    letter-spacing: -0.018em; color: var(--ink); margin-bottom: 0.6rem;
+  }
+  .section-sub { color: var(--ink-soft); font-size: 1.05rem; margin-bottom: 1.6rem; line-height: 1.6; }
+  .guide-section > p { font-size: 1.06rem; color: var(--ink-soft); line-height: 1.7; margin-bottom: 1.1rem; }
+
+  .place-list { display: flex; flex-direction: column; gap: 0.8rem; }
+  .place {
+    background: var(--paper); border: 1px solid var(--line);
+    border-left: 3px solid var(--gulf); border-radius: 0 10px 10px 0;
+    padding: 1.1rem 1.3rem;
+  }
+  .place-head { display: flex; align-items: baseline; justify-content: space-between; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+  .place h3 { font-family: var(--serif); font-weight: 600; font-size: 1.18rem; color: var(--ink); }
+  .place-meta { font-size: 0.8rem; color: var(--gulf-deep); font-weight: 500; text-align: right; }
+  .place p { font-size: 0.97rem; color: var(--ink-soft); line-height: 1.6; margin: 0; }
+
+  .cta-block {
+    max-width: var(--max-prose); margin: 4rem auto 0; padding: 2.5rem 2rem;
+    background: var(--paper); border: 1px solid var(--line); border-radius: 14px; text-align: center;
+  }
+  .cta-block h2 { font-family: var(--serif); font-weight: 600; font-size: 1.8rem; color: var(--ink); margin-bottom: 0.8rem; }
+  .cta-block p { color: var(--ink-soft); font-size: 1.05rem; margin: 0 auto 1.5rem; max-width: 600px; }
+  .cta-block p strong { color: var(--ink); }
+  .cta-buttons { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .cta-note { font-size: 0.82rem !important; color: var(--ink-soft) !important; font-style: italic; margin-bottom: 0 !important; }
+
+  .sources {
+    max-width: var(--max-prose); margin: 2.5rem auto 0; padding: 1.4rem 1.6rem;
+    background: var(--sand); border: 1px solid var(--line); border-radius: 12px;
+  }
+  .sources h3 {
+    font-family: var(--serif); font-weight: 600; font-size: 1rem; color: var(--ink);
+    text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.6rem;
+  }
+  .sources-note { font-size: 0.88rem; color: var(--ink-soft); font-style: italic; margin: 0; line-height: 1.6; }
+</style>

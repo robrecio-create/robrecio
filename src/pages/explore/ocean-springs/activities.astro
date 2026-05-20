@@ -1,0 +1,148 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+
+const things = [
+  {
+    name: 'Walter Anderson Museum of Art',
+    meta: 'Downtown · the anchor',
+    note: 'Walter Anderson was a local who painted Gulf wildlife and spent stretches living alone on Horn Island. The work is strange and beautiful, and the museum runs rotating exhibits beyond the Anderson collection. Start here.',
+  },
+  {
+    name: 'The gallery scene',
+    meta: 'Washington Avenue',
+    note: 'Ocean Springs is an art town in the unpretentious way — retired painters and potters moved here and opened galleries. A dozen of them sit within walking distance downtown, most open Saturday afternoons. Browse without anyone pressuring you to buy.',
+  },
+  {
+    name: 'Friday Gallery Walk',
+    meta: 'Spring–fall · Friday evenings',
+    note: 'Galleries stay open late, there’s usually live music somewhere, and you can wander Washington Avenue with a drink from one of the bars. Low-key and very Ocean Springs.',
+  },
+  {
+    name: 'Saturday farmer’s market',
+    meta: 'Saturday mornings · off Washington Ave',
+    note: 'Local produce, bread, honey, and the like in the little park downtown. Gets crowded by 9 AM — go early, then get donuts.',
+  },
+  {
+    name: 'The Inner Harbor',
+    meta: 'Front Beach area',
+    note: 'Working shrimp boats and recreational sailboats share the same water. Worth a walk even if you never get on a boat — grab food and eat on the seawall, watch for pelicans.',
+  },
+  {
+    name: 'Biking around town',
+    meta: 'Flat · bike path on the beach road',
+    note: 'It’s flat, traffic is light, and there’s a path along the beach road. Rent from the shop on Government Street if you didn’t bring one. One of the best ways to see the place.',
+  },
+];
+---
+
+<SiteLayout
+  title="Things to Do in Ocean Springs, MS — A Local’s Guide | Rob Recio"
+  description="What to actually do in Ocean Springs, Mississippi — the Walter Anderson Museum, the gallery walk, the Saturday farmer’s market, the harbor, and biking the beach road."
+  robots="noindex, nofollow, noarchive, nosnippet"
+>
+
+  <main class="guide">
+
+    <header class="guide-hero">
+      <p class="eyebrow"><a href="/explore" class="crumb">Explore</a> · <a href="/explore/ocean-springs" class="crumb">Ocean Springs</a> · Activities</p>
+      <h1>Things to do in Ocean Springs, <em>without the tourist-brochure version.</em></h1>
+      <p class="lede">"The city of discovery" is a small-town slogan that, for once, holds up. There&rsquo;s more here than you&rsquo;d expect from a town this size — an art scene, a working harbor, a national-park unit in city limits. This guide covers the in-town activities; the <a href="/explore/ocean-springs/exploration">Exploration guide</a> handles the beaches, the bayou, and day trips.</p>
+    </header>
+
+    <section class="guide-section">
+      <h2>Start here</h2>
+      <p class="section-sub">The six things I&rsquo;d make sure a first-time visitor hit.</p>
+      <div class="place-list">
+        {things.map(t => (
+          <div class="place">
+            <div class="place-head">
+              <h3>{t.name}</h3>
+              <span class="place-meta">{t.meta}</span>
+            </div>
+            <p>{t.note}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="guide-section">
+      <h2>The vibe</h2>
+      <p>Ocean Springs is quiet — not dead, but quiet, in the way Coast towns are quiet. It&rsquo;s the kind of place where you recognize people at the grocery store. That&rsquo;s the appeal: it rewards a slow weekend more than a packed itinerary. Pick two or three of the above, leave time to just walk Washington Avenue, and you&rsquo;ve got it right. Hungry? The <a href="/explore/ocean-springs/food-and-dining">food guide</a> is next door.</p>
+    </section>
+
+    <section class="cta-block">
+      <h2>Looking for what’s on this week?</h2>
+      <p>Events, live music, gallery openings, and festivals across Jackson, Harrison, and Hancock counties go out twice a week in <strong>The Seawall</strong>, my Coast newsletter.</p>
+      <div class="cta-buttons">
+        <a href="/explore/ocean-springs" class="btn btn-primary">More Ocean Springs guides</a>
+        <a href="mailto:robrecio@gmail.com" class="btn btn-ghost">Ask Rob</a>
+      </div>
+      <p class="cta-note">Rob Recio lives in Ocean Springs and is in real-estate-licensure training in Mississippi. This is informational visitor content, not real-estate advice or a solicitation.</p>
+    </section>
+
+    <aside class="sources">
+      <h3>Good to know</h3>
+      <p class="sources-note"><strong>Verified May 2026.</strong> Gallery-walk and farmer&rsquo;s-market schedules are seasonal and can shift — confirm dates before you plan around them. Museum hours and admission are on the <a href="https://www.walterandersonmuseum.org" target="_blank" rel="noopener">Walter Anderson Museum site</a>.</p>
+    </aside>
+
+  </main>
+
+</SiteLayout>
+
+<style>
+  .guide { max-width: var(--max); margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+  .guide-hero { max-width: var(--max-prose); margin: 0 auto 3rem; text-align: left; }
+  .eyebrow {
+    font-size: 0.78rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gulf); margin-bottom: 1.2rem;
+  }
+  .crumb { color: var(--gulf); text-decoration: none; }
+  .crumb:hover { text-decoration: underline; }
+  .guide-hero h1 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(2.25rem, 4.8vw, 3.4rem); line-height: 1.07;
+    letter-spacing: -0.022em; color: var(--ink);
+  }
+  .guide-hero h1 em { font-style: italic; color: var(--gulf-deep); }
+  .lede { font-size: 1.18rem; color: var(--ink-soft); margin-top: 1.5rem; line-height: 1.6; }
+
+  .guide-section { max-width: var(--max-prose); margin: 0 auto; padding: 2.5rem 0; border-top: 1px solid var(--line); }
+  .guide-section h2 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(1.6rem, 3.2vw, 2.1rem); line-height: 1.15;
+    letter-spacing: -0.018em; color: var(--ink); margin-bottom: 0.6rem;
+  }
+  .section-sub { color: var(--ink-soft); font-size: 1.05rem; margin-bottom: 1.6rem; line-height: 1.6; }
+  .guide-section > p { font-size: 1.06rem; color: var(--ink-soft); line-height: 1.7; margin-bottom: 1.1rem; }
+
+  .place-list { display: flex; flex-direction: column; gap: 0.8rem; }
+  .place {
+    background: var(--paper); border: 1px solid var(--line);
+    border-left: 3px solid var(--gulf); border-radius: 0 10px 10px 0;
+    padding: 1.1rem 1.3rem;
+  }
+  .place-head { display: flex; align-items: baseline; justify-content: space-between; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+  .place h3 { font-family: var(--serif); font-weight: 600; font-size: 1.18rem; color: var(--ink); }
+  .place-meta { font-size: 0.8rem; color: var(--gulf-deep); font-weight: 500; text-align: right; }
+  .place p { font-size: 0.97rem; color: var(--ink-soft); line-height: 1.6; margin: 0; }
+
+  .cta-block {
+    max-width: var(--max-prose); margin: 4rem auto 0; padding: 2.5rem 2rem;
+    background: var(--paper); border: 1px solid var(--line); border-radius: 14px; text-align: center;
+  }
+  .cta-block h2 { font-family: var(--serif); font-weight: 600; font-size: 1.8rem; color: var(--ink); margin-bottom: 0.8rem; }
+  .cta-block p { color: var(--ink-soft); font-size: 1.05rem; margin: 0 auto 1.5rem; max-width: 600px; }
+  .cta-block p strong { color: var(--ink); }
+  .cta-buttons { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .cta-note { font-size: 0.82rem !important; color: var(--ink-soft) !important; font-style: italic; margin-bottom: 0 !important; }
+
+  .sources {
+    max-width: var(--max-prose); margin: 2.5rem auto 0; padding: 1.4rem 1.6rem;
+    background: var(--sand); border: 1px solid var(--line); border-radius: 12px;
+  }
+  .sources h3 {
+    font-family: var(--serif); font-weight: 600; font-size: 1rem; color: var(--ink);
+    text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.6rem;
+  }
+  .sources-note { font-size: 0.88rem; color: var(--ink-soft); font-style: italic; margin: 0; line-height: 1.6; }
+</style>

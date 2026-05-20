@@ -1,0 +1,161 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+
+const orient = [
+  { label: 'Where it is', value: 'East side of Biloxi Bay, in Jackson County. Biloxi is 15 minutes west across the bridge; Pascagoula 20 minutes east; Mobile an hour east; New Orleans 90 minutes west. Keesler AFB is about 20 minutes.' },
+  { label: 'The heart of town', value: 'Washington Avenue downtown — galleries, restaurants, a bookstore, a couple of bars, and the Saturday farmer’s market. It runs from the harbor up past the railroad tracks. If you base yourself near here, you can walk to most of the good stuff.' },
+  { label: 'Size & pace', value: 'About 18,000 people. Quiet in the good way. You’ll recognize faces by your second coffee. Plan for a slow weekend, not a packed itinerary.' },
+];
+---
+
+<SiteLayout
+  title="Ocean Springs Town Guide — Getting Oriented | Rob Recio"
+  description="How Ocean Springs, Mississippi is laid out, how to get around (including the golf-cart thing), and what to expect day to day — from a local."
+  robots="noindex, nofollow, noarchive, nosnippet"
+>
+
+  <main class="guide">
+
+    <header class="guide-hero">
+      <p class="eyebrow"><a href="/explore" class="crumb">Explore</a> · <a href="/explore/ocean-springs" class="crumb">Ocean Springs</a> · Town Guide</p>
+      <h1>Getting your bearings in Ocean Springs.</h1>
+      <p class="lede">The five-minute orientation: where things are, how to get around, and the couple of local quirks that make the town make sense once you know them.</p>
+    </header>
+
+    <section class="guide-section">
+      <h2>The lay of the land</h2>
+      <dl class="beats">
+        {orient.map(o => (
+          <div class="beat">
+            <dt>{o.label}</dt>
+            <dd>{o.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+    <section class="guide-section">
+      <h2>The railroad tracks matter</h2>
+      <p>A CSX line cuts east-west through the middle of town, and locals use "north of the tracks" and "south of the tracks" as everyday shorthand. North is higher ground and most of the older neighborhoods; south is the waterfront half — Front Beach, the Inner Harbor, East Beach. As a visitor you mostly care because it orients you: downtown straddles the tracks, the water is south, and the residential streets fan out north and west.</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>Getting around — and the golf-cart thing</h2>
+      <p>Downtown is walkable and the whole town is flat and bike-friendly (there’s a path along the beach road; rent on Government Street). But the thing visitors notice is the golf carts.</p>
+      <p class="callout"><strong>Ocean Springs really does run on golf carts.</strong> The city has an actual ordinance (City Code Chapter 14, Article V) that’s actively used. Registered carts can run any city street posted 30 mph or lower — which covers downtown, the historic district, much of the south-of-tracks half, and a lot of the west-side residential streets. The Highway 90 corridor splits the town for carts, so east-enders trailer in. From spring through fall you’ll see them everywhere. It’s not a gimmick — it’s part of how downtown actually works.</p>
+      <p>For visitors: a few local outfits rent carts, and some downtown lodging includes one. Otherwise a car gets you anywhere in town in under ten minutes, and parking downtown is free and easy outside of festival weekends.</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>When to come</h2>
+      <ul class="bullets">
+        <li><strong>Spring & fall</strong> are the sweet spot — gallery walks are running, the weather’s mild, and the festivals land in these windows.</li>
+        <li><strong>Summer</strong> is hot and humid (it’s the Gulf), but mornings on the water are gorgeous and the crowds are light compared to the Florida Panhandle.</li>
+        <li><strong>Saturday morning</strong> any time of year: farmer’s market, then donuts, then the harbor. That’s the move.</li>
+      </ul>
+    </section>
+
+    <section class="guide-section">
+      <h2>Practical bits</h2>
+      <ul class="bullets">
+        <li><strong>Base downtown</strong> if you can — walkability is the whole point.</li>
+        <li><strong>Bring a little cash</strong> — a few of the best spots (Phoenicia) are cash-only.</li>
+        <li><strong>The beach is the Mississippi Sound</strong>, not the open Gulf — calmer and murkier by design. Great for wading and sunsets, not Panama City surf. (More in the <a href="/explore/ocean-springs/exploration">Exploration guide</a>.)</li>
+        <li><strong>Day trips are easy</strong> in every direction — Biloxi’s casinos and lighthouse, Mobile’s history, New Orleans 90 minutes west.</li>
+      </ul>
+    </section>
+
+    <section class="cta-block">
+      <h2>Planning a Coast trip?</h2>
+      <p>I write <strong>The Seawall</strong> twice a week on what’s happening across the three counties — the easiest way to time your visit to a festival, a market, or a good music weekend.</p>
+      <div class="cta-buttons">
+        <a href="/explore/ocean-springs" class="btn btn-primary">More Ocean Springs guides</a>
+        <a href="mailto:robrecio@gmail.com" class="btn btn-ghost">Ask Rob</a>
+      </div>
+      <p class="cta-note">Rob Recio lives in Ocean Springs and is in real-estate-licensure training in Mississippi. This is informational visitor content, not real-estate advice or a solicitation.</p>
+    </section>
+
+    <aside class="sources">
+      <h3>Sources</h3>
+      <ul>
+        <li>City of Ocean Springs — <a href="https://oceansprings-ms.gov" target="_blank" rel="noopener">oceansprings-ms.gov</a></li>
+        <li>City of Ocean Springs — Golf Carts (Ch. 14, Art. V) — <a href="https://oceansprings-ms.gov/284/Golf-Carts" target="_blank" rel="noopener">oceansprings-ms.gov/284/Golf-Carts</a></li>
+      </ul>
+      <p class="sources-note"><strong>Verified May 2026.</strong> Golf-cart rules and registration details are set by city ordinance and can change — confirm current rules with the city before counting on them.</p>
+    </aside>
+
+  </main>
+
+</SiteLayout>
+
+<style>
+  .guide { max-width: var(--max); margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+  .guide-hero { max-width: var(--max-prose); margin: 0 auto 3rem; text-align: left; }
+  .eyebrow {
+    font-size: 0.78rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gulf); margin-bottom: 1.2rem;
+  }
+  .crumb { color: var(--gulf); text-decoration: none; }
+  .crumb:hover { text-decoration: underline; }
+  .guide-hero h1 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(2.25rem, 4.8vw, 3.4rem); line-height: 1.07;
+    letter-spacing: -0.022em; color: var(--ink);
+  }
+  .guide-hero h1 em { font-style: italic; color: var(--gulf-deep); }
+  .lede { font-size: 1.18rem; color: var(--ink-soft); margin-top: 1.5rem; line-height: 1.6; }
+
+  .guide-section { max-width: var(--max-prose); margin: 0 auto; padding: 2.5rem 0; border-top: 1px solid var(--line); }
+  .guide-section h2 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(1.6rem, 3.2vw, 2.1rem); line-height: 1.15;
+    letter-spacing: -0.018em; color: var(--ink); margin-bottom: 1.1rem;
+  }
+  .guide-section > p { font-size: 1.06rem; color: var(--ink-soft); line-height: 1.7; margin-bottom: 1.1rem; }
+  .guide-section > p:first-of-type { color: var(--ink); }
+
+  .bullets { margin: 0 0 1.2rem 0; padding-left: 1.4rem; color: var(--ink-soft); }
+  .bullets li { margin-bottom: 0.8rem; line-height: 1.65; }
+  .bullets li strong { color: var(--ink); }
+
+  .callout {
+    background: var(--sand); border-left: 3px solid var(--gulf);
+    padding: 1.1rem 1.3rem; border-radius: 0 8px 8px 0;
+    font-size: 0.98rem !important; color: var(--ink) !important; margin: 1.2rem 0;
+  }
+  .callout strong { color: var(--gulf-deep); }
+
+  .beats { display: flex; flex-direction: column; gap: 1rem; }
+  .beat {
+    background: var(--paper); border: 1px solid var(--line);
+    border-left: 3px solid var(--gulf); border-radius: 0 10px 10px 0; padding: 1rem 1.3rem;
+  }
+  .beat dt {
+    font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em;
+    font-weight: 600; color: var(--gulf-deep); margin-bottom: 0.3rem;
+  }
+  .beat dd { font-size: 0.98rem; color: var(--ink); line-height: 1.6; }
+
+  .cta-block {
+    max-width: var(--max-prose); margin: 4rem auto 0; padding: 2.5rem 2rem;
+    background: var(--paper); border: 1px solid var(--line); border-radius: 14px; text-align: center;
+  }
+  .cta-block h2 { font-family: var(--serif); font-weight: 600; font-size: 1.8rem; color: var(--ink); margin-bottom: 0.8rem; }
+  .cta-block p { color: var(--ink-soft); font-size: 1.05rem; margin: 0 auto 1.5rem; max-width: 600px; }
+  .cta-block p strong { color: var(--ink); }
+  .cta-buttons { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .cta-note { font-size: 0.82rem !important; color: var(--ink-soft) !important; font-style: italic; margin-bottom: 0 !important; }
+
+  .sources {
+    max-width: var(--max-prose); margin: 2.5rem auto 0; padding: 1.4rem 1.6rem;
+    background: var(--sand); border: 1px solid var(--line); border-radius: 12px;
+  }
+  .sources h3 {
+    font-family: var(--serif); font-weight: 600; font-size: 1rem; color: var(--ink);
+    text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.6rem;
+  }
+  .sources ul { list-style: none; padding: 0; margin-bottom: 0.8rem; }
+  .sources li { font-size: 0.9rem; color: var(--ink-soft); padding: 0.3rem 0; border-bottom: 1px dashed var(--line-strong); }
+  .sources li:last-child { border-bottom: none; }
+  .sources-note { font-size: 0.88rem; color: var(--ink-soft); font-style: italic; margin: 0; line-height: 1.6; }
+</style>

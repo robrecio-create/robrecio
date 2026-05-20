@@ -1,0 +1,143 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+
+const guides = [
+  {
+    slug: 'food-and-dining',
+    name: 'Food & Dining',
+    tag: 'Eat & drink',
+    blurb: 'Where the locals actually eat — Phoenicia, Vestige, the po-boy spots, Tatonut donuts, and the seafood that earns the drive.',
+  },
+  {
+    slug: 'activities',
+    name: 'Activities',
+    tag: 'Things to do',
+    blurb: 'Galleries, the Walter Anderson Museum, Friday gallery walks, the Saturday farmer’s market, the harbor, and biking the beach road.',
+  },
+  {
+    slug: 'town-guide',
+    name: 'Town Guide',
+    tag: 'Get oriented',
+    blurb: 'How the town is laid out, the railroad-tracks thing, getting around by golf cart, and what to expect day to day.',
+  },
+  {
+    slug: 'exploration',
+    name: 'Exploration',
+    tag: 'Outdoors & day trips',
+    blurb: 'Davis Bayou and Gulf Islands National Seashore, Horn Island, Front Beach sunsets, and easy day trips up and down the Coast.',
+  },
+];
+---
+
+<SiteLayout
+  title="Ocean Springs, MS — Visitor Guide | Rob Recio"
+  description="A local’s visitor guide to Ocean Springs, Mississippi — where to eat, what to do, how to get around, and where to explore. Written by Rob Recio, who lives here."
+  robots="noindex, nofollow, noarchive, nosnippet"
+>
+
+  <main class="guide">
+
+    <header class="guide-hero">
+      <p class="eyebrow"><a href="/explore" class="crumb">Explore the Coast</a> · Jackson County</p>
+      <h1>Ocean Springs, <em>the visitor’s guide.</em></h1>
+      <p class="lede">Ocean Springs calls itself "the city of discovery," and for once the slogan earns it. It&rsquo;s a walkable art town on the east side of Biloxi Bay — galleries, live oaks the size of houses, a harbor with working shrimp boats, and food that punches way above a town of 18,000. I live here. Here&rsquo;s how I&rsquo;d spend your time.</p>
+    </header>
+
+    <section class="guide-section">
+      <h2>Four guides to Ocean Springs</h2>
+      <div class="guide-grid">
+        {guides.map(g => (
+          <a href={`/explore/ocean-springs/${g.slug}`} class="guide-card">
+            <span class="guide-tag">{g.tag}</span>
+            <h3>{g.name} <span class="arrow">&rarr;</span></h3>
+            <p>{g.blurb}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="guide-section">
+      <h2>The 30-second version</h2>
+      <p>Come for a long weekend, base yourself downtown on or near Washington Avenue, and you can walk to most of what makes Ocean Springs worth the trip. Saturday morning is the farmer&rsquo;s market; Friday evening (spring through fall) is the gallery walk. Eat seafood at least once. Walk the harbor at golden hour. If you&rsquo;ve got a half day, get out to Davis Bayou in the Gulf Islands National Seashore — it&rsquo;s right in town and most visitors never find it.</p>
+      <p class="callout"><strong>House rule:</strong> everything below is a place I&rsquo;d actually send a friend. Hours and menus change — call ahead for anything time-sensitive, especially the cash-only spots and the seasonal events.</p>
+    </section>
+
+    <section class="cta-block">
+      <h2>Want the rest of the Coast?</h2>
+      <p>I cover all three counties — Jackson, Harrison, Hancock — in <strong>The Seawall</strong>, my twice-weekly newsletter on Coast events, music, food, and openings. More town guides going up here as I write them.</p>
+      <div class="cta-buttons">
+        <a href="/explore" class="btn btn-primary">All Coast guides</a>
+        <a href="mailto:robrecio@gmail.com" class="btn btn-ghost">Ask Rob</a>
+      </div>
+      <p class="cta-note">Rob Recio lives in Ocean Springs and is in real-estate-licensure training in Mississippi. This is informational visitor content — not real-estate advice or a solicitation.</p>
+    </section>
+
+  </main>
+
+</SiteLayout>
+
+<style>
+  .guide { max-width: var(--max); margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+  .guide-hero { max-width: var(--max-prose); margin: 0 auto 3rem; text-align: left; }
+  .eyebrow {
+    font-size: 0.78rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gulf); margin-bottom: 1.2rem;
+  }
+  .crumb { color: var(--gulf); text-decoration: none; }
+  .crumb:hover { text-decoration: underline; }
+  .guide-hero h1 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(2.25rem, 4.8vw, 3.4rem); line-height: 1.07;
+    letter-spacing: -0.022em; color: var(--ink);
+  }
+  .guide-hero h1 em { font-style: italic; color: var(--gulf-deep); }
+  .lede { font-size: 1.18rem; color: var(--ink-soft); margin-top: 1.5rem; line-height: 1.6; }
+
+  .guide-section { max-width: var(--max); margin: 0 auto; padding: 2.5rem 0; border-top: 1px solid var(--line); }
+  .guide-section h2 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(1.6rem, 3.2vw, 2.1rem); line-height: 1.15;
+    letter-spacing: -0.018em; color: var(--ink); margin-bottom: 1.2rem;
+    max-width: var(--max-prose); margin-left: auto; margin-right: auto;
+  }
+  .guide-section > p {
+    max-width: var(--max-prose); margin: 0 auto 1.1rem;
+    font-size: 1.06rem; color: var(--ink-soft); line-height: 1.7;
+  }
+  .guide-section > p:first-of-type { color: var(--ink); }
+
+  .guide-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .guide-card {
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: 12px; padding: 1.5rem 1.6rem; text-decoration: none;
+    display: block; transition: all 0.18s;
+  }
+  .guide-card:hover { border-color: var(--gulf); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(30, 81, 104, 0.1); }
+  .guide-tag {
+    display: block; font-size: 0.72rem; text-transform: uppercase;
+    letter-spacing: 0.1em; font-weight: 600; color: var(--gulf); margin-bottom: 0.5rem;
+  }
+  .guide-card h3 { font-family: var(--serif); font-weight: 600; font-size: 1.3rem; color: var(--ink); margin-bottom: 0.5rem; }
+  .guide-card .arrow { color: var(--gulf); transition: transform 0.18s; display: inline-block; }
+  .guide-card:hover .arrow { transform: translateX(4px); }
+  .guide-card p { font-size: 0.96rem; color: var(--ink-soft); line-height: 1.55; margin: 0; }
+  @media (max-width: 700px) { .guide-grid { grid-template-columns: 1fr; } }
+
+  .callout {
+    background: var(--sand); border-left: 3px solid var(--gulf);
+    padding: 1.1rem 1.3rem; border-radius: 0 8px 8px 0;
+    font-size: 0.98rem !important; color: var(--ink) !important;
+    max-width: var(--max-prose); margin: 1.2rem auto 0 !important;
+  }
+  .callout strong { color: var(--gulf-deep); }
+
+  .cta-block {
+    max-width: var(--max-prose); margin: 4rem auto 0; padding: 2.5rem 2rem;
+    background: var(--paper); border: 1px solid var(--line); border-radius: 14px; text-align: center;
+  }
+  .cta-block h2 { font-family: var(--serif); font-weight: 600; font-size: 1.8rem; color: var(--ink); margin-bottom: 0.8rem; }
+  .cta-block p { color: var(--ink-soft); font-size: 1.05rem; margin: 0 auto 1.5rem; max-width: 600px; }
+  .cta-block p strong { color: var(--ink); }
+  .cta-buttons { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .cta-note { font-size: 0.82rem !important; color: var(--ink-soft) !important; font-style: italic; margin-bottom: 0 !important; }
+</style>

@@ -1,0 +1,176 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+
+// City visitor hubs. ready:true = built and linked. Flip as each city ships.
+const cities = [
+  {
+    slug: 'ocean-springs',
+    name: 'Ocean Springs',
+    county: 'Jackson County',
+    blurb: 'The art town on the east side of Biloxi Bay — galleries, live oaks, a walkable downtown, and some of the best food on the Coast.',
+    ready: true,
+  },
+  { slug: 'biloxi', name: 'Biloxi', county: 'Harrison County', blurb: 'Lighthouse, casinos, the Maritime & Seafood Industry Museum, and the longest man-made beach in the country.', ready: false },
+  { slug: 'gulfport', name: 'Gulfport', county: 'Harrison County', blurb: 'The Coast’s commercial hub — Jones Park, the harbor, Ship Island ferry, and a growing downtown.', ready: false },
+  { slug: 'bay-st-louis', name: 'Bay St. Louis', county: 'Hancock County', blurb: 'Old Town, the beach, the arts walk, and a small-town waterfront that keeps landing on "best beach town" lists.', ready: false },
+  { slug: 'diberville', name: 'D’Iberville', county: 'Harrison County', blurb: 'Back Bay fishing, the Promenade, and an easy base on the north side of the bridge.', ready: false },
+];
+
+const categories = [
+  { name: 'Food & Dining', tag: 'Eat & drink' },
+  { name: 'Activities', tag: 'Things to do' },
+  { name: 'Town Guide', tag: 'Get oriented' },
+  { name: 'Exploration', tag: 'Outdoors & day trips' },
+];
+---
+
+<SiteLayout
+  title="Explore the Mississippi Gulf Coast — Local Visitor Guides | Rob Recio"
+  description="Honest, local visitor guides to the Mississippi Gulf Coast — where to eat, what to do, how to get around, and where to explore. Written by Rob Recio, who lives here."
+  robots="noindex, nofollow, noarchive, nosnippet"
+>
+
+  <main class="guide">
+
+    <header class="guide-hero">
+      <p class="eyebrow">Explore · The Mississippi Gulf Coast</p>
+      <h1>The Coast, <em>from someone who lives here.</em></h1>
+      <p class="lede">No tourism-board fluff. These are plain-talk visitor guides to the Mississippi Gulf Coast — <strong>where to eat</strong>, <strong>what to actually do</strong>, <strong>how to get around</strong>, and <strong>where to explore</strong> — town by town. I moved here in 2005, raised my kids here, and I send people to these places myself.</p>
+    </header>
+
+    <section class="guide-section">
+      <h2>Pick a town</h2>
+      <p class="section-sub">Each town has four guides: Food &amp; Dining, Activities, a Town Guide, and Exploration. More towns going up as I write them.</p>
+
+      <div class="city-grid">
+        {cities.map(c => (
+          c.ready ? (
+            <a href={`/explore/${c.slug}`} class="city-card city-card-ready">
+              <div class="city-card-body">
+                <div class="city-county">{c.county}</div>
+                <h3>{c.name} <span class="arrow">&rarr;</span></h3>
+                <p>{c.blurb}</p>
+              </div>
+            </a>
+          ) : (
+            <div class="city-card city-card-soon">
+              <div class="city-card-body">
+                <div class="city-county">{c.county}</div>
+                <h3>{c.name}</h3>
+                <p>{c.blurb}</p>
+                <span class="soon-tag">Guide coming soon</span>
+              </div>
+            </div>
+          )
+        ))}
+      </div>
+    </section>
+
+    <section class="guide-section">
+      <h2>What you&rsquo;ll find in every town guide</h2>
+      <div class="cat-row">
+        {categories.map(cat => (
+          <div class="cat-chip">
+            <span class="cat-tag">{cat.tag}</span>
+            <span class="cat-name">{cat.name}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="cta-block">
+      <h2>Coming to the Coast?</h2>
+      <p>I write about the Mississippi Gulf Coast in <strong>The Seawall</strong>, my twice-a-week newsletter on what&rsquo;s happening across Jackson, Harrison, and Hancock counties — events, music, openings, and the local stuff worth knowing. If you&rsquo;re visiting or thinking about moving here, it&rsquo;s the easiest way to get the lay of the land.</p>
+      <div class="cta-buttons">
+        <a href="mailto:robrecio@gmail.com" class="btn btn-primary">Ask Rob a Coast question</a>
+        <a href="/" class="btn btn-ghost">More about Rob</a>
+      </div>
+      <p class="cta-note">Rob Recio lives in Ocean Springs and is in real-estate-licensure training in Mississippi. These guides are informational visitor content — not real-estate advice or a solicitation.</p>
+    </section>
+
+  </main>
+
+</SiteLayout>
+
+<style>
+  .guide { max-width: var(--max); margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+
+  .guide-hero { max-width: var(--max-prose); margin: 0 auto 3rem; text-align: left; }
+  .eyebrow {
+    font-size: 0.78rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gulf); margin-bottom: 1.2rem;
+  }
+  .guide-hero h1 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(2.25rem, 4.8vw, 3.4rem); line-height: 1.07;
+    letter-spacing: -0.022em; color: var(--ink);
+  }
+  .guide-hero h1 em { font-style: italic; color: var(--gulf-deep); }
+  .lede { font-size: 1.18rem; color: var(--ink-soft); margin-top: 1.5rem; line-height: 1.6; }
+  .lede strong { color: var(--ink); }
+
+  .guide-section { max-width: var(--max); margin: 0 auto; padding: 2.5rem 0; border-top: 1px solid var(--line); }
+  .guide-section h2 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(1.6rem, 3.2vw, 2.1rem); line-height: 1.15;
+    letter-spacing: -0.018em; color: var(--ink); margin-bottom: 1.2rem;
+    max-width: var(--max-prose); margin-left: auto; margin-right: auto;
+  }
+  .section-sub {
+    color: var(--ink-soft); font-size: 1.05rem; margin: -0.4rem auto 1.8rem;
+    max-width: var(--max-prose); line-height: 1.6;
+  }
+
+  .city-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .city-card {
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: 12px; overflow: hidden; text-decoration: none; display: block;
+    transition: all 0.18s;
+  }
+  .city-card-ready:hover {
+    border-color: var(--gulf); transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(30, 81, 104, 0.1);
+  }
+  .city-card-body { padding: 1.5rem 1.6rem; }
+  .city-county {
+    font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.1em;
+    font-weight: 600; color: var(--gulf); margin-bottom: 0.5rem;
+  }
+  .city-card h3 {
+    font-family: var(--serif); font-weight: 600; font-size: 1.35rem;
+    color: var(--ink); margin-bottom: 0.5rem;
+  }
+  .city-card .arrow { color: var(--gulf); transition: transform 0.18s; display: inline-block; }
+  .city-card-ready:hover .arrow { transform: translateX(4px); }
+  .city-card p { font-size: 0.96rem; color: var(--ink-soft); line-height: 1.55; margin: 0; }
+  .city-card-soon { opacity: 0.62; }
+  .soon-tag {
+    display: inline-block; margin-top: 0.8rem; font-size: 0.78rem;
+    font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  @media (max-width: 700px) { .city-grid { grid-template-columns: 1fr; } }
+
+  .cat-row {
+    display: flex; flex-wrap: wrap; gap: 0.8rem;
+    max-width: var(--max-prose); margin: 0 auto;
+  }
+  .cat-chip {
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: 10px; padding: 0.9rem 1.2rem; flex: 1 1 200px;
+  }
+  .cat-tag {
+    display: block; font-size: 0.72rem; text-transform: uppercase;
+    letter-spacing: 0.1em; font-weight: 600; color: var(--gulf); margin-bottom: 0.25rem;
+  }
+  .cat-name { font-family: var(--serif); font-weight: 600; font-size: 1.1rem; color: var(--ink); }
+
+  .cta-block {
+    max-width: var(--max-prose); margin: 4rem auto 0; padding: 2.5rem 2rem;
+    background: var(--paper); border: 1px solid var(--line); border-radius: 14px; text-align: center;
+  }
+  .cta-block h2 { font-family: var(--serif); font-weight: 600; font-size: 1.8rem; color: var(--ink); margin-bottom: 0.8rem; }
+  .cta-block p { color: var(--ink-soft); font-size: 1.05rem; margin: 0 auto 1.5rem; max-width: 600px; }
+  .cta-block p strong { color: var(--ink); }
+  .cta-buttons { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .cta-note { font-size: 0.82rem !important; color: var(--ink-soft) !important; font-style: italic; margin-bottom: 0 !important; }
+</style>
