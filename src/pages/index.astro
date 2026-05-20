@@ -61,23 +61,37 @@ const areas = [
     </div>
   </nav>
 
-  <main>
+  <!-- Hero (full-bleed) -->
+  <section id="top" class="hero">
+    <video
+      class="hero-video"
+      autoplay
+      loop
+      muted
+      playsinline
+      preload="metadata"
+      poster="/rob-hero.jpg"
+      aria-hidden="true"
+    >
+      <source src="/videos/hero/img-2761-1080p.webm" type="video/webm" media="(min-width: 768px)" />
+      <source src="/videos/hero/img-2761-1080p.mp4" type="video/mp4" media="(min-width: 768px)" />
+      <source src="/videos/hero/img-2761-720p.webm" type="video/webm" />
+      <source src="/videos/hero/img-2761-720p.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-overlay" aria-hidden="true"></div>
 
-    <!-- Hero -->
-    <section id="top" class="hero">
-      <div class="hero-text">
-        <p class="eyebrow">Mississippi Gulf Coast · in training with Real Broker, LLC</p>
-        <h1>Your Mississippi Gulf Coast real estate agent —<br/><em>local, honest, ready when you are.</em></h1>
-        <p class="lede">Two decades on the Coast by choice. Builder, business owner, neighbor. Soon a licensed real estate agent — and already here to talk through your next move.</p>
-        <div class="hero-cta">
-          <a href="#contact" class="btn btn-primary">Talk to Rob</a>
-          <a href="#areas" class="btn btn-ghost">See the areas I serve</a>
-        </div>
+    <div class="hero-content">
+      <p class="eyebrow">Mississippi Gulf Coast · in training with Real Broker, LLC</p>
+      <h1>Your Mississippi Gulf Coast real estate agent —<br/><em>local, honest, ready when you are.</em></h1>
+      <p class="lede">Two decades on the Coast by choice. Builder, business owner, neighbor. Soon a licensed real estate agent — and already here to talk through your next move.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">Talk to Rob</a>
+        <a href="#areas" class="btn btn-ghost-light">See the areas I serve</a>
       </div>
-      <div class="hero-photo">
-        <img src="/rob-hero.jpg" alt="Rob Recio" width="1600" height="1800" loading="eager" />
-      </div>
-    </section>
+    </div>
+  </section>
+
+  <main>
 
     <!-- About -->
     <section id="about" class="about">
@@ -86,6 +100,9 @@ const areas = [
         <h2>Chose the Coast. Built here. Staying here.</h2>
       </div>
       <div class="about-grid">
+        <div class="about-portrait">
+          <img src="/rob-hero.jpg" alt="Rob Recio" width="800" height="900" loading="lazy" />
+        </div>
         <div class="about-body">
           <p>I'm Rob Recio. I moved to Ocean Springs from California in March 2005 — five months before Hurricane Katrina pretty much wiped our house off the map. We stayed. Twenty years later, the Coast is home, and Carla and I are raising Drake and Quinn here.</p>
           <p>Real estate isn't my first stop. I came to Mississippi to build a better life and ended up building businesses instead. That same year I bought <strong>Chandeleur Outfitters</strong>, ran it for sixteen years, opened a second location at Edgewater Mall, and sold it in 2021. Along the way I built a <strong>tax franchise</strong> to over 700 clients and started <strong>Zoofari</strong>, a motorized animal scooter operation that grew to eight locations in malls nationwide.</p>
@@ -200,7 +217,7 @@ const areas = [
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Top nav */
+  /* Top nav (translucent over hero, solid after scroll) */
   .topnav {
     position: sticky;
     top: 0;
@@ -280,39 +297,67 @@ const areas = [
     max-width: 600px;
   }
 
-  /* Hero */
+  /* Hero — full-bleed cinematic */
   .hero {
-    display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: 3.5rem;
-    align-items: center;
-    padding: 4rem 0 5rem;
+    position: relative;
+    width: 100%;
+    height: clamp(560px, 92vh, 880px);
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    isolation: isolate;
+  }
+  .hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      linear-gradient(to top,
+        rgba(14, 28, 43, 0.85) 0%,
+        rgba(14, 28, 43, 0.55) 45%,
+        rgba(14, 28, 43, 0.30) 100%);
+  }
+  .hero-content {
+    position: relative;
+    max-width: 760px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+    color: var(--paper);
   }
   .eyebrow {
     font-size: 0.8rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.14em;
-    color: var(--gulf);
+    color: rgba(255, 255, 255, 0.9);
     margin-bottom: 1.5rem;
   }
   h1 {
     font-family: var(--serif);
     font-weight: 600;
-    font-size: clamp(2.75rem, 6.5vw, 4.4rem);
-    line-height: 1.02;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    line-height: 1.04;
     letter-spacing: -0.025em;
-    color: var(--ink);
+    color: var(--paper);
   }
   h1 em {
     font-style: italic;
-    color: var(--gulf-deep);
+    color: #f3d9b8;
   }
   .lede {
-    font-size: 1.15rem;
-    color: var(--ink-soft);
-    margin-top: 1.5rem;
-    max-width: 540px;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.88);
+    margin-top: 1.4rem;
+    max-width: 620px;
     line-height: 1.55;
   }
   .hero-cta {
@@ -340,40 +385,34 @@ const areas = [
   .btn-primary:hover {
     background: var(--gulf-deep);
     transform: translateY(-1px);
-    box-shadow: 0 6px 18px rgba(30, 81, 104, 0.25);
+    box-shadow: 0 6px 18px rgba(30, 81, 104, 0.4);
   }
-  .btn-ghost {
-    color: var(--ink);
-    border-color: var(--line-strong);
+  .btn-ghost-light {
+    color: var(--paper);
+    border-color: rgba(255, 255, 255, 0.55);
     background: transparent;
   }
-  .btn-ghost:hover {
-    background: var(--sand);
-    border-color: var(--ink);
+  .btn-ghost-light:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--paper);
   }
-  .hero-photo {
-    aspect-ratio: 16 / 18;
-    overflow: hidden;
-    border-radius: 14px;
-    box-shadow: 0 30px 80px -30px rgba(14, 28, 43, 0.4);
-    background: var(--sand);
-  }
-  .hero-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 25%;
-    display: block;
+
+  /* Reduced-motion fallback: hide video, show poster image as background */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-video { display: none; }
+    .hero {
+      background-image: url("/rob-hero.jpg");
+      background-size: cover;
+      background-position: center 25%;
+    }
   }
 
   @media (max-width: 880px) {
     .hero {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-      padding: 2.5rem 0 3rem;
+      height: clamp(520px, 80vh, 720px);
     }
-    .hero-photo {
-      max-height: 460px;
+    .hero-content {
+      padding: 2rem 1.25rem 3rem;
     }
   }
 
@@ -381,6 +420,19 @@ const areas = [
   .about {
     padding: 5rem 0;
     border-top: 1px solid var(--line);
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  .about-portrait img {
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    box-shadow: 0 30px 80px -30px rgba(14, 28, 43, 0.4);
+    display: block;
   }
   .about-body p {
     font-size: 1.08rem;
@@ -395,6 +447,10 @@ const areas = [
     font-style: italic;
     color: var(--ink) !important;
     margin-top: 0.5rem !important;
+  }
+  @media (max-width: 760px) {
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .about-portrait { max-width: 320px; }
   }
 
   /* Areas */
