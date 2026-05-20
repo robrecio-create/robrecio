@@ -1,0 +1,162 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+
+const orient = [
+  { label: 'Where it is', value: 'The far west end of the Mississippi Coast, in Hancock County, on the west side of the Bay of St. Louis. Gulfport is about 16 miles east; Biloxi about 29; New Orleans roughly an hour west down I-10. Pass Christian sits just across the bridge to the east.' },
+  { label: 'The heart of town', value: 'Old Town — Main Street and Second Street — packed with galleries, antique shops, boutiques, and restaurants in colorful historic buildings, with the beach a block away on Beach Boulevard. Base yourself near here and you can walk to most of the good stuff.' },
+  { label: 'Size & pace', value: 'A small Coast town of around 10,000, artsy and unhurried. It keeps making national "best small town" lists for a reason. Plan for a slow weekend, not a packed itinerary.' },
+];
+---
+
+<SiteLayout
+  title="Bay St. Louis Town Guide — Getting Oriented | Rob Recio"
+  description="How Bay St. Louis, Mississippi is laid out — Old Town, the Depot District, the beach — how to get around, and what to expect day to day. From a writer who covers the Coast."
+  robots="noindex, nofollow, noarchive, nosnippet"
+>
+
+  <main class="guide">
+
+    <header class="guide-hero">
+      <p class="eyebrow"><a href="/explore" class="crumb">Explore</a> · <a href="/explore/bay-st-louis" class="crumb">Bay St. Louis</a> · Town Guide</p>
+      <h1>Getting your bearings in Bay St. Louis.</h1>
+      <p class="lede">The five-minute orientation: where things are, how to get around, and the couple of local quirks that make the town make sense once you know them.</p>
+    </header>
+
+    <section class="guide-section">
+      <h2>The lay of the land</h2>
+      <dl class="beats">
+        {orient.map(o => (
+          <div class="beat">
+            <dt>{o.label}</dt>
+            <dd>{o.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+    <section class="guide-section">
+      <h2>Old Town and the Depot District</h2>
+      <p>The Bay has two little hubs, and it helps to know the difference. <strong>Old Town</strong> is the waterfront core — Main and Second Streets, the galleries and restaurants, and the beach right there on Beach Boulevard. The <strong>Depot District</strong> is a short hop inland, built around the restored 1927 L&amp;N train depot, with its own cluster of shops and eateries. As a visitor you&rsquo;ll spend most of your time in Old Town, but the two are close enough to bounce between, and on Second Saturday the whole stretch lights up together.</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>Getting around — and the train thing</h2>
+      <p>Old Town is genuinely walkable, and the whole town is flat and easy on a bike — there&rsquo;s a beach trail that runs for miles along the water. But the thing worth knowing is the train.</p>
+      <p class="callout"><strong>The Bay is back on the passenger-rail map.</strong> Gulf Coast Amtrak service returned in 2025, and Bay St. Louis is a stop — the station sits in the Depot District. That means you can reach the Bay car-free from New Orleans or other Coast towns, step off near Old Town, and walk to the beach and the restaurants. Schedules are limited and change, so check Amtrak before you build a trip around it — but it&rsquo;s a real, charming way to arrive.</p>
+      <p>For everyone else: a car gets you anywhere in town in a few minutes, and parking around Old Town is generally easy outside of festival weekends and busy Second Saturdays.</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>When to come</h2>
+      <ul class="bullets">
+        <li><strong>Second Saturdays</strong> are the move any month — the Art Walk turns Old Town into a street party from late afternoon on.</li>
+        <li><strong>Spring &amp; fall</strong> are the sweet spot — mild weather, and most of the festivals land in these windows.</li>
+        <li><strong>Summer</strong> is hot and humid (it&rsquo;s the Gulf), but mornings on the beach are gorgeous and the crowds are lighter than the Florida Panhandle.</li>
+      </ul>
+    </section>
+
+    <section class="guide-section">
+      <h2>Practical bits</h2>
+      <ul class="bullets">
+        <li><strong>Base in or near Old Town</strong> if you can — walkability to the shops and the beach is the whole point.</li>
+        <li><strong>Check the calendar</strong> — timing a visit to a Second Saturday or a 100 Men Hall show changes the whole trip.</li>
+        <li><strong>The beach is the Mississippi Sound</strong>, not the open Gulf — calmer and murkier by design. Great for wading, biking the beach trail, and sunsets, not Panama City surf. (More in the <a href="/explore/bay-st-louis/exploration">Exploration guide</a>.)</li>
+        <li><strong>Day trips are easy</strong> — New Orleans is about an hour west, the rest of the Coast a short drive east, and Buccaneer State Park is minutes away in Waveland.</li>
+      </ul>
+    </section>
+
+    <section class="cta-block">
+      <h2>Planning a Coast trip?</h2>
+      <p>I write <strong>The Seawall</strong> twice a week on what&rsquo;s happening across the three counties — the easiest way to time your visit to a festival, an Art Walk, or a good music weekend.</p>
+      <div class="cta-buttons">
+        <a href="/explore/bay-st-louis" class="btn btn-primary">More Bay St. Louis guides</a>
+        <a href="mailto:robrecio@gmail.com" class="btn btn-ghost">Ask Rob</a>
+      </div>
+      <p class="cta-note">Rob Recio lives in Ocean Springs and is in real-estate-licensure training in Mississippi. This is informational visitor content, not real-estate advice or a solicitation.</p>
+    </section>
+
+    <aside class="sources">
+      <h3>Sources</h3>
+      <ul>
+        <li>City of Bay St. Louis — <a href="https://www.baystlouis-ms.gov" target="_blank" rel="noopener">baystlouis-ms.gov</a></li>
+        <li>Old Town Bay Saint Louis — <a href="https://www.baystlouisoldtown.com" target="_blank" rel="noopener">baystlouisoldtown.com</a></li>
+        <li>Amtrak — Bay St. Louis station (BAS) — <a href="https://www.amtrak.com/stations/bas" target="_blank" rel="noopener">amtrak.com/stations/bas</a></li>
+      </ul>
+      <p class="sources-note"><strong>Verified May 2026.</strong> Amtrak schedules and event calendars change — confirm current train times and Second Saturday dates with the official sources before counting on them.</p>
+    </aside>
+
+  </main>
+
+</SiteLayout>
+
+<style>
+  .guide { max-width: var(--max); margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+  .guide-hero { max-width: var(--max-prose); margin: 0 auto 3rem; text-align: left; }
+  .eyebrow {
+    font-size: 0.78rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gulf); margin-bottom: 1.2rem;
+  }
+  .crumb { color: var(--gulf); text-decoration: none; }
+  .crumb:hover { text-decoration: underline; }
+  .guide-hero h1 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(2.25rem, 4.8vw, 3.4rem); line-height: 1.07;
+    letter-spacing: -0.022em; color: var(--ink);
+  }
+  .guide-hero h1 em { font-style: italic; color: var(--gulf-deep); }
+  .lede { font-size: 1.18rem; color: var(--ink-soft); margin-top: 1.5rem; line-height: 1.6; }
+
+  .guide-section { max-width: var(--max-prose); margin: 0 auto; padding: 2.5rem 0; border-top: 1px solid var(--line); }
+  .guide-section h2 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(1.6rem, 3.2vw, 2.1rem); line-height: 1.15;
+    letter-spacing: -0.018em; color: var(--ink); margin-bottom: 1.1rem;
+  }
+  .guide-section > p { font-size: 1.06rem; color: var(--ink-soft); line-height: 1.7; margin-bottom: 1.1rem; }
+  .guide-section > p:first-of-type { color: var(--ink); }
+
+  .bullets { margin: 0 0 1.2rem 0; padding-left: 1.4rem; color: var(--ink-soft); }
+  .bullets li { margin-bottom: 0.8rem; line-height: 1.65; }
+  .bullets li strong { color: var(--ink); }
+
+  .callout {
+    background: var(--sand); border-left: 3px solid var(--gulf);
+    padding: 1.1rem 1.3rem; border-radius: 0 8px 8px 0;
+    font-size: 0.98rem !important; color: var(--ink) !important; margin: 1.2rem 0;
+  }
+  .callout strong { color: var(--gulf-deep); }
+
+  .beats { display: flex; flex-direction: column; gap: 1rem; }
+  .beat {
+    background: var(--paper); border: 1px solid var(--line);
+    border-left: 3px solid var(--gulf); border-radius: 0 10px 10px 0; padding: 1rem 1.3rem;
+  }
+  .beat dt {
+    font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em;
+    font-weight: 600; color: var(--gulf-deep); margin-bottom: 0.3rem;
+  }
+  .beat dd { font-size: 0.98rem; color: var(--ink); line-height: 1.6; }
+
+  .cta-block {
+    max-width: var(--max-prose); margin: 4rem auto 0; padding: 2.5rem 2rem;
+    background: var(--paper); border: 1px solid var(--line); border-radius: 14px; text-align: center;
+  }
+  .cta-block h2 { font-family: var(--serif); font-weight: 600; font-size: 1.8rem; color: var(--ink); margin-bottom: 0.8rem; }
+  .cta-block p { color: var(--ink-soft); font-size: 1.05rem; margin: 0 auto 1.5rem; max-width: 600px; }
+  .cta-block p strong { color: var(--ink); }
+  .cta-buttons { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .cta-note { font-size: 0.82rem !important; color: var(--ink-soft) !important; font-style: italic; margin-bottom: 0 !important; }
+
+  .sources {
+    max-width: var(--max-prose); margin: 2.5rem auto 0; padding: 1.4rem 1.6rem;
+    background: var(--sand); border: 1px solid var(--line); border-radius: 12px;
+  }
+  .sources h3 {
+    font-family: var(--serif); font-weight: 600; font-size: 1rem; color: var(--ink);
+    text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.6rem;
+  }
+  .sources ul { list-style: none; padding: 0; margin-bottom: 0.8rem; }
+  .sources li { font-size: 0.9rem; color: var(--ink-soft); padding: 0.3rem 0; border-bottom: 1px dashed var(--line-strong); }
+  .sources li:last-child { border-bottom: none; }
+  .sources-note { font-size: 0.88rem; color: var(--ink-soft); font-style: italic; margin: 0; line-height: 1.6; }
+</style>

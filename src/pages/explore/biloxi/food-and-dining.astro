@@ -1,0 +1,151 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+
+const groups = [
+  {
+    heading: 'The historic ones',
+    intro: 'Biloxi is old, and a couple of its best meals come with the history attached.',
+    places: [
+      { name: 'Mary Mahoney’s Old French House', meta: 'Seafood · steaks · historic · downtown', note: 'A Biloxi institution since 1964, set in a Creole-Greek-Revival house that dates to the 1830s with a live oak said to be hundreds of years old in the courtyard. Old-school Gulf seafood and steaks, white-tablecloth service, and a sense of occasion. This is where you take someone you want to impress.' },
+      { name: 'White Pillars', meta: 'Farm-to-table · fine dining · Beach Blvd', note: 'A restored 1905 neoclassical mansion on the National Register, reopened as a serious farm-to-table kitchen by Chef Austin Sumrall — a James Beard semifinalist and a Michelin Guide nod for the Coast. Dinner only, a few nights a week. Reserve ahead; this is the Coast at its most ambitious.' },
+    ],
+  },
+  {
+    heading: 'On the water',
+    intro: 'Seafood with a view — the harbor and the beachfront do this well.',
+    places: [
+      { name: 'McElroy’s Harbor House', meta: 'Seafood · Small Craft Harbor · since 1974', note: 'A family-run Biloxi staple parked right on the Small Craft Harbor with a wide view of the Sound. Fried platters, gumbo, po-boys — the unfussy Gulf seafood you came for, eaten while you watch the boats. Breakfast and lunch are reliable too.' },
+      { name: 'Shaggy’s Biloxi Beach', meta: 'Casual seafood · beachfront · Hwy 90', note: 'Beachfront, deck seating, frozen drinks, and a casual menu that does the basics well. It leans touristy and it leans fun — go for the view and the laid-back afternoon more than for a refined plate. A local mini-chain that started on the Coast.' },
+    ],
+  },
+  {
+    heading: 'Downtown',
+    intro: 'A short walk from the lighthouse and the Town Green.',
+    places: [
+      { name: 'Half Shell Oyster House', meta: 'Oysters · gumbo · downtown', note: 'The downtown Biloxi spot of a Coast-grown chain — the flagship is actually up the road in Gulfport, but this location, in a former bank building, holds its own. Chargrilled oysters, gumbo, and a solid raw bar in a handsome room.' },
+    ],
+  },
+  {
+    heading: 'Inside the resorts',
+    intro: 'Say what you want about casinos — the resort kitchens are genuinely good, and they don’t move with the season.',
+    places: [
+      { name: 'Beau Rivage dining', meta: 'Multiple restaurants · Beach Blvd', note: 'The Beau Rivage runs a full lineup of restaurants under one roof — steakhouse, buffet, casual, and more. The most consistently praised dining on the strip. You don’t have to gamble to eat here; check the resort’s current restaurant list before you go.' },
+      { name: 'Hard Rock & the other resort kitchens', meta: 'IP · Golden Nugget · Palace · Hard Rock', note: 'Each of the big resorts — Hard Rock, IP, Golden Nugget, Palace — carries its own steakhouse and buffet, and the quality is higher than you’d guess. Offerings rotate, so look up what’s open before you build a night around any one of them.' },
+    ],
+  },
+];
+---
+
+<SiteLayout
+  title="Best Restaurants in Biloxi, MS — Where to Eat Beyond the Buffet | Rob Recio"
+  description="A Coast local’s guide to eating in Biloxi, Mississippi — Mary Mahoney’s, White Pillars, the Small Craft Harbor seafood, downtown oysters, and the casino-resort kitchens worth the trip."
+  robots="noindex, nofollow, noarchive, nosnippet"
+>
+
+  <main class="guide">
+
+    <header class="guide-hero">
+      <p class="eyebrow"><a href="/explore" class="crumb">Explore</a> · <a href="/explore/biloxi" class="crumb">Biloxi</a> · Food &amp; Dining</p>
+      <h1>Where to eat in Biloxi, <em>past the casino buffet.</em></h1>
+      <p class="lede">Biloxi&rsquo;s food story is bigger than the gaming floors suggest. This is one of the oldest seafood towns on the Gulf, and it shows up in the historic dining rooms, the harbor kitchens, and — yes — the surprisingly good resort restaurants. Here&rsquo;s where I&rsquo;d eat, from a hundred-year-old mansion to a fried platter on the harbor.</p>
+    </header>
+
+    {groups.map(g => (
+      <section class="guide-section">
+        <h2>{g.heading}</h2>
+        <p class="section-sub">{g.intro}</p>
+        <div class="place-list">
+          {g.places.map(p => (
+            <div class="place">
+              <div class="place-head">
+                <h3>{p.name}</h3>
+                <span class="place-meta">{p.meta}</span>
+              </div>
+              <p>{p.note}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    ))}
+
+    <section class="guide-section">
+      <h2>The deal</h2>
+      <p>Biloxi gives you range most Coast towns can&rsquo;t — a James Beard–caliber tasting menu and a paper-tray fried platter within a few miles of each other. The historic spots and White Pillars want a reservation; everything else you can walk into. Don&rsquo;t sleep on the resort kitchens just because they&rsquo;re attached to a casino. When you&rsquo;re done eating, the <a href="/explore/biloxi/activities">things-to-do guide</a> and the <a href="/explore/biloxi/exploration">outdoors guide</a> pick up from here.</p>
+    </section>
+
+    <section class="cta-block">
+      <h2>Eating your way down the Coast?</h2>
+      <p>I track new openings, pop-ups, and the spots worth the drive across all three counties in <strong>The Seawall</strong>, my twice-weekly Coast newsletter.</p>
+      <div class="cta-buttons">
+        <a href="/explore/biloxi" class="btn btn-primary">More Biloxi guides</a>
+        <a href="mailto:robrecio@gmail.com" class="btn btn-ghost">Ask Rob</a>
+      </div>
+      <p class="cta-note">Rob Recio lives in Ocean Springs and is in real-estate-licensure training in Mississippi. This is informational visitor content, not real-estate advice or a solicitation.</p>
+    </section>
+
+    <aside class="sources">
+      <h3>Good to know</h3>
+      <p class="sources-note"><strong>Verified May 2026.</strong> Restaurants come and go and hours shift — call ahead for anything time-sensitive, and check current resort restaurant lists, which change often. Spotted a place that closed or one I&rsquo;m missing? <a href="mailto:robrecio@gmail.com">Let me know</a> and I&rsquo;ll update it.</p>
+    </aside>
+
+  </main>
+
+</SiteLayout>
+
+<style>
+  .guide { max-width: var(--max); margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+  .guide-hero { max-width: var(--max-prose); margin: 0 auto 3rem; text-align: left; }
+  .eyebrow {
+    font-size: 0.78rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gulf); margin-bottom: 1.2rem;
+  }
+  .crumb { color: var(--gulf); text-decoration: none; }
+  .crumb:hover { text-decoration: underline; }
+  .guide-hero h1 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(2.25rem, 4.8vw, 3.4rem); line-height: 1.07;
+    letter-spacing: -0.022em; color: var(--ink);
+  }
+  .guide-hero h1 em { font-style: italic; color: var(--gulf-deep); }
+  .lede { font-size: 1.18rem; color: var(--ink-soft); margin-top: 1.5rem; line-height: 1.6; }
+
+  .guide-section { max-width: var(--max-prose); margin: 0 auto; padding: 2.5rem 0; border-top: 1px solid var(--line); }
+  .guide-section h2 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(1.6rem, 3.2vw, 2.1rem); line-height: 1.15;
+    letter-spacing: -0.018em; color: var(--ink); margin-bottom: 0.6rem;
+  }
+  .section-sub { color: var(--ink-soft); font-size: 1.05rem; margin-bottom: 1.6rem; line-height: 1.6; }
+  .guide-section > p { font-size: 1.06rem; color: var(--ink-soft); line-height: 1.7; margin-bottom: 1.1rem; }
+
+  .place-list { display: flex; flex-direction: column; gap: 0.8rem; }
+  .place {
+    background: var(--paper); border: 1px solid var(--line);
+    border-left: 3px solid var(--gulf); border-radius: 0 10px 10px 0;
+    padding: 1.1rem 1.3rem;
+  }
+  .place-head { display: flex; align-items: baseline; justify-content: space-between; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+  .place h3 { font-family: var(--serif); font-weight: 600; font-size: 1.18rem; color: var(--ink); }
+  .place-meta { font-size: 0.8rem; color: var(--gulf-deep); font-weight: 500; text-align: right; }
+  .place p { font-size: 0.97rem; color: var(--ink-soft); line-height: 1.6; margin: 0; }
+
+  .cta-block {
+    max-width: var(--max-prose); margin: 4rem auto 0; padding: 2.5rem 2rem;
+    background: var(--paper); border: 1px solid var(--line); border-radius: 14px; text-align: center;
+  }
+  .cta-block h2 { font-family: var(--serif); font-weight: 600; font-size: 1.8rem; color: var(--ink); margin-bottom: 0.8rem; }
+  .cta-block p { color: var(--ink-soft); font-size: 1.05rem; margin: 0 auto 1.5rem; max-width: 600px; }
+  .cta-block p strong { color: var(--ink); }
+  .cta-buttons { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .cta-note { font-size: 0.82rem !important; color: var(--ink-soft) !important; font-style: italic; margin-bottom: 0 !important; }
+
+  .sources {
+    max-width: var(--max-prose); margin: 2.5rem auto 0; padding: 1.4rem 1.6rem;
+    background: var(--sand); border: 1px solid var(--line); border-radius: 12px;
+  }
+  .sources h3 {
+    font-family: var(--serif); font-weight: 600; font-size: 1rem; color: var(--ink);
+    text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.6rem;
+  }
+  .sources-note { font-size: 0.88rem; color: var(--ink-soft); font-style: italic; margin: 0; line-height: 1.6; }
+</style>

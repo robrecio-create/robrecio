@@ -1,0 +1,166 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+
+const orient = [
+  { label: 'Where it is', value: 'A peninsula on the Mississippi Sound in Harrison County, mid-Coast. Ocean Springs is 15 minutes east across the bay bridge; Gulfport 15 minutes west; Mobile about an hour east; New Orleans about 90 minutes west. Keesler Air Force Base sits on the west side of the city.' },
+  { label: 'The main drag', value: 'Highway 90 (Beach Boulevard) runs the length of the waterfront, the beach on one side and the casinos, lighthouse, and historic homes on the other. Downtown and Point Cadet are at the east end; the casino strip spreads along the beachfront. Almost everything a visitor wants is on or just off Highway 90.' },
+  { label: 'Size & pace', value: 'Around 50,000 people, and it feels bigger than the quieter Coast towns — the casinos keep it busy day and night. Livelier than Ocean Springs, more spread out, and built around the beachfront and the resorts.' },
+];
+---
+
+<SiteLayout
+  title="Biloxi Town Guide — Getting Oriented | Rob Recio"
+  description="How Biloxi, Mississippi is laid out along Highway 90, how to get around, the casino-and-history split, and what to expect from a Gulf Coast casino town — from a Coast local."
+  robots="noindex, nofollow, noarchive, nosnippet"
+>
+
+  <main class="guide">
+
+    <header class="guide-hero">
+      <p class="eyebrow"><a href="/explore" class="crumb">Explore</a> · <a href="/explore/biloxi" class="crumb">Biloxi</a> · Town Guide</p>
+      <h1>Getting your bearings in Biloxi.</h1>
+      <p class="lede">The five-minute orientation: where things are, how to get around, and the couple of things that make a Coast casino town make sense once you know them.</p>
+    </header>
+
+    <section class="guide-section">
+      <h2>The lay of the land</h2>
+      <dl class="beats">
+        {orient.map(o => (
+          <div class="beat">
+            <dt>{o.label}</dt>
+            <dd>{o.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+    <section class="guide-section">
+      <h2>Highway 90 is the spine</h2>
+      <p>Almost everything that matters to a visitor sits along Highway 90, the beachfront boulevard. The Gulf-side beach runs unbroken on the south; the casinos, the Biloxi Lighthouse (literally in the median), the Ohr-O&rsquo;Keefe museum, and the old Beach Boulevard mansions line the north. Head east and you reach downtown and Point Cadet — the lighthouse, the Town Green, the Maritime Museum, the Small Craft Harbor. Get oriented to Highway 90 and east-vs-west along it, and the whole city falls into place.</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>The two Biloxis</h2>
+      <p>It helps to think of Biloxi as two overlapping towns. There&rsquo;s the casino-resort Biloxi — the strip of big hotels, gaming floors, concerts, and spas built along the beach. And there&rsquo;s the historic seafood Biloxi — the lighthouse, the museums, the harbor, the old houses, Mary Mahoney&rsquo;s, Point Cadet.</p>
+      <p class="callout"><strong>The best Biloxi trips use both.</strong> Don&rsquo;t pick a side. A resort makes a comfortable, walkable beach base with good food on tap; the historic and harbor side is where you&rsquo;ll find the soul of the place. Mix a museum morning with a resort dinner and you&rsquo;ve cracked it.</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>Getting around</h2>
+      <p>A car is the easy answer — Highway 90 strings everything together and parking along the beach is free and plentiful. The casino strip is drivable in minutes end to end, and the resorts have their own (often free) parking.</p>
+      <p>Downtown and Point Cadet are walkable once you&rsquo;re there, and a Coast transit bus runs the beachfront corridor if you&rsquo;d rather not drive between stops. If you base at a beachfront resort, you can walk to the sand and to several attractions; for the rest, plan on a short drive.</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>When to come</h2>
+      <ul class="bullets">
+        <li><strong>Spring & fall</strong> are the sweet spot — mild weather, festivals at the Town Green, and the schooner sails and lighthouse climbs are reliably running.</li>
+        <li><strong>Summer</strong> is hot and humid (it&rsquo;s the Gulf) and the busiest beach season, but the casinos are climate-controlled and mornings on the water are gorgeous.</li>
+        <li><strong>Year-round</strong>, the resorts keep Biloxi going — concerts, dining, and gaming don&rsquo;t take a season off. Check who&rsquo;s playing before you pick a weekend.</li>
+      </ul>
+    </section>
+
+    <section class="guide-section">
+      <h2>Practical bits</h2>
+      <ul class="bullets">
+        <li><strong>A beachfront resort</strong> makes an easy base — the beach is across Highway 90 and there&rsquo;s food and parking on site.</li>
+        <li><strong>The beach is the Mississippi Sound</strong>, not the open Gulf — calmer and murkier by design, and it&rsquo;s a man-made sand beach. Great for wading and sunsets, not big surf. (More in the <a href="/explore/biloxi/exploration">Exploration guide</a>.)</li>
+        <li><strong>Lighthouse climbs and schooner sails</strong> depend on weather — confirm before you build a day around them.</li>
+        <li><strong>Day trips are easy</strong> in every direction — Ocean Springs&rsquo; art town 15 minutes east, Gulfport 15 west, Mobile&rsquo;s history an hour out, New Orleans 90 minutes down I-10.</li>
+      </ul>
+    </section>
+
+    <section class="cta-block">
+      <h2>Planning a Coast trip?</h2>
+      <p>I write <strong>The Seawall</strong> twice a week on what&rsquo;s happening across the three counties — the easiest way to time your visit to a festival, a concert, or a good weekend.</p>
+      <div class="cta-buttons">
+        <a href="/explore/biloxi" class="btn btn-primary">More Biloxi guides</a>
+        <a href="mailto:robrecio@gmail.com" class="btn btn-ghost">Ask Rob</a>
+      </div>
+      <p class="cta-note">Rob Recio lives in Ocean Springs and is in real-estate-licensure training in Mississippi. This is informational visitor content, not real-estate advice or a solicitation.</p>
+    </section>
+
+    <aside class="sources">
+      <h3>Sources</h3>
+      <ul>
+        <li>City of Biloxi — <a href="https://biloxi.ms.us" target="_blank" rel="noopener">biloxi.ms.us</a></li>
+        <li>Coastal Mississippi (visitor info) — <a href="https://www.coastalmississippi.com" target="_blank" rel="noopener">coastalmississippi.com</a></li>
+      </ul>
+      <p class="sources-note"><strong>Verified May 2026.</strong> Transit routes, parking, and resort details change — confirm current information with the city or venue before counting on it.</p>
+    </aside>
+
+  </main>
+
+</SiteLayout>
+
+<style>
+  .guide { max-width: var(--max); margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+  .guide-hero { max-width: var(--max-prose); margin: 0 auto 3rem; text-align: left; }
+  .eyebrow {
+    font-size: 0.78rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gulf); margin-bottom: 1.2rem;
+  }
+  .crumb { color: var(--gulf); text-decoration: none; }
+  .crumb:hover { text-decoration: underline; }
+  .guide-hero h1 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(2.25rem, 4.8vw, 3.4rem); line-height: 1.07;
+    letter-spacing: -0.022em; color: var(--ink);
+  }
+  .guide-hero h1 em { font-style: italic; color: var(--gulf-deep); }
+  .lede { font-size: 1.18rem; color: var(--ink-soft); margin-top: 1.5rem; line-height: 1.6; }
+
+  .guide-section { max-width: var(--max-prose); margin: 0 auto; padding: 2.5rem 0; border-top: 1px solid var(--line); }
+  .guide-section h2 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(1.6rem, 3.2vw, 2.1rem); line-height: 1.15;
+    letter-spacing: -0.018em; color: var(--ink); margin-bottom: 1.1rem;
+  }
+  .guide-section > p { font-size: 1.06rem; color: var(--ink-soft); line-height: 1.7; margin-bottom: 1.1rem; }
+  .guide-section > p:first-of-type { color: var(--ink); }
+
+  .bullets { margin: 0 0 1.2rem 0; padding-left: 1.4rem; color: var(--ink-soft); }
+  .bullets li { margin-bottom: 0.8rem; line-height: 1.65; }
+  .bullets li strong { color: var(--ink); }
+
+  .callout {
+    background: var(--sand); border-left: 3px solid var(--gulf);
+    padding: 1.1rem 1.3rem; border-radius: 0 8px 8px 0;
+    font-size: 0.98rem !important; color: var(--ink) !important; margin: 1.2rem 0;
+  }
+  .callout strong { color: var(--gulf-deep); }
+
+  .beats { display: flex; flex-direction: column; gap: 1rem; }
+  .beat {
+    background: var(--paper); border: 1px solid var(--line);
+    border-left: 3px solid var(--gulf); border-radius: 0 10px 10px 0; padding: 1rem 1.3rem;
+  }
+  .beat dt {
+    font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em;
+    font-weight: 600; color: var(--gulf-deep); margin-bottom: 0.3rem;
+  }
+  .beat dd { font-size: 0.98rem; color: var(--ink); line-height: 1.6; }
+
+  .cta-block {
+    max-width: var(--max-prose); margin: 4rem auto 0; padding: 2.5rem 2rem;
+    background: var(--paper); border: 1px solid var(--line); border-radius: 14px; text-align: center;
+  }
+  .cta-block h2 { font-family: var(--serif); font-weight: 600; font-size: 1.8rem; color: var(--ink); margin-bottom: 0.8rem; }
+  .cta-block p { color: var(--ink-soft); font-size: 1.05rem; margin: 0 auto 1.5rem; max-width: 600px; }
+  .cta-block p strong { color: var(--ink); }
+  .cta-buttons { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .cta-note { font-size: 0.82rem !important; color: var(--ink-soft) !important; font-style: italic; margin-bottom: 0 !important; }
+
+  .sources {
+    max-width: var(--max-prose); margin: 2.5rem auto 0; padding: 1.4rem 1.6rem;
+    background: var(--sand); border: 1px solid var(--line); border-radius: 12px;
+  }
+  .sources h3 {
+    font-family: var(--serif); font-weight: 600; font-size: 1rem; color: var(--ink);
+    text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.6rem;
+  }
+  .sources ul { list-style: none; padding: 0; margin-bottom: 0.8rem; }
+  .sources li { font-size: 0.9rem; color: var(--ink-soft); padding: 0.3rem 0; border-bottom: 1px dashed var(--line-strong); }
+  .sources li:last-child { border-bottom: none; }
+  .sources-note { font-size: 0.88rem; color: var(--ink-soft); font-style: italic; margin: 0; line-height: 1.6; }
+</style>

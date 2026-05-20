@@ -1,0 +1,146 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+
+const groups = [
+  {
+    heading: 'The local stuff',
+    intro: 'D’Iberville’s home-grown spots — where I’d send you before the chains.',
+    places: [
+      { name: 'Quave Brothers Po’Boys & Meat Market', meta: 'Po-boys · D’Iberville Blvd', note: 'A family po-boy joint and meat market that locals genuinely love. The roast-beef po-boy — dressed or pressed — is the order; the pot roast and shrimp versions have their own fans. Drive-thru and curbside if you’re in a hurry.' },
+      { name: 'Fresh Vietnamese Bistro & Teahouse', meta: 'Vietnamese · Promenade Pkwy', note: 'Family-owned, tucked in the Promenade next to Five Guys. Pho with a broth they simmer all day, summer rolls, banh mi, and seafood plates, with vegetarian and gluten-sensitive options. A nice break from fried-everything.' },
+      { name: 'Samurai Japanese Cuisine', meta: 'Sushi & hibachi · Sangani Blvd', note: 'Sushi, sashimi, ramen, and hibachi in the Sangani Boulevard cluster. Reliable when the group wants something other than Gulf seafood.' },
+    ],
+  },
+  {
+    heading: 'The Promenade row',
+    intro: 'No shame in it — the Promenade is a wall of dependable chain dining when you just need to feed people.',
+    places: [
+      { name: 'Five Guys', meta: 'Burgers · Promenade Pkwy', note: 'Burgers, fries, the works. Exactly what it is, right in the shopping center.' },
+      { name: 'Olive Garden', meta: 'Italian · the Promenade', note: 'Familiar Italian-American when the kids have voted and you’re outnumbered.' },
+      { name: 'Chick-fil-A & the rest', meta: 'Fast & casual · across the center', note: 'The Promenade and the Sangani strip carry the usual lineup — Chick-fil-A, Newk’s, Wendy’s, Outback, and more. It’s convenient, central, and never a long wait between options.' },
+    ],
+  },
+  {
+    heading: 'Across the bay',
+    intro: 'Part of D’Iberville’s appeal is what’s a five-minute bridge away.',
+    places: [
+      { name: 'Biloxi’s seafood houses', meta: '~5–10 min south', note: 'For the marquee Gulf-seafood meal — raw and chargrilled oysters, gumbo, the works — Biloxi is right across the Back Bay. Base in D’Iberville, eat your big seafood dinner over the bridge.' },
+      { name: 'Scarlet Pearl dining', meta: 'Central Ave · casino resort', note: 'The casino resort has its own restaurants and bars if you want everything under one roof for a night. Hours and lineup shift — check the resort before you count on a specific spot.' },
+    ],
+  },
+];
+---
+
+<SiteLayout
+  title="Where to Eat in D’Iberville, MS — Po-Boys, Pho & the Promenade | Rob Recio"
+  description="An honest guide to eating in D’Iberville, Mississippi — Quave Brothers po-boys, Fresh Vietnamese Bistro, Samurai sushi, the Promenade chains, and the Biloxi seafood a bridge away."
+  robots="noindex, nofollow, noarchive, nosnippet"
+>
+
+  <main class="guide">
+
+    <header class="guide-hero">
+      <p class="eyebrow"><a href="/explore" class="crumb">Explore</a> · <a href="/explore/diberville" class="crumb">D’Iberville</a> · Food &amp; Dining</p>
+      <h1>Where to eat in D’Iberville, <em>the honest version.</em></h1>
+      <p class="lede">I&rsquo;ll level with you: D’Iberville isn&rsquo;t a foodie destination the way some Coast towns are. What it has is a handful of genuinely good local spots, a giant row of dependable chains for when you just need to feed the crew, and Biloxi&rsquo;s seafood houses a five-minute bridge away. Here&rsquo;s how I&rsquo;d eat.</p>
+    </header>
+
+    {groups.map(g => (
+      <section class="guide-section">
+        <h2>{g.heading}</h2>
+        <p class="section-sub">{g.intro}</p>
+        <div class="place-list">
+          {g.places.map(p => (
+            <div class="place">
+              <div class="place-head">
+                <h3>{p.name}</h3>
+                <span class="place-meta">{p.meta}</span>
+              </div>
+              <p>{p.note}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    ))}
+
+    <section class="guide-section">
+      <h2>The deal</h2>
+      <p>The move in D’Iberville is simple: eat your local meals here — a Quave Brothers po-boy, a bowl of pho — and save the big sit-down seafood night for Biloxi over the bridge. It&rsquo;s casual everywhere, and the convenience is the whole point. When you&rsquo;re done eating, the <a href="/explore/diberville/activities">things-to-do guide</a> and the <a href="/explore/diberville/exploration">outdoors guide</a> pick up from here.</p>
+    </section>
+
+    <section class="cta-block">
+      <h2>Eating your way down the Coast?</h2>
+      <p>I track new openings, pop-ups, and the spots worth the drive across all three counties in <strong>The Seawall</strong>, my twice-weekly Coast newsletter.</p>
+      <div class="cta-buttons">
+        <a href="/explore/diberville" class="btn btn-primary">More D’Iberville guides</a>
+        <a href="mailto:robrecio@gmail.com" class="btn btn-ghost">Ask Rob</a>
+      </div>
+      <p class="cta-note">Rob Recio lives in Ocean Springs and is in real-estate-licensure training in Mississippi. This is informational visitor content, not real-estate advice or a solicitation.</p>
+    </section>
+
+    <aside class="sources">
+      <h3>Good to know</h3>
+      <p class="sources-note"><strong>Verified May 2026.</strong> Restaurants come and go and hours shift with the season — call ahead for anything time-sensitive. Spotted a place that closed or one I&rsquo;m missing? <a href="mailto:robrecio@gmail.com">Let me know</a> and I&rsquo;ll update it.</p>
+    </aside>
+
+  </main>
+
+</SiteLayout>
+
+<style>
+  .guide { max-width: var(--max); margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+  .guide-hero { max-width: var(--max-prose); margin: 0 auto 3rem; text-align: left; }
+  .eyebrow {
+    font-size: 0.78rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gulf); margin-bottom: 1.2rem;
+  }
+  .crumb { color: var(--gulf); text-decoration: none; }
+  .crumb:hover { text-decoration: underline; }
+  .guide-hero h1 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(2.25rem, 4.8vw, 3.4rem); line-height: 1.07;
+    letter-spacing: -0.022em; color: var(--ink);
+  }
+  .guide-hero h1 em { font-style: italic; color: var(--gulf-deep); }
+  .lede { font-size: 1.18rem; color: var(--ink-soft); margin-top: 1.5rem; line-height: 1.6; }
+
+  .guide-section { max-width: var(--max-prose); margin: 0 auto; padding: 2.5rem 0; border-top: 1px solid var(--line); }
+  .guide-section h2 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(1.6rem, 3.2vw, 2.1rem); line-height: 1.15;
+    letter-spacing: -0.018em; color: var(--ink); margin-bottom: 0.6rem;
+  }
+  .section-sub { color: var(--ink-soft); font-size: 1.05rem; margin-bottom: 1.6rem; line-height: 1.6; }
+  .guide-section > p { font-size: 1.06rem; color: var(--ink-soft); line-height: 1.7; margin-bottom: 1.1rem; }
+
+  .place-list { display: flex; flex-direction: column; gap: 0.8rem; }
+  .place {
+    background: var(--paper); border: 1px solid var(--line);
+    border-left: 3px solid var(--gulf); border-radius: 0 10px 10px 0;
+    padding: 1.1rem 1.3rem;
+  }
+  .place-head { display: flex; align-items: baseline; justify-content: space-between; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+  .place h3 { font-family: var(--serif); font-weight: 600; font-size: 1.18rem; color: var(--ink); }
+  .place-meta { font-size: 0.8rem; color: var(--gulf-deep); font-weight: 500; text-align: right; }
+  .place p { font-size: 0.97rem; color: var(--ink-soft); line-height: 1.6; margin: 0; }
+
+  .cta-block {
+    max-width: var(--max-prose); margin: 4rem auto 0; padding: 2.5rem 2rem;
+    background: var(--paper); border: 1px solid var(--line); border-radius: 14px; text-align: center;
+  }
+  .cta-block h2 { font-family: var(--serif); font-weight: 600; font-size: 1.8rem; color: var(--ink); margin-bottom: 0.8rem; }
+  .cta-block p { color: var(--ink-soft); font-size: 1.05rem; margin: 0 auto 1.5rem; max-width: 600px; }
+  .cta-block p strong { color: var(--ink); }
+  .cta-buttons { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .cta-note { font-size: 0.82rem !important; color: var(--ink-soft) !important; font-style: italic; margin-bottom: 0 !important; }
+
+  .sources {
+    max-width: var(--max-prose); margin: 2.5rem auto 0; padding: 1.4rem 1.6rem;
+    background: var(--sand); border: 1px solid var(--line); border-radius: 12px;
+  }
+  .sources h3 {
+    font-family: var(--serif); font-weight: 600; font-size: 1rem; color: var(--ink);
+    text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.6rem;
+  }
+  .sources-note { font-size: 0.88rem; color: var(--ink-soft); font-style: italic; margin: 0; line-height: 1.6; }
+</style>

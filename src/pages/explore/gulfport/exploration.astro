@@ -1,0 +1,169 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+
+const outdoors = [
+  {
+    name: 'Ship Island ferry — West Ship Island',
+    meta: 'From the harbor · seasonal · boat trip',
+    note: 'The signature Gulfport day trip. Ship Island Excursions runs the only public ferry from the Jones Park harbor out to West Ship Island, part of Gulf Islands National Seashore. It’s about an hour each way and you’ll often spot dolphins on the ride. The schedule is seasonal (roughly spring through fall) — check msshipisland.com and book ahead.',
+  },
+  {
+    name: 'Fort Massachusetts',
+    meta: 'On West Ship Island · national park',
+    note: 'A 19th-century brick coastal fort on the island, free to walk on your own or on a ranger-led tour after the ferry docks. Pair it with the island’s Gulf-side beach — this is the open Gulf, with clearer water than the mainland sound. Bring sunscreen, water, and whatever you want for the day; facilities are limited.',
+  },
+  {
+    name: 'The beach & harbor on Highway 90',
+    meta: 'Downtown waterfront',
+    note: 'The mainland beach is the Mississippi Sound — gentle, shallow, and made for wading and walking rather than surf. The small-craft harbor at Jones Park is a good stroll, and the whole waterfront faces south for easy water views. Free and right in the middle of town.',
+  },
+  {
+    name: 'Sunset on the water',
+    meta: 'The harbor · the beach · the pier',
+    note: 'Golden hour on the waterfront is the everyday show. The harbor promenade and the Jones Park area are the easy picks; anywhere along the Highway 90 beach works for a quiet end to the day.',
+  },
+];
+
+const daytrips = [
+  { name: 'Biloxi', meta: '15 min east', note: 'Casinos, the Biloxi Lighthouse, the Maritime & Seafood Industry Museum (great for understanding shrimping), and more beach access.' },
+  { name: 'Pass Christian & Bay St. Louis', meta: '15–30 min west', note: 'Quieter Hancock and west-Harrison towns — a walkable Old Town in Bay St. Louis, art and antique shops, and a slower-paced beach drive.' },
+  { name: 'Ocean Springs', meta: '25 min east', note: 'A walkable art town across Biloxi Bay — galleries, the Walter Anderson Museum, and a tight downtown. See the full Ocean Springs guides here too.' },
+  { name: 'New Orleans', meta: '~80 min west', note: 'You know what’s there. Easy day trip or overnight straight down I-10.' },
+];
+---
+
+<SiteLayout
+  title="Exploring Gulfport — Ship Island, Beaches & Day Trips | Rob Recio"
+  description="The outdoors guide to Gulfport, Mississippi — the Ship Island ferry to Fort Massachusetts and Gulf Islands National Seashore, the beach and harbor, and easy day trips along the Coast."
+  robots="noindex, nofollow, noarchive, nosnippet"
+>
+
+  <main class="guide">
+
+    <header class="guide-hero">
+      <p class="eyebrow"><a href="/explore" class="crumb">Explore</a> · <a href="/explore/gulfport" class="crumb">Gulfport</a> · Exploration</p>
+      <h1>Getting outside in Gulfport <em>— and what’s a short drive away.</em></h1>
+      <p class="lede">Gulfport&rsquo;s best outdoor draw isn&rsquo;t on the mainland at all — it&rsquo;s the ferry out to a barrier island and a historic fort. Add the harbor and the beach, and the city makes a great base for the wider Coast. Here&rsquo;s where to get into the water and the day trips that put the rest of the Coast within easy reach.</p>
+    </header>
+
+    <section class="guide-section">
+      <h2>On the water</h2>
+      <p class="section-sub">From the marquee island trip to the easy in-town waterfront.</p>
+      <div class="place-list">
+        {outdoors.map(o => (
+          <div class="place">
+            <div class="place-head">
+              <h3>{o.name}</h3>
+              <span class="place-meta">{o.meta}</span>
+            </div>
+            <p>{o.note}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="guide-section">
+      <h2>Day trips from Gulfport</h2>
+      <p class="section-sub">One of the best things about basing here: it&rsquo;s the middle of the Coast, so everywhere else is a short drive.</p>
+      <div class="place-list">
+        {daytrips.map(d => (
+          <div class="place">
+            <div class="place-head">
+              <h3>{d.name}</h3>
+              <span class="place-meta">{d.meta}</span>
+            </div>
+            <p>{d.note}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="guide-section">
+      <h2>A perfect outdoor day</h2>
+      <p>Catch the morning ferry from the harbor out to West Ship Island, walk Fort Massachusetts and the Gulf-side beach, ride back in the afternoon (watch for dolphins), then clean up and grab seafood on the Highway 90 beach for sunset. That&rsquo;s a Gulfport day built around the one thing you can&rsquo;t do anywhere else on the Coast. When you&rsquo;re ready to eat, the <a href="/explore/gulfport/food-and-dining">food guide</a> has the rest.</p>
+    </section>
+
+    <section class="cta-block">
+      <h2>Exploring the whole Coast?</h2>
+      <p>I cover the outdoors, the water, and the events across all three counties in <strong>The Seawall</strong>, my twice-weekly newsletter. More town Exploration guides going up here as I write them.</p>
+      <div class="cta-buttons">
+        <a href="/explore" class="btn btn-primary">All Coast guides</a>
+        <a href="mailto:robrecio@gmail.com" class="btn btn-ghost">Ask Rob</a>
+      </div>
+      <p class="cta-note">Rob Recio lives in Ocean Springs and is in real-estate-licensure training in Mississippi. This is informational visitor content, not real-estate advice or a solicitation.</p>
+    </section>
+
+    <aside class="sources">
+      <h3>Sources</h3>
+      <ul>
+        <li>Ship Island Excursions — <a href="https://msshipisland.com" target="_blank" rel="noopener">msshipisland.com</a></li>
+        <li>Gulf Islands National Seashore — <a href="https://www.nps.gov/guis" target="_blank" rel="noopener">nps.gov/guis</a></li>
+      </ul>
+      <p class="sources-note"><strong>Verified May 2026.</strong> The ferry runs a seasonal schedule and depends on weather, and park hours, fees, and tour times are set by the National Park Service — confirm at msshipisland.com and nps.gov/guis before you go.</p>
+    </aside>
+
+  </main>
+
+</SiteLayout>
+
+<style>
+  .guide { max-width: var(--max); margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+  .guide-hero { max-width: var(--max-prose); margin: 0 auto 3rem; text-align: left; }
+  .eyebrow {
+    font-size: 0.78rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gulf); margin-bottom: 1.2rem;
+  }
+  .crumb { color: var(--gulf); text-decoration: none; }
+  .crumb:hover { text-decoration: underline; }
+  .guide-hero h1 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(2.25rem, 4.8vw, 3.4rem); line-height: 1.07;
+    letter-spacing: -0.022em; color: var(--ink);
+  }
+  .guide-hero h1 em { font-style: italic; color: var(--gulf-deep); }
+  .lede { font-size: 1.18rem; color: var(--ink-soft); margin-top: 1.5rem; line-height: 1.6; }
+
+  .guide-section { max-width: var(--max-prose); margin: 0 auto; padding: 2.5rem 0; border-top: 1px solid var(--line); }
+  .guide-section h2 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(1.6rem, 3.2vw, 2.1rem); line-height: 1.15;
+    letter-spacing: -0.018em; color: var(--ink); margin-bottom: 0.6rem;
+  }
+  .section-sub { color: var(--ink-soft); font-size: 1.05rem; margin-bottom: 1.6rem; line-height: 1.6; }
+  .guide-section > p { font-size: 1.06rem; color: var(--ink-soft); line-height: 1.7; margin-bottom: 1.1rem; }
+  .guide-section > p:first-of-type { color: var(--ink); }
+
+  .place-list { display: flex; flex-direction: column; gap: 0.8rem; }
+  .place {
+    background: var(--paper); border: 1px solid var(--line);
+    border-left: 3px solid var(--gulf); border-radius: 0 10px 10px 0;
+    padding: 1.1rem 1.3rem;
+  }
+  .place-head { display: flex; align-items: baseline; justify-content: space-between; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+  .place h3 { font-family: var(--serif); font-weight: 600; font-size: 1.18rem; color: var(--ink); }
+  .place-meta { font-size: 0.8rem; color: var(--gulf-deep); font-weight: 500; text-align: right; }
+  .place p { font-size: 0.97rem; color: var(--ink-soft); line-height: 1.6; margin: 0; }
+
+  .cta-block {
+    max-width: var(--max-prose); margin: 4rem auto 0; padding: 2.5rem 2rem;
+    background: var(--paper); border: 1px solid var(--line); border-radius: 14px; text-align: center;
+  }
+  .cta-block h2 { font-family: var(--serif); font-weight: 600; font-size: 1.8rem; color: var(--ink); margin-bottom: 0.8rem; }
+  .cta-block p { color: var(--ink-soft); font-size: 1.05rem; margin: 0 auto 1.5rem; max-width: 600px; }
+  .cta-block p strong { color: var(--ink); }
+  .cta-buttons { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .cta-note { font-size: 0.82rem !important; color: var(--ink-soft) !important; font-style: italic; margin-bottom: 0 !important; }
+
+  .sources {
+    max-width: var(--max-prose); margin: 2.5rem auto 0; padding: 1.4rem 1.6rem;
+    background: var(--sand); border: 1px solid var(--line); border-radius: 12px;
+  }
+  .sources h3 {
+    font-family: var(--serif); font-weight: 600; font-size: 1rem; color: var(--ink);
+    text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.6rem;
+  }
+  .sources ul { list-style: none; padding: 0; margin-bottom: 0.8rem; }
+  .sources li { font-size: 0.9rem; color: var(--ink-soft); padding: 0.3rem 0; border-bottom: 1px dashed var(--line-strong); }
+  .sources li:last-child { border-bottom: none; }
+  .sources-note { font-size: 0.88rem; color: var(--ink-soft); font-style: italic; margin: 0; line-height: 1.6; }
+</style>

@@ -1,0 +1,174 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+
+const outdoors = [
+  {
+    name: 'The beach & Beach Boulevard',
+    meta: 'Old Town · a block from the shops',
+    note: 'The Bay&rsquo;s beach runs right along Beach Boulevard, a block from Old Town. This is the Mississippi Sound, not the open Gulf, so the water is calm and murkier by design — perfect for wading, a picnic, and watching the sunset rather than Panama City surf. Hard to beat being able to walk from a gallery to the sand.',
+  },
+  {
+    name: 'Bay-Waveland Beach Trail',
+    meta: 'Along the water · ~4.5 miles',
+    note: 'A flat paved path that runs from the Washington Street pier in the Bay, through Buccaneer State Park, to beyond the Waveland pier — roughly 4.5 miles of car-free walking and biking parallel to the beach, with eateries and stops along the way. The best way to see the shoreline.',
+  },
+  {
+    name: 'Walk or bike the bridge',
+    meta: 'St. Louis Bay Bridge · toward Pass Christian',
+    note: 'The 2-mile bridge to Pass Christian has a dedicated 12-foot path on the Gulf side, lined with public art and big open views across the bay. Parking sits near the Bay end. Free, breezy, and a local favorite for a sunset walk.',
+  },
+  {
+    name: 'Buccaneer State Park',
+    meta: 'Waveland · ~10 min west',
+    note: 'A Mississippi state park just west in Waveland, with the Pirate&rsquo;s Alley nature trail through coastal oaks and marsh, camping, and the Buccaneer Bay waterpark in season. An easy outdoors add-on if you&rsquo;ve got kids or a half day. Confirm waterpark season and hours before you go.',
+  },
+  {
+    name: 'Sunset over the bay',
+    meta: 'The beach · the harbor · the bridge',
+    note: 'The Bay faces its namesake water to the west, so golden hour is the everyday show. The beachfront and the municipal harbor are the easy picks; the bridge at blue hour is the photographer&rsquo;s pick.',
+  },
+];
+
+const daytrips = [
+  { name: 'New Orleans', meta: '~1 hr west', note: 'You know what&rsquo;s there. Easy day trip or overnight straight down I-10 — closer from the Bay than from anywhere else on the Coast.' },
+  { name: 'Gulfport & Biloxi', meta: '15–30 min east', note: 'Casinos, the Biloxi Lighthouse, the Maritime & Seafood Industry Museum, beaches, and more — the busier, big-resort end of the Coast.' },
+  { name: 'Pass Christian', meta: 'Across the bridge', note: 'A quieter neighbor right over the water — a small harbor, oak-lined streets, and its own scenic stretch of beach. An easy pairing with a Bay trip.' },
+  { name: 'Stennis & Infinity Science Center', meta: '~20 min west', note: 'NASA&rsquo;s rocket-testing center in Hancock County, with the Infinity Science Center as its public welcome center — exhibits and, at times, bus tours of the facility. A solid rainy-day or kid-friendly option.' },
+];
+---
+
+<SiteLayout
+  title="Exploring Bay St. Louis — Beaches, the Bike Trail & Day Trips | Rob Recio"
+  description="The outdoors guide to Bay St. Louis, Mississippi — the beach and Beach Boulevard, the Bay-Waveland bike trail, walking the bridge, Buccaneer State Park nearby, sunsets, and day trips."
+  robots="noindex, nofollow, noarchive, nosnippet"
+>
+
+  <main class="guide">
+
+    <header class="guide-hero">
+      <p class="eyebrow"><a href="/explore" class="crumb">Explore</a> · <a href="/explore/bay-st-louis" class="crumb">Bay St. Louis</a> · Exploration</p>
+      <h1>Getting outside in Bay St. Louis <em>— and what&rsquo;s a short drive away.</em></h1>
+      <p class="lede">The water is the whole reason the Bay feels the way it does — a beach a block from Old Town, miles of flat shoreline trail, and a bridge made for walking. Here&rsquo;s where to get into it, plus the day trips that make the Bay a great base for the west end of the Coast.</p>
+    </header>
+
+    <section class="guide-section">
+      <h2>On the water & along the shore</h2>
+      <p class="section-sub">In-town nature, in order of how easy it is to get to.</p>
+      <div class="place-list">
+        {outdoors.map(o => (
+          <div class="place">
+            <div class="place-head">
+              <h3>{o.name}</h3>
+              <span class="place-meta">{o.meta}</span>
+            </div>
+            <p>{o.note}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="guide-section">
+      <h2>Day trips from Bay St. Louis</h2>
+      <p class="section-sub">One of the best things about basing here: New Orleans and the rest of the Coast are both a short drive.</p>
+      <div class="place-list">
+        {daytrips.map(d => (
+          <div class="place">
+            <div class="place-head">
+              <h3>{d.name}</h3>
+              <span class="place-meta">{d.meta}</span>
+            </div>
+            <p>{d.note}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="guide-section">
+      <h2>A perfect outdoor day</h2>
+      <p>Coffee in Old Town, an early ride down the Bay-Waveland Beach Trail before it heats up, lunch on a harbor-front patio, an afternoon on the beach a block from the shops, and a sunset walk out onto the bridge. That&rsquo;s a Bay St. Louis day that costs almost nothing and beats most paid attractions. When you&rsquo;re ready to eat, the <a href="/explore/bay-st-louis/food-and-dining">food guide</a> has the rest.</p>
+    </section>
+
+    <section class="cta-block">
+      <h2>Exploring the whole Coast?</h2>
+      <p>I cover the outdoors, the water, and the events across all three counties in <strong>The Seawall</strong>, my twice-weekly newsletter. More town Exploration guides going up here as I write them.</p>
+      <div class="cta-buttons">
+        <a href="/explore" class="btn btn-primary">All Coast guides</a>
+        <a href="mailto:robrecio@gmail.com" class="btn btn-ghost">Ask Rob</a>
+      </div>
+      <p class="cta-note">Rob Recio lives in Ocean Springs and is in real-estate-licensure training in Mississippi. This is informational visitor content, not real-estate advice or a solicitation.</p>
+    </section>
+
+    <aside class="sources">
+      <h3>Sources</h3>
+      <ul>
+        <li>Buccaneer State Park (MDWFP) — <a href="https://www.mdwfp.com/parks-destinations/park/buccaneer-state-park" target="_blank" rel="noopener">mdwfp.com</a></li>
+        <li>Infinity Science Center — <a href="https://www.visitinfinity.com" target="_blank" rel="noopener">visitinfinity.com</a></li>
+      </ul>
+      <p class="sources-note"><strong>Verified May 2026.</strong> State-park hours, waterpark season, and Infinity tour availability change — confirm before you go. The bridge path and beach trail are free and open, but conditions depend on weather.</p>
+    </aside>
+
+  </main>
+
+</SiteLayout>
+
+<style>
+  .guide { max-width: var(--max); margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+  .guide-hero { max-width: var(--max-prose); margin: 0 auto 3rem; text-align: left; }
+  .eyebrow {
+    font-size: 0.78rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gulf); margin-bottom: 1.2rem;
+  }
+  .crumb { color: var(--gulf); text-decoration: none; }
+  .crumb:hover { text-decoration: underline; }
+  .guide-hero h1 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(2.25rem, 4.8vw, 3.4rem); line-height: 1.07;
+    letter-spacing: -0.022em; color: var(--ink);
+  }
+  .guide-hero h1 em { font-style: italic; color: var(--gulf-deep); }
+  .lede { font-size: 1.18rem; color: var(--ink-soft); margin-top: 1.5rem; line-height: 1.6; }
+
+  .guide-section { max-width: var(--max-prose); margin: 0 auto; padding: 2.5rem 0; border-top: 1px solid var(--line); }
+  .guide-section h2 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(1.6rem, 3.2vw, 2.1rem); line-height: 1.15;
+    letter-spacing: -0.018em; color: var(--ink); margin-bottom: 0.6rem;
+  }
+  .section-sub { color: var(--ink-soft); font-size: 1.05rem; margin-bottom: 1.6rem; line-height: 1.6; }
+  .guide-section > p { font-size: 1.06rem; color: var(--ink-soft); line-height: 1.7; margin-bottom: 1.1rem; }
+  .guide-section > p:first-of-type { color: var(--ink); }
+
+  .place-list { display: flex; flex-direction: column; gap: 0.8rem; }
+  .place {
+    background: var(--paper); border: 1px solid var(--line);
+    border-left: 3px solid var(--gulf); border-radius: 0 10px 10px 0;
+    padding: 1.1rem 1.3rem;
+  }
+  .place-head { display: flex; align-items: baseline; justify-content: space-between; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+  .place h3 { font-family: var(--serif); font-weight: 600; font-size: 1.18rem; color: var(--ink); }
+  .place-meta { font-size: 0.8rem; color: var(--gulf-deep); font-weight: 500; text-align: right; }
+  .place p { font-size: 0.97rem; color: var(--ink-soft); line-height: 1.6; margin: 0; }
+
+  .cta-block {
+    max-width: var(--max-prose); margin: 4rem auto 0; padding: 2.5rem 2rem;
+    background: var(--paper); border: 1px solid var(--line); border-radius: 14px; text-align: center;
+  }
+  .cta-block h2 { font-family: var(--serif); font-weight: 600; font-size: 1.8rem; color: var(--ink); margin-bottom: 0.8rem; }
+  .cta-block p { color: var(--ink-soft); font-size: 1.05rem; margin: 0 auto 1.5rem; max-width: 600px; }
+  .cta-block p strong { color: var(--ink); }
+  .cta-buttons { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .cta-note { font-size: 0.82rem !important; color: var(--ink-soft) !important; font-style: italic; margin-bottom: 0 !important; }
+
+  .sources {
+    max-width: var(--max-prose); margin: 2.5rem auto 0; padding: 1.4rem 1.6rem;
+    background: var(--sand); border: 1px solid var(--line); border-radius: 12px;
+  }
+  .sources h3 {
+    font-family: var(--serif); font-weight: 600; font-size: 1rem; color: var(--ink);
+    text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.6rem;
+  }
+  .sources ul { list-style: none; padding: 0; margin-bottom: 0.8rem; }
+  .sources li { font-size: 0.9rem; color: var(--ink-soft); padding: 0.3rem 0; border-bottom: 1px dashed var(--line-strong); }
+  .sources li:last-child { border-bottom: none; }
+  .sources-note { font-size: 0.88rem; color: var(--ink-soft); font-style: italic; margin: 0; line-height: 1.6; }
+</style>

@@ -1,0 +1,144 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+
+const groups = [
+  {
+    heading: 'Downtown',
+    intro: 'Walkable from the aquarium and Fishbone Alley — lunches, date nights, and a drink with the murals.',
+    places: [
+      { name: 'Half Shell Oyster House', meta: 'Oysters · 2500 13th St', note: 'The reliable downtown pick. Chargrilled oysters if you want them hot, raw if you’re a purist, plus a solid gumbo and New Orleans–leaning plates. Easy walk from the aquarium and busy on weekends.' },
+      { name: 'Salute Italian & Seafood', meta: 'Italian + seafood · 15th St', note: 'A local favorite since 2007 that blends Italian classics with Gulf seafood. Fresh pasta, an open kitchen, and a patio that’s good for a relaxed dinner downtown.' },
+      { name: 'Patio 44', meta: 'Southern + Creole · 24th Ave', note: 'Upscale-casual with a big patio and a Louisiana-influenced menu — shrimp and grits, gumbo, blackened fish, catfish, steaks. A handsome bar and a deep bourbon list.' },
+    ],
+  },
+  {
+    heading: 'On the beach',
+    intro: 'Right on Highway 90 with the water in view — casual, loud, and exactly what a Gulf Coast lunch should be.',
+    places: [
+      { name: 'Shaggy’s Gulfport Beach', meta: 'Seafood · 1724 E Beach Blvd', note: 'A Coast staple for outdoor dining. Peel-and-eat shrimp, crab cakes, tacos, cold margaritas, and an open-air deck looking at the Gulf. Family-friendly and lively.' },
+      { name: 'White Cap Seafood', meta: 'Seafood · 560 Beach Dr · since 1929', note: 'An old name on the Coast — it ran out of Jones Park for years before relocating. Fried platters, gumbo, and Gulf views. Note it’s closed Tuesdays; call ahead to be safe.' },
+    ],
+  },
+  {
+    heading: 'Coffee & breakfast',
+    intro: 'Start the morning before the aquarium or the ferry.',
+    places: [
+      { name: 'Boozer’s Brew & a Cafe Too', meta: 'Coffee · breakfast · 15th St (downtown)', note: 'A Gulfport institution that pulls double duty — house-made coffee, bagels, breakfast wraps, and a relaxed sit-down café downtown. There are a couple of other locations around town too, including a drive-thru.' },
+    ],
+  },
+];
+---
+
+<SiteLayout
+  title="Best Restaurants in Gulfport, MS — Where to Eat | Rob Recio"
+  description="A guide to eating in Gulfport, Mississippi — Half Shell oysters, Salute, Patio 44, White Cap, Shaggy’s on the beach, and downtown coffee."
+  robots="noindex, nofollow, noarchive, nosnippet"
+>
+
+  <main class="guide">
+
+    <header class="guide-hero">
+      <p class="eyebrow"><a href="/explore" class="crumb">Explore</a> · <a href="/explore/gulfport" class="crumb">Gulfport</a> · Food &amp; Dining</p>
+      <h1>Where to eat in Gulfport, <em>from someone who covers this Coast.</em></h1>
+      <p class="lede">Gulfport&rsquo;s food splits into two easy categories: the downtown spots clustered around the aquarium and Fishbone Alley, and the beach places strung along Highway 90 with the Gulf in view. You&rsquo;re on the coast, so seafood is the move — but the downtown scene has filled in nicely. Here&rsquo;s where I&rsquo;d send you, no flip-flops judged.</p>
+    </header>
+
+    {groups.map(g => (
+      <section class="guide-section">
+        <h2>{g.heading}</h2>
+        <p class="section-sub">{g.intro}</p>
+        <div class="place-list">
+          {g.places.map(p => (
+            <div class="place">
+              <div class="place-head">
+                <h3>{p.name}</h3>
+                <span class="place-meta">{p.meta}</span>
+              </div>
+              <p>{p.note}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    ))}
+
+    <section class="guide-section">
+      <h2>The deal</h2>
+      <p>Gulfport isn&rsquo;t a tiny art town you eat your way across in an afternoon — it&rsquo;s a real city, so the food is spread out and a car helps. Downtown around 13th Street and Fishbone Alley is your walkable cluster; the beach drive is your view-with-your-shrimp option. Casual everywhere, and the seafood is the through-line. When you&rsquo;re done eating, the <a href="/explore/gulfport/activities">things-to-do guide</a> and the <a href="/explore/gulfport/exploration">outdoors guide</a> pick up from here.</p>
+    </section>
+
+    <section class="cta-block">
+      <h2>Eating your way down the Coast?</h2>
+      <p>I track new openings, pop-ups, and the spots worth the drive across all three counties in <strong>The Seawall</strong>, my twice-weekly Coast newsletter.</p>
+      <div class="cta-buttons">
+        <a href="/explore/gulfport" class="btn btn-primary">More Gulfport guides</a>
+        <a href="mailto:robrecio@gmail.com" class="btn btn-ghost">Ask Rob</a>
+      </div>
+      <p class="cta-note">Rob Recio lives in Ocean Springs and is in real-estate-licensure training in Mississippi. This is informational visitor content, not real-estate advice or a solicitation.</p>
+    </section>
+
+    <aside class="sources">
+      <h3>Good to know</h3>
+      <p class="sources-note"><strong>Verified May 2026.</strong> Restaurants come and go and hours shift with the season — call ahead for anything time-sensitive (White Cap is closed Tuesdays). Spotted a place that closed or one I&rsquo;m missing? <a href="mailto:robrecio@gmail.com">Let me know</a> and I&rsquo;ll update it.</p>
+    </aside>
+
+  </main>
+
+</SiteLayout>
+
+<style>
+  .guide { max-width: var(--max); margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+  .guide-hero { max-width: var(--max-prose); margin: 0 auto 3rem; text-align: left; }
+  .eyebrow {
+    font-size: 0.78rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gulf); margin-bottom: 1.2rem;
+  }
+  .crumb { color: var(--gulf); text-decoration: none; }
+  .crumb:hover { text-decoration: underline; }
+  .guide-hero h1 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(2.25rem, 4.8vw, 3.4rem); line-height: 1.07;
+    letter-spacing: -0.022em; color: var(--ink);
+  }
+  .guide-hero h1 em { font-style: italic; color: var(--gulf-deep); }
+  .lede { font-size: 1.18rem; color: var(--ink-soft); margin-top: 1.5rem; line-height: 1.6; }
+
+  .guide-section { max-width: var(--max-prose); margin: 0 auto; padding: 2.5rem 0; border-top: 1px solid var(--line); }
+  .guide-section h2 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(1.6rem, 3.2vw, 2.1rem); line-height: 1.15;
+    letter-spacing: -0.018em; color: var(--ink); margin-bottom: 0.6rem;
+  }
+  .section-sub { color: var(--ink-soft); font-size: 1.05rem; margin-bottom: 1.6rem; line-height: 1.6; }
+  .guide-section > p { font-size: 1.06rem; color: var(--ink-soft); line-height: 1.7; margin-bottom: 1.1rem; }
+
+  .place-list { display: flex; flex-direction: column; gap: 0.8rem; }
+  .place {
+    background: var(--paper); border: 1px solid var(--line);
+    border-left: 3px solid var(--gulf); border-radius: 0 10px 10px 0;
+    padding: 1.1rem 1.3rem;
+  }
+  .place-head { display: flex; align-items: baseline; justify-content: space-between; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+  .place h3 { font-family: var(--serif); font-weight: 600; font-size: 1.18rem; color: var(--ink); }
+  .place-meta { font-size: 0.8rem; color: var(--gulf-deep); font-weight: 500; text-align: right; }
+  .place p { font-size: 0.97rem; color: var(--ink-soft); line-height: 1.6; margin: 0; }
+
+  .cta-block {
+    max-width: var(--max-prose); margin: 4rem auto 0; padding: 2.5rem 2rem;
+    background: var(--paper); border: 1px solid var(--line); border-radius: 14px; text-align: center;
+  }
+  .cta-block h2 { font-family: var(--serif); font-weight: 600; font-size: 1.8rem; color: var(--ink); margin-bottom: 0.8rem; }
+  .cta-block p { color: var(--ink-soft); font-size: 1.05rem; margin: 0 auto 1.5rem; max-width: 600px; }
+  .cta-block p strong { color: var(--ink); }
+  .cta-buttons { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .cta-note { font-size: 0.82rem !important; color: var(--ink-soft) !important; font-style: italic; margin-bottom: 0 !important; }
+
+  .sources {
+    max-width: var(--max-prose); margin: 2.5rem auto 0; padding: 1.4rem 1.6rem;
+    background: var(--sand); border: 1px solid var(--line); border-radius: 12px;
+  }
+  .sources h3 {
+    font-family: var(--serif); font-weight: 600; font-size: 1rem; color: var(--ink);
+    text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.6rem;
+  }
+  .sources-note { font-size: 0.88rem; color: var(--ink-soft); font-style: italic; margin: 0; line-height: 1.6; }
+</style>

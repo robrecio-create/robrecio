@@ -1,0 +1,148 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+
+const things = [
+  {
+    name: 'Second Saturday Art Walk',
+    meta: 'Old Town · 2nd Saturday monthly',
+    note: 'The Bay&rsquo;s signature night. On the second Saturday of every month, Old Town shops and galleries from downtown to Depot Row stay open with live music, deals, and a festive crawl. There&rsquo;s daytime activity, but the streets really come alive between 4 and 7 pm. If you can time your visit to one weekend, make it this one.',
+  },
+  {
+    name: 'The galleries & shops of Old Town',
+    meta: 'Main St · Second St',
+    note: 'A walkable cluster of art galleries, antique shops, and independent boutiques in colorful historic buildings — many on the National Register. You can browse for an afternoon without anyone pressuring you. This is the unpretentious, art-town side of the Coast.',
+  },
+  {
+    name: '100 Men Hall',
+    meta: 'Union St · live music · MS Blues Trail',
+    note: 'A genuinely historic juke joint — a Chitlin&rsquo; Circuit stop in its day, with a Mississippi Blues Trail marker out front. Now a nonprofit music and community venue running a packed calendar of blues, roots, and beyond. Check the schedule and catch a show if the dates line up.',
+  },
+  {
+    name: 'Alice Moseley Folk Art Museum',
+    meta: 'S Toulme St · free',
+    note: 'A small, free museum dedicated to the late folk artist Alice Moseley, whose plainspoken paintings are pure Gulf South. It moved into Old Town in early 2026. Quick, charming, and worth the stop — confirm hours before you go, as it&rsquo;s a small operation.',
+  },
+  {
+    name: 'Walk the bridge',
+    meta: 'St. Louis Bay Bridge · toward Pass Christian',
+    note: 'The bridge to Pass Christian has a dedicated 12-foot path on the Gulf side, dotted with public art, with parking near the Bay end. Walk or bike out for the breeze and the view across the bay — it&rsquo;s a free, easy, very local thing to do.',
+  },
+  {
+    name: 'The Depot District',
+    meta: 'Around the 1927 L&N Depot',
+    note: 'The restored historic train depot anchors a small district of shops and eateries, and it&rsquo;s the Amtrak stop now that Gulf Coast passenger service is back. A nice complement to Old Town if you want to wander a little farther from the beach.',
+  },
+];
+---
+
+<SiteLayout
+  title="Things to Do in Bay St. Louis, MS — A Coast Writer&rsquo;s Guide | Rob Recio"
+  description="What to actually do in Bay St. Louis, Mississippi — the Second Saturday Art Walk, the Old Town galleries, 100 Men Hall, the Alice Moseley Folk Art Museum, and walking the bridge."
+  robots="noindex, nofollow, noarchive, nosnippet"
+>
+
+  <main class="guide">
+
+    <header class="guide-hero">
+      <p class="eyebrow"><a href="/explore" class="crumb">Explore</a> · <a href="/explore/bay-st-louis" class="crumb">Bay St. Louis</a> · Activities</p>
+      <h1>Things to do in Bay St. Louis, <em>without the tourist-brochure version.</em></h1>
+      <p class="lede">The Bay punches above its size on art and music. There&rsquo;s more here than a small beach town has any right to — a real gallery scene, a historic blues hall, free museums, and a beach a block from all of it. This guide covers the in-town activities; the <a href="/explore/bay-st-louis/exploration">Exploration guide</a> handles the beach, the bike trail, and day trips.</p>
+    </header>
+
+    <section class="guide-section">
+      <h2>Start here</h2>
+      <p class="section-sub">The six things I&rsquo;d make sure a first-time visitor hit.</p>
+      <div class="place-list">
+        {things.map(t => (
+          <div class="place">
+            <div class="place-head">
+              <h3>{t.name}</h3>
+              <span class="place-meta">{t.meta}</span>
+            </div>
+            <p>{t.note}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="guide-section">
+      <h2>The vibe</h2>
+      <p>Bay St. Louis is creative and laid-back in a way the rest of the Coast isn&rsquo;t quite. It rewards a slow weekend more than a packed itinerary — wander Old Town, duck into a gallery, sit on the beach, catch some music. Pick two or three of the above, leave time to just walk Main and Second Streets, and you&rsquo;ve got it right. Hungry? The <a href="/explore/bay-st-louis/food-and-dining">food guide</a> is next door.</p>
+    </section>
+
+    <section class="cta-block">
+      <h2>Looking for what&rsquo;s on this week?</h2>
+      <p>Events, live music, gallery openings, and festivals across Jackson, Harrison, and Hancock counties go out twice a week in <strong>The Seawall</strong>, my Coast newsletter.</p>
+      <div class="cta-buttons">
+        <a href="/explore/bay-st-louis" class="btn btn-primary">More Bay St. Louis guides</a>
+        <a href="mailto:robrecio@gmail.com" class="btn btn-ghost">Ask Rob</a>
+      </div>
+      <p class="cta-note">Rob Recio lives in Ocean Springs and is in real-estate-licensure training in Mississippi. This is informational visitor content, not real-estate advice or a solicitation.</p>
+    </section>
+
+    <aside class="sources">
+      <h3>Good to know</h3>
+      <p class="sources-note"><strong>Verified May 2026.</strong> The Art Walk is the second Saturday monthly, but individual shop and museum hours are seasonal and can shift — confirm before you plan around them. The <a href="https://100menhall.com" target="_blank" rel="noopener">100 Men Hall</a> calendar and the <a href="https://www.baystlouisoldtown.com" target="_blank" rel="noopener">Old Town</a> events page have current dates.</p>
+    </aside>
+
+  </main>
+
+</SiteLayout>
+
+<style>
+  .guide { max-width: var(--max); margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+  .guide-hero { max-width: var(--max-prose); margin: 0 auto 3rem; text-align: left; }
+  .eyebrow {
+    font-size: 0.78rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gulf); margin-bottom: 1.2rem;
+  }
+  .crumb { color: var(--gulf); text-decoration: none; }
+  .crumb:hover { text-decoration: underline; }
+  .guide-hero h1 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(2.25rem, 4.8vw, 3.4rem); line-height: 1.07;
+    letter-spacing: -0.022em; color: var(--ink);
+  }
+  .guide-hero h1 em { font-style: italic; color: var(--gulf-deep); }
+  .lede { font-size: 1.18rem; color: var(--ink-soft); margin-top: 1.5rem; line-height: 1.6; }
+
+  .guide-section { max-width: var(--max-prose); margin: 0 auto; padding: 2.5rem 0; border-top: 1px solid var(--line); }
+  .guide-section h2 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(1.6rem, 3.2vw, 2.1rem); line-height: 1.15;
+    letter-spacing: -0.018em; color: var(--ink); margin-bottom: 0.6rem;
+  }
+  .section-sub { color: var(--ink-soft); font-size: 1.05rem; margin-bottom: 1.6rem; line-height: 1.6; }
+  .guide-section > p { font-size: 1.06rem; color: var(--ink-soft); line-height: 1.7; margin-bottom: 1.1rem; }
+
+  .place-list { display: flex; flex-direction: column; gap: 0.8rem; }
+  .place {
+    background: var(--paper); border: 1px solid var(--line);
+    border-left: 3px solid var(--gulf); border-radius: 0 10px 10px 0;
+    padding: 1.1rem 1.3rem;
+  }
+  .place-head { display: flex; align-items: baseline; justify-content: space-between; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+  .place h3 { font-family: var(--serif); font-weight: 600; font-size: 1.18rem; color: var(--ink); }
+  .place-meta { font-size: 0.8rem; color: var(--gulf-deep); font-weight: 500; text-align: right; }
+  .place p { font-size: 0.97rem; color: var(--ink-soft); line-height: 1.6; margin: 0; }
+
+  .cta-block {
+    max-width: var(--max-prose); margin: 4rem auto 0; padding: 2.5rem 2rem;
+    background: var(--paper); border: 1px solid var(--line); border-radius: 14px; text-align: center;
+  }
+  .cta-block h2 { font-family: var(--serif); font-weight: 600; font-size: 1.8rem; color: var(--ink); margin-bottom: 0.8rem; }
+  .cta-block p { color: var(--ink-soft); font-size: 1.05rem; margin: 0 auto 1.5rem; max-width: 600px; }
+  .cta-block p strong { color: var(--ink); }
+  .cta-buttons { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .cta-note { font-size: 0.82rem !important; color: var(--ink-soft) !important; font-style: italic; margin-bottom: 0 !important; }
+
+  .sources {
+    max-width: var(--max-prose); margin: 2.5rem auto 0; padding: 1.4rem 1.6rem;
+    background: var(--sand); border: 1px solid var(--line); border-radius: 12px;
+  }
+  .sources h3 {
+    font-family: var(--serif); font-weight: 600; font-size: 1rem; color: var(--ink);
+    text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.6rem;
+  }
+  .sources-note { font-size: 0.88rem; color: var(--ink-soft); font-style: italic; margin: 0; line-height: 1.6; }
+</style>

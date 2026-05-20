@@ -1,0 +1,148 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+
+const things = [
+  {
+    name: 'Mississippi Aquarium',
+    meta: 'Downtown · the anchor · E Beach Blvd',
+    note: 'The state aquarium, opened in 2020 on Highway 90 overlooking Jones Park. Dolphins, sharks, penguins, otters, alligators, and a mix of indoor and outdoor habitats — plus ticketed encounters by reservation. The most popular paid attraction in town and an easy half-day with kids. Start here.',
+  },
+  {
+    name: 'Jones Park & the harbor',
+    meta: 'Downtown · Hwy 49 at Hwy 90',
+    note: 'A 60-acre waterfront park with a 319-slip marina, a promenade, a replica lighthouse, an amphitheater, and a splash pad (open in the warm months). It’s where the Ship Island ferry launches and where a lot of downtown events happen. Worth a walk even if you never get on a boat.',
+  },
+  {
+    name: 'Lynn Meadows Discovery Center',
+    meta: 'Children’s museum · 246 Dolan Ave',
+    note: 'A nationally recognized children’s museum in a 1915 schoolhouse under big live oaks, blocks from the beach. Hands-on indoor exhibits plus oak-shaded outdoor play and a splash pad. One of the best things on the Coast for families with younger kids.',
+  },
+  {
+    name: 'Fishbone Alley',
+    meta: 'Downtown · between 26th & 27th Ave',
+    note: 'A downtown alley turned art-and-nightlife strip — ever-changing murals, string lights, and bars and restaurants that back onto it. Live music and festivals land here regularly. Good for a casual evening and the photos.',
+  },
+  {
+    name: 'Mississippi Aviation Heritage Museum',
+    meta: 'Pass Rd · STEM + history',
+    note: 'A hands-on museum covering Mississippi’s aviation history — touch tables, a flight simulator, a theater built like an airliner cabin, and live restoration work on real aircraft. A solid rainy-day option, especially with curious kids. Open limited days, so check before you go.',
+  },
+  {
+    name: 'The beach on Highway 90',
+    meta: 'Along the waterfront',
+    note: 'Gulfport’s man-made sand beach runs right along Highway 90 through the middle of town. It’s the Mississippi Sound — calmer and murkier than the open Gulf by design — so it’s made for wading, walking, and sunsets more than surf. Free and easy to pull off and enjoy.',
+  },
+];
+---
+
+<SiteLayout
+  title="Things to Do in Gulfport, MS — A Visitor’s Guide | Rob Recio"
+  description="What to actually do in Gulfport, Mississippi — the Mississippi Aquarium, Jones Park and the harbor, Lynn Meadows Discovery Center, Fishbone Alley, and the aviation museum."
+  robots="noindex, nofollow, noarchive, nosnippet"
+>
+
+  <main class="guide">
+
+    <header class="guide-hero">
+      <p class="eyebrow"><a href="/explore" class="crumb">Explore</a> · <a href="/explore/gulfport" class="crumb">Gulfport</a> · Activities</p>
+      <h1>Things to do in Gulfport, <em>without the tourist-brochure version.</em></h1>
+      <p class="lede">Gulfport packs more big-ticket attractions than its neighbors — a state aquarium, a real waterfront park, a standout children&rsquo;s museum, and a ferry to a barrier island. It&rsquo;s the Coast&rsquo;s hub, so plan to drive a little between things. This guide covers the in-town activities; the <a href="/explore/gulfport/exploration">Exploration guide</a> handles the Ship Island ferry, the beach, and day trips.</p>
+    </header>
+
+    <section class="guide-section">
+      <h2>Start here</h2>
+      <p class="section-sub">The six things I&rsquo;d make sure a first-time visitor hit.</p>
+      <div class="place-list">
+        {things.map(t => (
+          <div class="place">
+            <div class="place-head">
+              <h3>{t.name}</h3>
+              <span class="place-meta">{t.meta}</span>
+            </div>
+            <p>{t.note}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="guide-section">
+      <h2>The vibe</h2>
+      <p>Gulfport is busier and more spread out than the smaller Coast towns — it&rsquo;s a working city with a port, an airport, and a downtown that keeps adding to itself. The upside for visitors is that there&rsquo;s genuinely a lot to do, and a few of the attractions (the aquarium, the ferry, Lynn Meadows) are destinations on their own. Pick two or three, leave room for the beach and the harbor at sunset, and you&rsquo;ve got a good day. Hungry? The <a href="/explore/gulfport/food-and-dining">food guide</a> is next door.</p>
+    </section>
+
+    <section class="cta-block">
+      <h2>Looking for what’s on this week?</h2>
+      <p>Events, live music, festivals, and openings across Jackson, Harrison, and Hancock counties go out twice a week in <strong>The Seawall</strong>, my Coast newsletter.</p>
+      <div class="cta-buttons">
+        <a href="/explore/gulfport" class="btn btn-primary">More Gulfport guides</a>
+        <a href="mailto:robrecio@gmail.com" class="btn btn-ghost">Ask Rob</a>
+      </div>
+      <p class="cta-note">Rob Recio lives in Ocean Springs and is in real-estate-licensure training in Mississippi. This is informational visitor content, not real-estate advice or a solicitation.</p>
+    </section>
+
+    <aside class="sources">
+      <h3>Good to know</h3>
+      <p class="sources-note"><strong>Verified May 2026.</strong> Aquarium and museum hours, ticketing, and seasonal splash-pad/water-park schedules change — confirm before you plan around them. Aquarium details are on the <a href="https://www.msaquarium.org" target="_blank" rel="noopener">Mississippi Aquarium site</a>; the children&rsquo;s museum is at <a href="https://lmdc.org" target="_blank" rel="noopener">lmdc.org</a>.</p>
+    </aside>
+
+  </main>
+
+</SiteLayout>
+
+<style>
+  .guide { max-width: var(--max); margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+  .guide-hero { max-width: var(--max-prose); margin: 0 auto 3rem; text-align: left; }
+  .eyebrow {
+    font-size: 0.78rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gulf); margin-bottom: 1.2rem;
+  }
+  .crumb { color: var(--gulf); text-decoration: none; }
+  .crumb:hover { text-decoration: underline; }
+  .guide-hero h1 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(2.25rem, 4.8vw, 3.4rem); line-height: 1.07;
+    letter-spacing: -0.022em; color: var(--ink);
+  }
+  .guide-hero h1 em { font-style: italic; color: var(--gulf-deep); }
+  .lede { font-size: 1.18rem; color: var(--ink-soft); margin-top: 1.5rem; line-height: 1.6; }
+
+  .guide-section { max-width: var(--max-prose); margin: 0 auto; padding: 2.5rem 0; border-top: 1px solid var(--line); }
+  .guide-section h2 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(1.6rem, 3.2vw, 2.1rem); line-height: 1.15;
+    letter-spacing: -0.018em; color: var(--ink); margin-bottom: 0.6rem;
+  }
+  .section-sub { color: var(--ink-soft); font-size: 1.05rem; margin-bottom: 1.6rem; line-height: 1.6; }
+  .guide-section > p { font-size: 1.06rem; color: var(--ink-soft); line-height: 1.7; margin-bottom: 1.1rem; }
+
+  .place-list { display: flex; flex-direction: column; gap: 0.8rem; }
+  .place {
+    background: var(--paper); border: 1px solid var(--line);
+    border-left: 3px solid var(--gulf); border-radius: 0 10px 10px 0;
+    padding: 1.1rem 1.3rem;
+  }
+  .place-head { display: flex; align-items: baseline; justify-content: space-between; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+  .place h3 { font-family: var(--serif); font-weight: 600; font-size: 1.18rem; color: var(--ink); }
+  .place-meta { font-size: 0.8rem; color: var(--gulf-deep); font-weight: 500; text-align: right; }
+  .place p { font-size: 0.97rem; color: var(--ink-soft); line-height: 1.6; margin: 0; }
+
+  .cta-block {
+    max-width: var(--max-prose); margin: 4rem auto 0; padding: 2.5rem 2rem;
+    background: var(--paper); border: 1px solid var(--line); border-radius: 14px; text-align: center;
+  }
+  .cta-block h2 { font-family: var(--serif); font-weight: 600; font-size: 1.8rem; color: var(--ink); margin-bottom: 0.8rem; }
+  .cta-block p { color: var(--ink-soft); font-size: 1.05rem; margin: 0 auto 1.5rem; max-width: 600px; }
+  .cta-block p strong { color: var(--ink); }
+  .cta-buttons { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .cta-note { font-size: 0.82rem !important; color: var(--ink-soft) !important; font-style: italic; margin-bottom: 0 !important; }
+
+  .sources {
+    max-width: var(--max-prose); margin: 2.5rem auto 0; padding: 1.4rem 1.6rem;
+    background: var(--sand); border: 1px solid var(--line); border-radius: 12px;
+  }
+  .sources h3 {
+    font-family: var(--serif); font-weight: 600; font-size: 1rem; color: var(--ink);
+    text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.6rem;
+  }
+  .sources-note { font-size: 0.88rem; color: var(--ink-soft); font-style: italic; margin: 0; line-height: 1.6; }
+</style>

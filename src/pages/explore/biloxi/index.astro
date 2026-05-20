@@ -1,0 +1,143 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+
+const guides = [
+  {
+    slug: 'food-and-dining',
+    name: 'Food & Dining',
+    tag: 'Eat & drink',
+    blurb: 'Where to eat past the buffets — Mary Mahoney’s historic dining rooms, White Pillars, the Small Craft Harbor seafood, and the casino-resort kitchens worth the trip.',
+  },
+  {
+    slug: 'activities',
+    name: 'Activities',
+    tag: 'Things to do',
+    blurb: 'The lighthouse, the Maritime & Seafood Industry Museum and its schooners, the Frank Gehry–designed Ohr-O’Keefe, the Town Green, and the casino floors.',
+  },
+  {
+    slug: 'town-guide',
+    name: 'Town Guide',
+    tag: 'Get oriented',
+    blurb: 'How Biloxi is laid out along Highway 90, the casino-and-history split, getting around, and what to expect from a Coast casino town.',
+  },
+  {
+    slug: 'exploration',
+    name: 'Exploration',
+    tag: 'Outdoors & day trips',
+    blurb: 'The 26-mile man-made beach, Deer Island by kayak, Point Cadet harbor, and easy day trips up and down the Coast.',
+  },
+];
+---
+
+<SiteLayout
+  title="Biloxi, MS — Visitor Guide | Rob Recio"
+  description="A Coast local&rsquo;s visitor guide to Biloxi, Mississippi — where to eat, what to do, how to get around, and where to explore. Casinos, the lighthouse, museums, and the beach. Written by Rob Recio."
+  robots="noindex, nofollow, noarchive, nosnippet"
+>
+
+  <main class="guide">
+
+    <header class="guide-hero">
+      <p class="eyebrow"><a href="/explore" class="crumb">Explore the Coast</a> · Harrison County</p>
+      <h1>Biloxi, <em>the visitor&rsquo;s guide.</em></h1>
+      <p class="lede">Biloxi is the Coast&rsquo;s biggest draw, and it wears a few hats at once. It&rsquo;s a casino town — the strip of resorts along Highway 90 pulls most of the crowds. But it&rsquo;s also one of the oldest settlements on the Gulf, with a cast-iron lighthouse from 1848, a seafood heritage that built the place, and a Frank Gehry–designed art museum tucked under live oaks. I live fifteen minutes east in Ocean Springs, and I send people here all the time — for the museums, the historic restaurants, and the long man-made beach. Here&rsquo;s how I&rsquo;d steer you past the buffet and into the parts of Biloxi worth remembering.</p>
+    </header>
+
+    <section class="guide-section">
+      <h2>Four guides to Biloxi</h2>
+      <div class="guide-grid">
+        {guides.map(g => (
+          <a href={`/explore/biloxi/${g.slug}`} class="guide-card">
+            <span class="guide-tag">{g.tag}</span>
+            <h3>{g.name} <span class="arrow">&rarr;</span></h3>
+            <p>{g.blurb}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="guide-section">
+      <h2>The 30-second version</h2>
+      <p>Most people come to Biloxi for the casinos, and that&rsquo;s fine — the resort kitchens are genuinely good and the beach is right across Highway 90. But the city rewards anyone willing to look past the gaming floor. Climb the Biloxi Lighthouse, spend an hour at the Maritime & Seafood Industry Museum (and book a sail on one of its schooners if the season&rsquo;s right), and walk the Frank Gehry buildings at the Ohr-O&rsquo;Keefe. Eat at a historic spot like Mary Mahoney&rsquo;s. If you&rsquo;ve got a half day and decent weather, paddle out to Deer Island — it&rsquo;s barely offshore and almost nobody&rsquo;s on it.</p>
+      <p class="callout"><strong>House rule:</strong> everything below is a place I&rsquo;d actually send a friend. Hours, menus, and casino-resort offerings change constantly — call ahead or check the venue before you go, especially for lighthouse climbs and schooner sails, which depend on weather.</p>
+    </section>
+
+    <section class="cta-block">
+      <h2>Want the rest of the Coast?</h2>
+      <p>I cover all three counties — Jackson, Harrison, Hancock — in <strong>The Seawall</strong>, my twice-weekly newsletter on Coast events, music, food, and openings. More town guides going up here as I write them.</p>
+      <div class="cta-buttons">
+        <a href="/explore" class="btn btn-primary">All Coast guides</a>
+        <a href="mailto:robrecio@gmail.com" class="btn btn-ghost">Ask Rob</a>
+      </div>
+      <p class="cta-note">Rob Recio lives in Ocean Springs and is in real-estate-licensure training in Mississippi. This is informational visitor content — not real-estate advice or a solicitation.</p>
+    </section>
+
+  </main>
+
+</SiteLayout>
+
+<style>
+  .guide { max-width: var(--max); margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+  .guide-hero { max-width: var(--max-prose); margin: 0 auto 3rem; text-align: left; }
+  .eyebrow {
+    font-size: 0.78rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--gulf); margin-bottom: 1.2rem;
+  }
+  .crumb { color: var(--gulf); text-decoration: none; }
+  .crumb:hover { text-decoration: underline; }
+  .guide-hero h1 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(2.25rem, 4.8vw, 3.4rem); line-height: 1.07;
+    letter-spacing: -0.022em; color: var(--ink);
+  }
+  .guide-hero h1 em { font-style: italic; color: var(--gulf-deep); }
+  .lede { font-size: 1.18rem; color: var(--ink-soft); margin-top: 1.5rem; line-height: 1.6; }
+
+  .guide-section { max-width: var(--max); margin: 0 auto; padding: 2.5rem 0; border-top: 1px solid var(--line); }
+  .guide-section h2 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(1.6rem, 3.2vw, 2.1rem); line-height: 1.15;
+    letter-spacing: -0.018em; color: var(--ink); margin-bottom: 1.2rem;
+    max-width: var(--max-prose); margin-left: auto; margin-right: auto;
+  }
+  .guide-section > p {
+    max-width: var(--max-prose); margin: 0 auto 1.1rem;
+    font-size: 1.06rem; color: var(--ink-soft); line-height: 1.7;
+  }
+  .guide-section > p:first-of-type { color: var(--ink); }
+
+  .guide-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .guide-card {
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: 12px; padding: 1.5rem 1.6rem; text-decoration: none;
+    display: block; transition: all 0.18s;
+  }
+  .guide-card:hover { border-color: var(--gulf); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(30, 81, 104, 0.1); }
+  .guide-tag {
+    display: block; font-size: 0.72rem; text-transform: uppercase;
+    letter-spacing: 0.1em; font-weight: 600; color: var(--gulf); margin-bottom: 0.5rem;
+  }
+  .guide-card h3 { font-family: var(--serif); font-weight: 600; font-size: 1.3rem; color: var(--ink); margin-bottom: 0.5rem; }
+  .guide-card .arrow { color: var(--gulf); transition: transform 0.18s; display: inline-block; }
+  .guide-card:hover .arrow { transform: translateX(4px); }
+  .guide-card p { font-size: 0.96rem; color: var(--ink-soft); line-height: 1.55; margin: 0; }
+  @media (max-width: 700px) { .guide-grid { grid-template-columns: 1fr; } }
+
+  .callout {
+    background: var(--sand); border-left: 3px solid var(--gulf);
+    padding: 1.1rem 1.3rem; border-radius: 0 8px 8px 0;
+    font-size: 0.98rem !important; color: var(--ink) !important;
+    max-width: var(--max-prose); margin: 1.2rem auto 0 !important;
+  }
+  .callout strong { color: var(--gulf-deep); }
+
+  .cta-block {
+    max-width: var(--max-prose); margin: 4rem auto 0; padding: 2.5rem 2rem;
+    background: var(--paper); border: 1px solid var(--line); border-radius: 14px; text-align: center;
+  }
+  .cta-block h2 { font-family: var(--serif); font-weight: 600; font-size: 1.8rem; color: var(--ink); margin-bottom: 0.8rem; }
+  .cta-block p { color: var(--ink-soft); font-size: 1.05rem; margin: 0 auto 1.5rem; max-width: 600px; }
+  .cta-block p strong { color: var(--ink); }
+  .cta-buttons { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .cta-note { font-size: 0.82rem !important; color: var(--ink-soft) !important; font-style: italic; margin-bottom: 0 !important; }
+</style>
