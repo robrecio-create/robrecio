@@ -5,7 +5,7 @@ interface Props {
   robots?: string;
 }
 
-const { title, description, robots = "noindex, nofollow" } = Astro.props;
+const { title, description, robots = "index, follow" } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -39,7 +39,7 @@ const { title, description, robots = "noindex, nofollow" } = Astro.props;
   <footer>
     <div class="footer-inner">
       <p class="disclosure">
-        Rob Recio is currently <strong>in training and not yet licensed</strong> as a Mississippi real estate agent. Joining <strong>Real Broker, LLC</strong>. This site is informational. No services are offered, and no agency relationship is created, until licensure is complete. Content will be updated upon licensure.
+        Rob Recio · <strong>Licensed Mississippi Real Estate Salesperson #S-62221</strong> · <strong>Real Broker, LLC</strong> · Equal Housing Opportunity.
       </p>
       <p class="copy">© {new Date().getFullYear()} Rob Recio · Ocean Springs, MS</p>
     </div>
