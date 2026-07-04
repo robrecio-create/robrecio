@@ -1,0 +1,255 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+---
+
+<SiteLayout
+  title="Buying a Home on the Mississippi Gulf Coast | Rob Recio"
+  description="How buying works on the Mississippi Gulf Coast — flood zones, the three-policy insurance reality, build eras, and a local agent who tells you the real number first."
+  robots="index, follow"
+>
+
+  <main class="guide">
+
+    <header class="guide-hero">
+      <p class="eyebrow">How I Help · Buyers</p>
+      <h1>Buying on the Coast, <em>without the surprises.</em></h1>
+
+      <aside class="pre-license-banner" role="note" aria-label="Pre-licensure notice">
+        <p><strong>Heads up.</strong> I'm a licensed Mississippi real estate salesperson (License #S-62221) with Real Broker, LLC. This page is general information — not legal, tax, or insurance advice.</p>
+      </aside>
+
+      <p class="lede">Buying a home on the Mississippi Gulf Coast is not like buying inland — and it's not like buying on other coasts either. The towns change character every ten minutes down Highway 90, the flood map moves block to block, and the insurance stack can make or break a deal that looks perfect on Zillow. <strong>My job is to put the real numbers in front of you <em>before</em> you fall in love.</strong></p>
+    </header>
+
+    <section class="guide-section">
+      <h2>What's different about buying here</h2>
+      <ul class="bullets">
+        <li><strong>The flood zone is half the conversation.</strong> VE, AE, X — the letters on the FEMA map drive your insurance bill, your lender's requirements, and your resale story. I check the current FIRM panel on every home before we tour it. <a href="/guides/coastal-ms-flood-zones">Plain-talk flood guide →</a></li>
+        <li><strong>Three insurance policies, not one.</strong> South of I-10, most homes carry homeowners (ex-wind) + Wind Pool + flood. Budget $5K–$13K/year on a ~$300K home near the water; far less inland. Named-storm deductibles are percentage-based — read them before the premium.</li>
+        <li><strong>Build era matters more than curb appeal.</strong> Post-2011 elevated construction insures cleanest. Pre-Katrina slab homes in flood zones are the hardest to insure affordably. I flag build era and foundation type on every listing I send you.</li>
+        <li><strong>The deals that don't make it to Zillow.</strong> Coast inventory moves through relationships — estate sales, pre-list conversations, investor trades. Twenty years of operating businesses here means I hear about things early.</li>
+      </ul>
+    </section>
+
+    <section class="guide-section">
+      <h2>How I work with buyers</h2>
+      <ol class="bullets steps">
+        <li><strong>The real-number conversation first.</strong> Budget, monthly payment <em>including</em> the insurance stack, towns that fit. Thirty minutes, no forms, no drip emails.</li>
+        <li><strong>A shortlist that's already vetted.</strong> Every home I send has the flood zone, build era, and likely insurance picture attached. The pretty-but-uninsurable ones die here, not at closing.</li>
+        <li><strong>Tours that tell the truth.</strong> I'll show you the neighborhood at 5 PM on a Friday, not just the staged living room. Schools, drainage, the street after a hard rain — the stuff you'd learn your first year, before you buy.</li>
+        <li><strong>Offer strategy for this market.</strong> The Coast is a specific market — pricing patterns, seasonal rhythm (spring/summer peak, PCS waves), and seller expectations differ town to town.</li>
+        <li><strong>Contract to keys.</strong> Inspection, elevation certificate if we need one, insurance binding, closing. I stay on it daily.</li>
+      </ol>
+    </section>
+
+    <section class="guide-section">
+      <h2>Who I work with most</h2>
+      <p><strong>Out-of-state movers</strong> relocating for lifestyle, remote work, or retirement (<a href="/relocation">start with the relocation guide</a>) · <strong>first-time buyers</strong> figuring out what monthly cost really looks like here · <strong>families trading up or down</strong> within the Coast · <strong>investors</strong> running numbers on long-term and short-term rentals — where the STR ordinances actually allow them.</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>What it costs you</h2>
+      <p>Nothing out of pocket for my time as your buyer's agent — compensation is negotiated in the transaction, and I'll explain exactly how that works in Mississippi before we sign anything. No surprises is the whole brand.</p>
+    </section>
+
+    <section class="cta-block">
+      <h2>Start the conversation</h2>
+      <p>Tell me what you're looking for and what you're afraid of getting wrong. I'll tell you honestly whether the Coast — and which part of it — fits.</p>
+      <div class="cta-buttons">
+        <a href="tel:+12283251502" class="btn btn-primary">Call or text Rob — (228) 325-1502</a>
+        <a href="mailto:rob@robrecio.com" class="btn btn-ghost">Email Rob</a>
+      </div>
+      <p class="cta-note">Rob Recio is a licensed Mississippi real estate salesperson (#S-62221) with Real Broker, LLC · Equal Housing Opportunity.</p>
+    </section>
+
+    <aside class="sources">
+      <h3>On this site</h3>
+      <ul>
+        <li><a href="/relocation">Relocation guide</a> · <a href="/guides/coastal-ms-flood-zones">Flood zones</a> · <a href="/guides/ms-homestead-exemption">Homestead exemption</a> · <a href="/#areas">Area guides</a></li>
+      </ul>
+    </aside>
+
+  </main>
+
+</SiteLayout>
+
+<style>
+  .guide {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 3rem 1.5rem 4rem;
+  }
+
+  .guide-hero {
+    max-width: var(--max-prose);
+    margin: 0 auto 4rem;
+    text-align: left;
+  }
+  .eyebrow {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gulf);
+    margin-bottom: 1.2rem;
+  }
+  .guide-hero h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(2.25rem, 4.8vw, 3.4rem);
+    line-height: 1.07;
+    letter-spacing: -0.022em;
+    color: var(--ink);
+  }
+  .guide-hero h1 em {
+    font-style: italic;
+    color: var(--gulf-deep);
+  }
+  .pre-license-banner {
+    margin-top: 1.6rem;
+    padding: 1rem 1.3rem;
+    background: var(--sand);
+    border: 1px solid var(--line-strong);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+  }
+  .pre-license-banner p {
+    font-size: 0.93rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin: 0;
+  }
+  .pre-license-banner strong { color: var(--ink); }
+  .lede {
+    font-size: 1.18rem;
+    color: var(--ink-soft);
+    margin-top: 1.5rem;
+    line-height: 1.6;
+  }
+  .lede strong { color: var(--ink); }
+
+  .guide-section {
+    max-width: var(--max-prose);
+    margin: 0 auto;
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--line);
+  }
+  .guide-section h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(1.6rem, 3.2vw, 2.1rem);
+    line-height: 1.15;
+    letter-spacing: -0.018em;
+    color: var(--ink);
+    margin-bottom: 1.2rem;
+  }
+  .guide-section p {
+    font-size: 1.06rem;
+    color: var(--ink-soft);
+    margin-bottom: 1.1rem;
+    line-height: 1.7;
+  }
+  .guide-section p:first-of-type { color: var(--ink); }
+  .guide-section .section-sub {
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    margin-top: -0.4rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .bullets {
+    margin: 0 0 1.2rem 0;
+    padding-left: 1.4rem;
+    color: var(--ink-soft);
+  }
+  .bullets li {
+    margin-bottom: 0.85rem;
+    line-height: 1.65;
+  }
+  .bullets li strong { color: var(--ink); }
+  ol.steps { padding-left: 1.6rem; }
+
+  .callout {
+    background: var(--sand);
+    border-left: 3px solid var(--gulf);
+    padding: 1.1rem 1.3rem;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.98rem !important;
+    color: var(--ink) !important;
+  }
+  .callout strong { color: var(--gulf-deep); }
+
+  .cta-block {
+    max-width: var(--max-prose);
+    margin: 4rem auto 0;
+    padding: 2.5rem 2rem;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    text-align: center;
+  }
+  .cta-block h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: var(--ink);
+    margin-bottom: 0.8rem;
+  }
+  .cta-block p {
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+  .cta-note {
+    font-size: 0.82rem !important;
+    color: var(--ink-soft) !important;
+    font-style: italic;
+    margin-bottom: 0 !important;
+  }
+
+  .sources {
+    max-width: var(--max-prose);
+    margin: 3rem auto 0;
+    padding: 1.6rem 1.8rem;
+    background: var(--sand);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+  }
+  .sources h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.8rem;
+  }
+  .sources ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0;
+  }
+  .sources li {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    padding: 0.35rem 0;
+    border-bottom: 1px dashed var(--line-strong);
+  }
+  .sources li:last-child { border-bottom: none; }
+  .sources-note {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin: 0;
+  }
+</style>

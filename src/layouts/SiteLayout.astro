@@ -6,7 +6,7 @@ interface Props {
   ogImage?: string;
 }
 
-const { title, description, robots = "index, follow", ogImage = "https://www.robrecio.com/rob-hero.jpg" } = Astro.props;
+const { title, description, robots = "index, follow", ogImage = "https://www.robrecio.com/rob-og.jpg" } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname.replace(/\/$/, "") || "/", "https://www.robrecio.com").href;
 
