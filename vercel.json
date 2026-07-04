@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "robrecio.vercel.app" }],
+      "destination": "https://www.robrecio.com/:path*",
+      "permanent": true
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+
+const sections = [
+  {
+    label: 'Money & Risk',
+    guides: [
+      {
+        title: 'Coast flood zones, explained',
+        href: '/guides/coastal-ms-flood-zones',
+        blurb: 'VE, AE, X — what the letters mean, where to look up your parcel, and what flood coverage actually costs in 2026.',
+        ready: true,
+      },
+      {
+        title: 'Mississippi homestead exemption',
+        href: '/guides/ms-homestead-exemption',
+        blurb: 'The property-tax break most new owners file late or wrong — how it works, the 65+ break, and the filing window.',
+        ready: true,
+      },
+      {
+        title: 'Wind & flood insurance on the Coast',
+        href: '#',
+        blurb: 'The three-policy reality south of I-10, named-storm deductibles, and the Wind Pool.',
+        ready: false,
+      },
+      {
+        title: "Mississippi's Property Condition Disclosure",
+        href: '#',
+        blurb: 'What sellers must disclose, what buyers should read twice.',
+        ready: false,
+      },
+    ],
+  },
+];
+
+const areaLinks = [
+  { name: 'Biloxi', href: '/areas/biloxi' },
+  { name: 'Gulfport', href: '/areas/gulfport' },
+  { name: 'Ocean Springs', href: '/areas/ocean-springs' },
+  { name: "D'Iberville", href: '/areas/diberville' },
+  { name: 'Bay St. Louis', href: '/areas/bay-st-louis' },
+];
+---
+
+<SiteLayout
+  title="Coast Guides — Flood, Taxes & Homeownership | Rob Recio"
+  description="Plain-talk guides to Mississippi Gulf Coast homeownership — flood zones, insurance, the homestead exemption, and more. Written by a local, sources cited."
+>
+  <main class="guide">
+    <header class="guide-hero">
+      <p class="eyebrow">Coast Guides</p>
+      <h1>The stuff I wish every buyer knew, <em>before the offer.</em></h1>
+      <p class="lede">Plain-talk guides to the parts of Coast homeownership that surprise people — written from twenty years of living it. No fluff, sources cited, refreshed on a schedule.</p>
+    </header>
+
+    {sections.map((section) => (
+      <section class="guide-section">
+        <h2>{section.label}</h2>
+        <div class="hub-grid">
+          {section.guides.map((g) =>
+            g.ready ? (
+              <a class="hub-card" href={g.href}>
+                <h3>{g.title} →</h3>
+                <p>{g.blurb}</p>
+              </a>
+            ) : (
+              <div class="hub-card coming">
+                <h3>{g.title}</h3>
+                <p>{g.blurb}</p>
+                <span class="soon">Coming soon</span>
+              </div>
+            )
+          )}
+        </div>
+      </section>
+    ))}
+
+    <section class="guide-section">
+      <h2>The towns</h2>
+      <p class="section-sub">Area guides for buyers and sellers — schools, flood profiles, market beats, and who tends to buy where.</p>
+      <p class="town-links">
+        {areaLinks.map((a, i) => (
+          <>
+            <a href={a.href}>{a.name}</a>
+            {i < areaLinks.length - 1 && ' · '}
+          </>
+        ))}
+      </p>
+      <p class="section-sub">Visiting first? Start with the <a href="/explore">Explore guides</a> — food, activities, and day trips, town by town.</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>Have a question a guide doesn't answer?</h2>
+      <p class="section-sub">That's the best kind. <a href="tel:+12283251502">Call or text Rob — (228) 325-1502</a> · <a href="mailto:rob@robrecio.com">Email rob@robrecio.com</a></p>
+    </section>
+  </main>
+</SiteLayout>
+
+<style>
+  .guide { max-width: var(--max-prose); margin: 0 auto; padding: 3.5rem 1.25rem 4rem; }
+  .guide-hero { margin-bottom: 2.5rem; }
+  .eyebrow { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 0.75rem; }
+  h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.5vw, 2.6rem); line-height: 1.15; margin-bottom: 1rem; }
+  h1 em { color: var(--gulf); }
+  .lede { font-size: 1.1rem; color: var(--ink-soft); }
+  .guide-section { margin-top: 2.75rem; }
+  .guide-section h2 { font-family: var(--serif); font-size: 1.45rem; margin-bottom: 0.75rem; }
+  .section-sub { color: var(--ink-soft); margin-bottom: 0.75rem; }
+  .hub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+  @media (max-width: 640px) { .hub-grid { grid-template-columns: 1fr; } }
+  .hub-card { display: block; background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 1.1rem 1.2rem; text-decoration: none; color: var(--ink); transition: border-color 0.15s ease; }
+  .hub-card:hover { border-color: var(--gulf); }
+  .hub-card h3 { font-size: 1.02rem; margin-bottom: 0.4rem; color: var(--gulf-deep); }
+  .hub-card p { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.5; }
+  .hub-card.coming { opacity: 0.75; }
+  .soon { display: inline-block; margin-top: 0.6rem; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+  .town-links a { font-weight: 500; }
+</style>

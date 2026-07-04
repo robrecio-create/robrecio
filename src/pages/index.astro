@@ -34,8 +34,33 @@ const areas = [
   { name: "Pass Christian", slug: "pass-christian", ready: false },
   { name: "Moss Point", slug: "moss-point", ready: false },
   { name: "Bay St. Louis", slug: "bay-st-louis", ready: true },
+  { name: "Waveland", slug: "waveland", ready: false },
   { name: "Diamondhead", slug: "diamondhead", ready: false },
 ];
+
+const agentSchema = {
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "@id": "https://www.robrecio.com/#agent",
+  name: "Rob Recio",
+  url: "https://www.robrecio.com",
+  image: "https://www.robrecio.com/rob-hero.jpg",
+  telephone: "+1-228-325-1502",
+  email: "rob@robrecio.com",
+  identifier: "Mississippi Real Estate Salesperson License #S-62221",
+  memberOf: { "@type": "Organization", name: "Real Broker, LLC" },
+  address: { "@type": "PostalAddress", addressLocality: "Ocean Springs", addressRegion: "MS", addressCountry: "US" },
+  areaServed: [
+    "Ocean Springs MS", "Biloxi MS", "Gulfport MS", "D'Iberville MS", "Gautier MS",
+    "Pascagoula MS", "Moss Point MS", "Long Beach MS", "Pass Christian MS",
+    "Bay St. Louis MS", "Waveland MS", "Diamondhead MS",
+  ],
+  knowsAbout: ["Mississippi Gulf Coast real estate", "relocation", "flood zones", "coastal insurance"],
+  sameAs: [
+    "https://connectgroupreal.com/",
+    "https://zenlist.com/rob.recio.lhgvnygx",
+  ],
+};
 ---
 
 <!DOCTYPE html>
@@ -46,6 +71,15 @@ const areas = [
   <meta name="description" content="Rob Recio — Licensed Mississippi Gulf Coast real estate agent with Real Broker, LLC. Two decades on the Coast by choice, here to help families find home." />
   <meta name="robots" content="index, follow" />
   <title>Rob Recio · Mississippi Gulf Coast Real Estate Agent</title>
+  <link rel="canonical" href="https://www.robrecio.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.robrecio.com/" />
+  <meta property="og:title" content="Rob Recio · Mississippi Gulf Coast Real Estate Agent" />
+  <meta property="og:description" content="Rob Recio — Licensed Mississippi Gulf Coast real estate agent with Real Broker, LLC. Two decades on the Coast by choice, here to help families find home." />
+  <meta property="og:image" content="https://www.robrecio.com/rob-hero.jpg" />
+  <meta property="og:site_name" content="Rob Recio · Mississippi Gulf Coast Real Estate" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json" set:html={JSON.stringify(agentSchema)} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -57,6 +91,8 @@ const areas = [
     <div class="navlinks">
       <a href="#about">About</a>
       <a href="#areas">Areas</a>
+      <a href="/explore">Explore</a>
+      <a href="/guides">Guides</a>
       <a href="#help">How I Help</a>
       <a href="#contact" class="cta-link">Contact</a>
     </div>

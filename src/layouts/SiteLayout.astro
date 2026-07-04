@@ -3,9 +3,36 @@ interface Props {
   title: string;
   description: string;
   robots?: string;
+  ogImage?: string;
 }
 
-const { title, description, robots = "index, follow" } = Astro.props;
+const { title, description, robots = "index, follow", ogImage = "https://www.robrecio.com/rob-hero.jpg" } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname.replace(/\/$/, "") || "/", "https://www.robrecio.com").href;
+
+// BreadcrumbList from URL path (interior pages only)
+const segments = Astro.url.pathname.split("/").filter(Boolean);
+const crumbNames: Record<string, string> = {
+  areas: "Coast Areas", explore: "Explore", guides: "Coast Guides",
+  "bay-st-louis": "Bay St. Louis", diberville: "D'Iberville", "ocean-springs": "Ocean Springs",
+  "pass-christian": "Pass Christian", "moss-point": "Moss Point", "long-beach": "Long Beach",
+  "food-and-dining": "Food & Dining", "town-guide": "Town Guide",
+  "coastal-ms-flood-zones": "Coast Flood Zones", "ms-homestead-exemption": "MS Homestead Exemption",
+};
+const pretty = (s: string) => crumbNames[s] ?? s.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+const breadcrumbs = segments.length ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.robrecio.com/" },
+    ...segments.map((seg, i) => ({
+      "@type": "ListItem",
+      position: i + 2,
+      name: pretty(seg),
+      ...(i < segments.length - 1 ? { item: `https://www.robrecio.com/${segments.slice(0, i + 1).join("/")}` } : {}),
+    })),
+  ],
+} : null;
 ---
 
 <!DOCTYPE html>
@@ -16,6 +43,15 @@ const { title, description, robots = "index, follow" } = Astro.props;
   <meta name="description" content={description} />
   <meta name="robots" content={robots} />
   <title>{title}</title>
+  <link rel="canonical" href={canonical} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:site_name" content="Rob Recio · Mississippi Gulf Coast Real Estate" />
+  <meta name="twitter:card" content="summary_large_image" />
+  {breadcrumbs && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbs)} />}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
