@@ -1,0 +1,580 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+
+// Image slots — flip null → '/areas/gautier/<file>.jpg' when Rob delivers the shot.
+// Keep paths even when null so the shot list stays visible inline as code comments.
+const hero = {
+  image: null, // '/areas/gautier/hero.jpg' — a bayou at golden hour, dock in the foreground, marsh grass and pines behind
+  alt: 'A quiet bayou in Gautier, Mississippi at golden hour — private dock in the foreground, marsh grass and pine savanna beyond.',
+};
+
+const neighborhoods = [
+  {
+    code: 'ON THE WATER',
+    name: 'Riverfront and bayou neighborhoods',
+    walk: 'Dock-in-the-backyard living',
+    blurb: 'Gautier\'s signature stock: homes on the West Pascagoula River, Mary Walker Bayou, and the web of creeks feeding the Sound. This is some of the least expensive true boat-from-your-backyard property anywhere on the Gulf — redfish and speckled trout water, not beach-bar water.',
+    detail: 'AE zones (and wave zones nearest the Sound) apply along the water — flood insurance required with a mortgage, and the three-policy stack applies. Elevation and build era drive the premium; get the elevation certificate.',
+    image: null, // '/areas/gautier/waterfront.jpg' — a waterfront home with a dock on the bayou
+    imageAlt: 'A waterfront home with a private dock on a Gautier bayou.',
+  },
+  {
+    code: 'CENTRAL GAUTIER',
+    name: 'The Highway 90 corridor and established neighborhoods',
+    walk: 'Everyday value, 10 minutes to everything',
+    blurb: 'The workaday middle: brick ranches and 1970s–2000s subdivisions off Gautier-Vancleave Road and Highway 90, near the schools, MGCCC\'s Jackson County campus, and the shopping corridor. This is where the value pricing lives.',
+    detail: 'Flood zones vary — X ground is common away from the drainages, AE near them. Two comparable houses a street apart can carry very different insurance bills; verify the parcel.',
+    image: null, // '/areas/gautier/central.jpg' — an established residential street off Gautier-Vancleave Rd
+    imageAlt: 'An established residential street in central Gautier.',
+  },
+  {
+    code: 'REFUGE SIDE',
+    name: 'North Gautier, toward the crane refuge',
+    walk: 'Larger lots, pine savanna quiet',
+    blurb: 'Bigger lots and newer builds as you move north toward the Mississippi Sandhill Crane National Wildlife Refuge — nearly 20,000 acres of protected wet pine savanna that will never be developed. Neighbors include an endangered crane.',
+    detail: 'Generally the highest ground and cleanest insurance math in town. The refuge boundary is a permanent green wall — check it on the map, because it defines what can ever be built near you.',
+    image: null, // '/areas/gautier/refuge-side.jpg' — a larger-lot street with pine savanna behind it
+    imageAlt: 'A larger-lot street in north Gautier with pine savanna behind it.',
+  },
+];
+
+const schools = [
+  { level: 'District', name: 'Pascagoula-Gautier School District — rated B in the 2025 MDE accountability results (659 points)' },
+  { level: 'Local', name: 'Gautier Elementary earned an A rating in 2025; Gautier High and the district\'s career academies serve the upper grades' },
+  { level: 'Ratings', name: 'Annual accountability ratings published at mdek12.org — verify zones for a specific address with the district' },
+];
+
+const marketBeats = [
+  {
+    label: 'The value story is real',
+    value: 'Gautier is the most affordable water-access town on the Coast\'s eastern half. Money that buys a landlocked lot in Ocean Springs buys a dock here. The trade is a quieter dining-and-downtown scene — which, for the fishing-first buyer, isn\'t a trade at all.',
+  },
+  {
+    label: 'Ingalls paychecks anchor the market',
+    value: 'Ingalls Shipbuilding in Pascagoula — Mississippi\'s largest private employer — is a 10–15 minute commute, with Chevron\'s refinery alongside it. Shipyard and refinery wages are the steady demand floor under Gautier housing, in good markets and soft ones.',
+  },
+  {
+    label: 'The refuge is a moat',
+    value: 'Nearly 20,000 protected acres of the last wet pine savanna in the country border the town. That land can\'t sprout subdivisions or strip malls — the nature that sells Gautier is legally permanent.',
+  },
+  {
+    label: 'Bayou water ≠ beach water — price accordingly',
+    value: 'Waterfront here means rivers, bayous, and marsh — world-class for fishing and kayaking, different from sand-beach frontage. It insures differently, appraises differently, and attracts a different buyer. Know which waterfront you\'re buying and which buyer you\'ll resell to.',
+  },
+  {
+    label: 'Talk to Rob signal',
+    value: 'Anglers hunting affordable dock frontage, Ingalls families comparing Gautier vs. Ocean Springs vs. Vancleave, and first-time buyers who got priced out one town west. I\'ll tell you straight which streets flood, which don\'t, and what the insurance really runs.',
+  },
+];
+---
+
+<SiteLayout
+  title="Gautier, MS — Coast Area Guide | Rob Recio"
+  description="A plain-talk Gautier area guide — bayou living at the Coast's best value pricing, the sandhill crane refuge, schools, flood reality, and who buys here."
+  robots="index, follow"
+>
+
+  <main class="guide">
+
+    <header class="guide-hero">
+      <p class="eyebrow">Coast Areas · Jackson County</p>
+      <h1>Gautier, <em>nature's side of the Coast.</em></h1>
+
+      <aside class="pre-license-banner" role="note" aria-label="Pre-licensure notice">
+        <p><strong>Heads up.</strong> I'm a licensed Mississippi real estate salesperson (License #S-62221) with Real Broker, LLC. This page is general information about living on the Coast — not a property-specific opinion, legal or tax advice, or an insurance determination. When you're ready to talk specifics, I'm here to help.</p>
+      </aside>
+
+      <p class="lede">Gautier (say it like a local: "go-SHAY") is the Coast town organized around water and woods instead of a beach strip: the West Pascagoula River on one side, bayous threading through the middle, and <strong>a national wildlife refuge protecting the last wet pine savanna in America</strong> on its northern edge. It's also the best value pricing on the eastern Coast — <strong>true waterfront living at inland-Mississippi prices</strong>. If your Coast dream involves a dock, a kayak, or a redfish, start here.</p>
+    </header>
+
+    {hero.image && (
+      <figure class="hero-figure">
+        <img src={hero.image} alt={hero.alt} loading="eager" width="1440" height="810" />
+      </figure>
+    )}
+
+    <section class="guide-section">
+      <h2>The town in one paragraph</h2>
+      <p>Gautier sits in Jackson County between Ocean Springs and Pascagoula, stretched along Highway 90 where the West Pascagoula River spreads into marsh and bayou before meeting the Mississippi Sound. Around 18,000 people live here, many of them tied to the shipyard and refinery paychecks next door in Pascagoula. The town's landmarks say everything about its character: the Mississippi Sandhill Crane National Wildlife Refuge to the north, Shepard State Park's trails and campground in the middle of town, MGCCC's Jackson County campus with its bayou-side walking trail, and boat launches instead of casinos. Katrina hurt Gautier but didn't erase it the way it did the western beachfront towns — so the housing stock is a broader mix of eras, and the price of entry stayed honest.</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>The areas of town</h2>
+      <p class="section-sub">Gautier splits roughly into the waterfront neighborhoods along the river and bayous, the central corridor where the everyday value sits, and the larger-lot ground north toward the refuge. Each carries a different price band and a different flood and insurance profile.</p>
+
+      <div class="zone-grid neighborhood-grid">
+        {neighborhoods.map(n => (
+          <div class="zone-card">
+            {n.image && (
+              <div class="zone-card-image">
+                <img src={n.image} alt={n.imageAlt} loading="lazy" width="800" height="500" />
+              </div>
+            )}
+            <div class="zone-card-body">
+              <div class="zone-code">{n.code}</div>
+              <h3>{n.name}</h3>
+              <p class="walk-tag">{n.walk}</p>
+              <p class="zone-blurb">{n.blurb}</p>
+              <p class="zone-detail">{n.detail}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <p class="callout"><strong>On prices.</strong> Directional, mid-2020s — verify against current MLS. Recent market reports put Gautier's median sale price around <strong>$205K</strong>, with list medians in the <strong>low-to-mid $200Ks</strong> (2026 readings). Solid three-bedroom brick runs $150K–$250K, and genuine waterfront with a dock frequently trades where other Coast towns price their non-waterfront — that gap is the whole Gautier thesis.</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>Schools</h2>
+      <p>Gautier is served by the <strong>Pascagoula-Gautier School District</strong>, rated <strong>B in the 2025 MDE accountability results</strong> (659 points) — with bright spots inside it: <strong>Gautier Elementary earned an A rating in 2025</strong>, and the district runs well-regarded career and technical academies tied to the shipbuilding economy. Verify current ratings at <a href="https://www.mdek12.org/" target="_blank" rel="noopener">mdek12.org</a> and the attendance zone for any specific address with the district.</p>
+
+      <div class="school-grid">
+        {schools.map(s => (
+          <div class="school-row">
+            <span class="school-level">{s.level}</span>
+            <span class="school-name">{s.name}</span>
+          </div>
+        ))}
+      </div>
+
+      <p class="school-note">MGCCC's Jackson County campus in Gautier adds dual-credit and workforce programs; private/parochial options sit in Ocean Springs and Pascagoula. Verify current programs and admissions directly with each school.</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>Flood profile, in plain terms</h2>
+      <p>Gautier's flood story is river-and-bayou, not open-Gulf: AE zones follow the West Pascagoula, Mary Walker Bayou, and the smaller drainages, with wave-exposed zones only nearest the Sound. Between the waterways there's genuine X-zone ground — central and north Gautier have plenty of parcels where flood insurance is optional and cheap.</p>
+      <p>The practical rule here: <strong>the parcel, not the town, is the risk unit.</strong> Pull the FIRM panel at <a href="https://msc.fema.gov" target="_blank" rel="noopener">msc.fema.gov</a> for any address, read my <a href="/guides/coastal-ms-flood-zones">flood-zone guide</a> for what the letters mean, and if you're buying on the water, budget the three-policy stack up front — my <a href="/guides/wind-and-flood-insurance">wind &amp; flood insurance guide</a> has the real numbers, named-storm deductibles included.</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>Market beats every Gautier buyer or seller should hear</h2>
+      <p class="section-sub">Stable patterns — not month-to-month price talk. These are the things that come up in every real Gautier conversation.</p>
+
+      <dl class="beats">
+        {marketBeats.map(b => (
+          <div class="beat">
+            <dt>{b.label}</dt>
+            <dd>{b.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+    <section class="guide-section">
+      <h2>Day-to-day in Gautier</h2>
+      <p>Stuff that's actually here, in case you're trying to picture life on the ground:</p>
+      <ul class="bullets">
+        <li><strong>Mississippi Sandhill Crane NWR:</strong> established in 1975 as one of the first refuges created under the Endangered Species Act — visitor center, trails, and winter crane tours. The refuge's cranes have grown from roughly 30 birds to well over a hundred.</li>
+        <li><strong>Shepard State Park:</strong> camping, hiking and biking trails, and a boat launch, right in town.</li>
+        <li><strong>The water:</strong> launches on Mary Walker Bayou and the West Pascagoula — some of the best inshore fishing and kayak water on the Coast.</li>
+        <li><strong>MGCCC Jackson County campus:</strong> classes, workforce programs, and a bayou-side walking trail open to the public.</li>
+        <li><strong>Errands:</strong> the Highway 90 corridor covers groceries and everyday needs; the bigger retail runs are Ocean Springs or D'Iberville.</li>
+        <li><strong>Day-trip math:</strong> Pascagoula (Ingalls, hospital) 10–15 minutes · Ocean Springs 15 · Biloxi 25 · Mobile about 45 minutes.</li>
+      </ul>
+    </section>
+
+    <section class="guide-section">
+      <h2>Who tends to buy here</h2>
+      <p>The Gautier buyer pool I see breaks down roughly like this:</p>
+      <ul class="bullets">
+        <li><strong>Ingalls and Chevron households</strong> — the steady core of the market.</li>
+        <li><strong>Anglers and boaters</strong> chasing affordable dock frontage.</li>
+        <li><strong>First-time buyers</strong> priced out of Ocean Springs but wanting Jackson County (<a href="/buy">how buying works here</a>).</li>
+        <li><strong>Nature-first retirees</strong> who'd rather have a kayak launch than a golf cart (<a href="/guides/retiring-on-the-ms-gulf-coast">retirement guide</a>).</li>
+        <li><strong>Out-of-state value hunters</strong> who did the waterfront math (<a href="/relocation">relocation guide</a>).</li>
+      </ul>
+    </section>
+
+    <section class="cta-block">
+      <h2>Thinking about Gautier?</h2>
+      <p>Whether you're pricing dock frontage against Ocean Springs, checking which streets stay dry, or selling a bayou house to the right buyer instead of the first one — happy to talk it through straight.</p>
+      <div class="cta-buttons">
+        <a href="tel:+12283251502" class="btn btn-primary">Call or text Rob — (228) 325-1502</a>
+        <a href="mailto:rob@robrecio.com" class="btn btn-ghost">Email Rob</a>
+      </div>
+      <p class="cta-note">Rob Recio is a licensed Mississippi real estate salesperson (#S-62221) with Real Broker, LLC. This guide is general information about Gautier as a place to live — not real-estate advice or a solicitation.</p>
+    </section>
+
+    <aside class="sources">
+      <h3>Sources & cross-links</h3>
+      <ul>
+        <li>Mississippi Sandhill Crane NWR — <a href="https://www.fws.gov/refuge/mississippi-sandhill-crane" target="_blank" rel="noopener">fws.gov</a></li>
+        <li>Pascagoula-Gautier School District · MDE 2025 ratings — <a href="https://www.mdek12.org/" target="_blank" rel="noopener">mdek12.org</a> · <a href="https://pgsd.ms/accountability-2" target="_blank" rel="noopener">pgsd.ms</a></li>
+        <li>Shepard State Park — MS Dept. of Wildlife, Fisheries &amp; Parks</li>
+        <li>FEMA Map Service Center — <a href="https://msc.fema.gov" target="_blank" rel="noopener">msc.fema.gov</a></li>
+        <li>Market data: Movoto/Redfin Gautier MS market reports (2025–26)</li>
+        <li>Related on this site: <a href="/areas/ocean-springs">Ocean Springs guide</a> · <a href="/areas/moss-point">Moss Point</a> · <a href="/guides/coastal-ms-flood-zones">Flood zones</a> · <a href="/guides/wind-and-flood-insurance">Wind &amp; flood insurance</a> · <a href="/relocation">Relocation guide</a></li>
+      </ul>
+      <p class="sources-note"><strong>Drafted July 2026.</strong> Prices, ordinances, ratings change — verify before relying on a number. Next refresh: after 2026–27 accountability ratings.</p>
+    </aside>
+
+  </main>
+
+</SiteLayout>
+
+<style>
+  .guide {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 3rem 1.5rem 4rem;
+  }
+
+  .guide-hero {
+    max-width: var(--max-prose);
+    margin: 0 auto 4rem;
+    text-align: left;
+  }
+  .eyebrow {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gulf);
+    margin-bottom: 1.2rem;
+  }
+  .guide-hero h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(2.25rem, 4.8vw, 3.4rem);
+    line-height: 1.07;
+    letter-spacing: -0.022em;
+    color: var(--ink);
+  }
+  .guide-hero h1 em {
+    font-style: italic;
+    color: var(--gulf-deep);
+  }
+  .pre-license-banner {
+    margin-top: 1.6rem;
+    padding: 1rem 1.3rem;
+    background: var(--sand);
+    border: 1px solid var(--line-strong);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+  }
+  .pre-license-banner p {
+    font-size: 0.93rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin: 0;
+  }
+  .pre-license-banner strong { color: var(--ink); }
+  .lede {
+    font-size: 1.18rem;
+    color: var(--ink-soft);
+    margin-top: 1.5rem;
+    line-height: 1.6;
+  }
+  .lede strong { color: var(--ink); }
+
+  .guide-section {
+    max-width: var(--max-prose);
+    margin: 0 auto;
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--line);
+  }
+  .guide-section h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(1.6rem, 3.2vw, 2.1rem);
+    line-height: 1.15;
+    letter-spacing: -0.018em;
+    color: var(--ink);
+    margin-bottom: 1.2rem;
+  }
+  .guide-section p {
+    font-size: 1.06rem;
+    color: var(--ink-soft);
+    margin-bottom: 1.1rem;
+    line-height: 1.7;
+  }
+  .guide-section p:first-of-type { color: var(--ink); }
+  .guide-section .section-sub {
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    margin-top: -0.4rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .bullets {
+    margin: 0 0 1.2rem 0;
+    padding-left: 1.4rem;
+    color: var(--ink-soft);
+  }
+  .bullets li {
+    margin-bottom: 0.85rem;
+    line-height: 1.65;
+  }
+  .bullets li strong { color: var(--ink); }
+
+  .callout {
+    background: var(--sand);
+    border-left: 3px solid var(--gulf);
+    padding: 1.1rem 1.3rem;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.98rem !important;
+    color: var(--ink) !important;
+    margin-top: 1.2rem;
+  }
+  .callout strong { color: var(--gulf-deep); }
+
+  /* Hero figure — full prose-max width, just under the lede */
+  .hero-figure {
+    max-width: var(--max);
+    margin: 0 auto 3rem;
+    padding: 0 1.5rem;
+  }
+  .hero-figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 14px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  /* Inline figures — single wide, or 2-up grid */
+  .inline-figure {
+    margin: 1.5rem 0 0.4rem;
+  }
+  .inline-figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  .inline-figure-wide img {
+    aspect-ratio: 16 / 9;
+  }
+  .inline-figure figcaption {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin-top: 0.45rem;
+    text-align: center;
+  }
+  .inline-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .inline-pair .inline-figure {
+    margin: 0;
+  }
+  @media (max-width: 640px) {
+    .inline-pair { grid-template-columns: 1fr; }
+  }
+
+  /* Neighborhood grid — 2-up on desktop, 1-up mobile */
+  .neighborhood-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .zone-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .zone-card-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+  .zone-card-body {
+    padding: 1.5rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .zone-code {
+    display: inline-block;
+    background: var(--gulf);
+    color: var(--paper);
+    font-family: var(--serif);
+    font-weight: 600;
+    padding: 0.25rem 0.7rem;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.7rem;
+    align-self: flex-start;
+  }
+  .zone-card h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.22rem;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+  .walk-tag {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.95rem !important;
+    color: var(--gulf-deep) !important;
+    margin-bottom: 0.7rem !important;
+  }
+  .zone-blurb {
+    font-size: 0.97rem !important;
+    color: var(--ink) !important;
+    margin-bottom: 0.7rem !important;
+    line-height: 1.55 !important;
+  }
+  .zone-detail {
+    font-size: 0.92rem !important;
+    color: var(--ink-soft) !important;
+    line-height: 1.55 !important;
+    margin-bottom: 0 !important;
+  }
+  @media (max-width: 760px) {
+    .neighborhood-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Schools — simple row layout */
+  .school-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin: 1.2rem 0 1rem;
+    padding: 1.2rem 1.4rem;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+  }
+  .school-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 1rem;
+    align-items: baseline;
+  }
+  .school-level {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    color: var(--gulf);
+  }
+  .school-name {
+    font-size: 0.98rem;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .school-note {
+    font-size: 0.92rem !important;
+    color: var(--ink-soft) !important;
+    font-style: italic;
+  }
+  @media (max-width: 560px) {
+    .school-row { grid-template-columns: 1fr; gap: 0.1rem; }
+  }
+
+  /* Market beats — definition list */
+  .beats {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.2rem;
+  }
+  .beat {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--gulf);
+    border-radius: 0 10px 10px 0;
+    padding: 1rem 1.3rem;
+  }
+  .beat dt {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    color: var(--gulf-deep);
+    margin-bottom: 0.3rem;
+  }
+  .beat dd {
+    font-size: 0.98rem;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  .cta-block {
+    max-width: var(--max-prose);
+    margin: 4rem auto 0;
+    padding: 2.5rem 2rem;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    text-align: center;
+  }
+  .cta-block h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: var(--ink);
+    margin-bottom: 0.8rem;
+  }
+  .cta-block p {
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+  .cta-note {
+    font-size: 0.82rem !important;
+    color: var(--ink-soft) !important;
+    font-style: italic;
+    margin-bottom: 0 !important;
+  }
+
+  .sources {
+    max-width: var(--max-prose);
+    margin: 3rem auto 0;
+    padding: 1.6rem 1.8rem;
+    background: var(--sand);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+  }
+  .sources h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.8rem;
+  }
+  .sources ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+  .sources li {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    padding: 0.35rem 0;
+    border-bottom: 1px dashed var(--line-strong);
+  }
+  .sources li:last-child { border-bottom: none; }
+  .sources-note {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin: 0;
+  }
+</style>

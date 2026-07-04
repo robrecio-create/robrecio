@@ -1,0 +1,581 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+
+// Image slots — flip null → '/areas/diamondhead/<file>.jpg' when Rob delivers the shot.
+// Keep paths even when null so the shot list stays visible inline as code comments.
+const hero = {
+  image: null, // '/areas/diamondhead/hero.jpg' — a fairway on the Pine or Cardinal course with homes along it, pines in the background
+  alt: 'A golf fairway in Diamondhead, Mississippi, lined with homes and tall pines — the signature look of the planned community.',
+};
+
+const neighborhoods = [
+  {
+    code: 'THE GOLF CORE',
+    name: 'Fairway and club neighborhoods',
+    walk: 'Cart-to-the-clubhouse living',
+    blurb: 'The classic Diamondhead setting: homes along the Pine and Cardinal courses and the streets radiating off Diamondhead Drive, with the country club, pools, and tennis in easy reach. Hawaiian street names, pine canopy, and a lot of well-kept 1980s–2000s brick and newer builds.',
+    detail: 'Much of this ground sits well above the surge line on the pine ridge — X flood zones are genuinely common here, which is rare for a Coast address and shows up directly in the insurance bill.',
+    image: null, // '/areas/diamondhead/golf-core.jpg' — a home backing onto a fairway
+    imageAlt: 'A home backing onto a golf fairway in the core of Diamondhead.',
+  },
+  {
+    code: 'THE WATER SIDE',
+    name: 'Marina, Jourdan River, and bayou streets',
+    walk: 'Boat-from-your-backyard',
+    blurb: 'Down the hill, Diamondhead reaches the Jourdan River and the bayous feeding the Bay of St. Louis — the marina, yacht club, and the waterfront streets where the boat lives behind the house.',
+    detail: 'Lower elevation means AE (and some VE) flood zones and the full three-policy insurance conversation. Elevated and post-2011 construction insures cleanest; get the elevation certificate.',
+    image: null, // '/areas/diamondhead/water-side.jpg' — the marina or a waterfront home with a dock
+    imageAlt: 'A waterfront home with a private dock near the Diamondhead marina on the Jourdan River.',
+  },
+  {
+    code: 'THE AIRPARK',
+    name: 'Airpark and large-lot streets',
+    walk: 'Taxi-from-your-hangar',
+    blurb: 'Diamondhead has its own community airpark — one of the few places on the Gulf Coast where "hangar home" is a property type. Around it, larger lots and quieter streets for buyers who want acreage-feel inside a managed community.',
+    detail: 'A thin, national buyer pool on the way in and the way out — airpark homes take longer to sell but command real premiums from the right buyer. Verify current airpark access rules and fees with the POA.',
+    image: null, // '/areas/diamondhead/airpark.jpg' — a hangar home along the airpark taxiway
+    imageAlt: 'A hangar home along the taxiway at the Diamondhead airpark.',
+  },
+];
+
+const schools = [
+  { level: 'District', name: 'Hancock County School District — rated A in the 2025 MDE accountability results (718 points)' },
+  { level: 'Local', name: 'East Hancock Elementary is in Diamondhead; middle and high school campuses are in the Kiln area' },
+  { level: 'Ratings', name: 'Annual accountability ratings published at mdek12.org — verify zones for a specific address with the district' },
+];
+
+const marketBeats = [
+  {
+    label: 'Higher ground is the headline',
+    value: 'Most of Diamondhead sits on an elevated pine ridge north of the coastal flats — X flood zones are common, and the insurance math on a ridge home can run thousands a year lighter than a comparable beach-town address. On today\'s Coast, that\'s a first-order buying criterion, not a footnote.',
+  },
+  {
+    label: 'The POA is the deal — price it in',
+    value: 'The Property Owners Association (established 1970) owns and runs the courses, pools, marina, and common areas, and every property pays the annual assessment. It\'s why the community stays kept — and it\'s a permanent line item. Get the current assessment, what it covers, and any special assessments in writing before you offer.',
+  },
+  {
+    label: 'Two governments, know which does what',
+    value: 'Diamondhead incorporated as a city in 2012, so you have both a city (roads, police, planning) and the POA (amenities, covenants, architectural review). Renovation and rental plans need to clear both rulebooks.',
+  },
+  {
+    label: 'The retiree pipeline is the market',
+    value: 'Golf, club life, flat monthly costs, and I-10 access make Diamondhead one of the Coast\'s cleanest retirement fits — my retirement guide calls it the golf-and-club retirement for a reason. That buyer pool is steady, price-sensible, and values single-story homes.',
+  },
+  {
+    label: 'Talk to Rob signal',
+    value: 'Retirees comparing Diamondhead against Bay St. Louis and Ocean Springs, insurance-weary buyers hunting X-zone ground, and pilots asking about the airpark. I\'ll pull the flood panel, the POA numbers, and the real comps before you fall for a fairway view.',
+  },
+];
+---
+
+<SiteLayout
+  title="Diamondhead, MS — Coast Area Guide | Rob Recio"
+  description="A plain-talk Diamondhead area guide — the planned golf community on higher ground: POA, two courses, marina, airpark, gentler insurance math, and who buys here."
+  robots="index, follow"
+>
+
+  <main class="guide">
+
+    <header class="guide-hero">
+      <p class="eyebrow">Coast Areas · Hancock County</p>
+      <h1>Diamondhead, <em>the planned one on higher ground.</em></h1>
+
+      <aside class="pre-license-banner" role="note" aria-label="Pre-licensure notice">
+        <p><strong>Heads up.</strong> I'm a licensed Mississippi real estate salesperson (License #S-62221) with Real Broker, LLC. This page is general information about living on the Coast — not a property-specific opinion, legal or tax advice, or an insurance determination. When you're ready to talk specifics, I'm here to help.</p>
+      </aside>
+
+      <p class="lede">Diamondhead is the Coast's master-planned community: <strong>two 18-hole championship golf courses, a country club, a marina on the Jourdan River, its own airpark</strong> — all run by a property owners association that's been at it since 1970. And because most of it sits on an elevated pine ridge along I-10, it offers something genuinely scarce in coastal Mississippi: <strong>near-the-water living with inland-style insurance math</strong>. If your retirement plan involves a golf cart, or your budget is tired of wind-and-flood premiums, Diamondhead is where the search usually lands.</p>
+    </header>
+
+    {hero.image && (
+      <figure class="hero-figure">
+        <img src={hero.image} alt={hero.alt} loading="eager" width="1440" height="810" />
+      </figure>
+    )}
+
+    <section class="guide-section">
+      <h2>The town in one paragraph</h2>
+      <p>Diamondhead sits in Hancock County at I-10's exit 16, on the ridge above the Bay of St. Louis — about 15 minutes from Old Town Bay St. Louis, 20 from the Stennis Space Center gate, and under an hour from New Orleans. It began in 1970 as a purpose-built resort community (the Hawaiian theme in the street names survives), grew into the county's largest population center, and incorporated as its own city in 2012. The Property Owners Association owns the amenity layer — the Pine and Cardinal courses, the Club at Diamondhead, pools, tennis, community center, marina, and airpark — and every deed comes with the covenants and the annual assessment that keep it all running. The result is a community that reads more "managed neighborhood" than "beach town": tidy, quiet, amenity-rich, and organized around the club rather than a downtown.</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>The areas of town</h2>
+      <p class="section-sub">Diamondhead splits roughly into the golf core on the ridge, the water side down along the Jourdan River and bayous, and the airpark and large-lot streets. Same POA, very different flood and insurance profiles.</p>
+
+      <div class="zone-grid neighborhood-grid">
+        {neighborhoods.map(n => (
+          <div class="zone-card">
+            {n.image && (
+              <div class="zone-card-image">
+                <img src={n.image} alt={n.imageAlt} loading="lazy" width="800" height="500" />
+              </div>
+            )}
+            <div class="zone-card-body">
+              <div class="zone-code">{n.code}</div>
+              <h3>{n.name}</h3>
+              <p class="walk-tag">{n.walk}</p>
+              <p class="zone-blurb">{n.blurb}</p>
+              <p class="zone-detail">{n.detail}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <p class="callout"><strong>On prices.</strong> Directional, mid-2020s — verify against current MLS. Recent market reports put Diamondhead's median sale price in the <strong>mid-$200Ks</strong> (roughly $247K–$268K across spring 2026 readings), with solid ridge homes commonly $200K–$350K and fairway, waterfront, and hangar properties above that. For a full-amenity golf community, that entry point is the story — and remember to add the POA assessment to your monthly math.</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>Schools</h2>
+      <p>Diamondhead is served by the <strong>Hancock County School District</strong>, which earned an <strong>A rating in the 2025 MDE accountability results</strong> (718 points). East Hancock Elementary sits in Diamondhead itself; middle and high schoolers head to the district campuses in the Kiln area. Verify current ratings at <a href="https://www.mdek12.org/" target="_blank" rel="noopener">mdek12.org</a> and the attendance zone for any specific address with the district.</p>
+
+      <div class="school-grid">
+        {schools.map(s => (
+          <div class="school-row">
+            <span class="school-level">{s.level}</span>
+            <span class="school-name">{s.name}</span>
+          </div>
+        ))}
+      </div>
+
+      <p class="school-note">Coast Episcopal and the Bay St. Louis private/parochial options are within an easy drive. Verify current programs, grades served, and admissions directly with each school.</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>Flood profile, in plain terms</h2>
+      <p>This is Diamondhead's quiet superpower. The core of the community sits on elevated ridge ground where X zones — the ones that don't require flood insurance and price gently — are genuinely common. That's rare within 10 minutes of Coast water, and it's a structural advantage for both your premium and your resale.</p>
+      <p>The exception is the water side: streets along the Jourdan River, the marina, and the bayous carry AE (and some VE) designations, real Base Flood Elevations, and the full three-policy insurance stack. Same ZIP code, completely different math. Pull the FIRM panel at <a href="https://msc.fema.gov" target="_blank" rel="noopener">msc.fema.gov</a> for the specific parcel, read my <a href="/guides/coastal-ms-flood-zones">flood-zone guide</a> for what the letters mean, and see the <a href="/guides/wind-and-flood-insurance">wind &amp; flood insurance guide</a> for what the stack actually costs.</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>Market beats every Diamondhead buyer or seller should hear</h2>
+      <p class="section-sub">Stable patterns — not month-to-month price talk. These are the things that come up in every real Diamondhead conversation.</p>
+
+      <dl class="beats">
+        {marketBeats.map(b => (
+          <div class="beat">
+            <dt>{b.label}</dt>
+            <dd>{b.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+    <section class="guide-section">
+      <h2>Day-to-day in Diamondhead</h2>
+      <p>Stuff that's actually here, in case you're trying to picture life on the ground:</p>
+      <ul class="bullets">
+        <li><strong>Golf:</strong> two 18-hole championship courses — the Pine and the Cardinal — plus a golf academy at the Club at Diamondhead.</li>
+        <li><strong>The club layer:</strong> country club dining, pools, tennis and pickleball, community center, and a full events calendar run through the POA.</li>
+        <li><strong>The marina:</strong> slips and launch access on the Jourdan River, with the Bay of St. Louis and the Sound beyond it.</li>
+        <li><strong>The airpark:</strong> a community airstrip with hangar homes — a genuine rarity anywhere on the Gulf.</li>
+        <li><strong>Errands and commutes:</strong> a growing commercial district along I-10 covers groceries and everyday needs; bigger runs are Bay St. Louis or Gulfport.</li>
+        <li><strong>Day-trip math:</strong> Bay St. Louis 15 minutes · Waveland 20 · Stennis Space Center 20 · Gulfport 30 · New Orleans about 55 minutes.</li>
+      </ul>
+    </section>
+
+    <section class="guide-section">
+      <h2>Who tends to buy here</h2>
+      <p>The Diamondhead buyer pool I see breaks down roughly like this:</p>
+      <ul class="bullets">
+        <li><strong>Retirees</strong> — the golf-and-club retirement, often single-story hunters. My <a href="/guides/retiring-on-the-ms-gulf-coast">retirement guide</a> covers why the Mississippi tax picture makes this even better.</li>
+        <li><strong>Insurance-weary Coast movers</strong> trading a beach-block premium for ridge-ground math.</li>
+        <li><strong>Stennis, NASA-contractor, and Port Bienville commuters</strong> — the tech corridor is 20 minutes west.</li>
+        <li><strong>Pilots and boaters</strong> — the airpark and marina each pull their own small, devoted pipeline.</li>
+        <li><strong>Louisiana buyers</strong> who want the club life an hour from home (<a href="/relocation">relocation guide</a>).</li>
+      </ul>
+    </section>
+
+    <section class="cta-block">
+      <h2>Thinking about Diamondhead?</h2>
+      <p>Whether you're comparing it against Bay St. Louis, weighing a fairway lot against a bayou dock, or just want the real POA and insurance numbers before you get attached — happy to talk it through straight.</p>
+      <div class="cta-buttons">
+        <a href="tel:+12283251502" class="btn btn-primary">Call or text Rob — (228) 325-1502</a>
+        <a href="mailto:rob@robrecio.com" class="btn btn-ghost">Email Rob</a>
+      </div>
+      <p class="cta-note">Rob Recio is a licensed Mississippi real estate salesperson (#S-62221) with Real Broker, LLC. This guide is general information about Diamondhead as a place to live — not real-estate advice or a solicitation.</p>
+    </section>
+
+    <aside class="sources">
+      <h3>Sources & cross-links</h3>
+      <ul>
+        <li>Diamondhead POA — <a href="https://diamondheadms.org/" target="_blank" rel="noopener">diamondheadms.org</a> (assessments, covenants, amenities)</li>
+        <li>The Club at Diamondhead — <a href="https://theclubatdiamondhead.com/" target="_blank" rel="noopener">theclubatdiamondhead.com</a> (golf, airpark fee schedule)</li>
+        <li>City of Diamondhead — <a href="https://diamondhead.ms.gov/" target="_blank" rel="noopener">diamondhead.ms.gov</a></li>
+        <li>Hancock County School District · MDE 2025 ratings — <a href="https://www.mdek12.org/" target="_blank" rel="noopener">mdek12.org</a></li>
+        <li>FEMA Map Service Center — <a href="https://msc.fema.gov" target="_blank" rel="noopener">msc.fema.gov</a></li>
+        <li>Market data: Redfin Diamondhead MS housing-market report (2025–26)</li>
+        <li>Related on this site: <a href="/areas/bay-st-louis">Bay St. Louis guide</a> · <a href="/areas/waveland">Waveland guide</a> · <a href="/guides/retiring-on-the-ms-gulf-coast">Retiring on the Coast</a> · <a href="/guides/coastal-ms-flood-zones">Flood zones</a> · <a href="/guides/wind-and-flood-insurance">Wind &amp; flood insurance</a></li>
+      </ul>
+      <p class="sources-note"><strong>Drafted July 2026.</strong> Prices, POA assessments, ratings change — verify before relying on a number. Next refresh: after 2026–27 accountability ratings.</p>
+    </aside>
+
+  </main>
+
+</SiteLayout>
+
+<style>
+  .guide {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 3rem 1.5rem 4rem;
+  }
+
+  .guide-hero {
+    max-width: var(--max-prose);
+    margin: 0 auto 4rem;
+    text-align: left;
+  }
+  .eyebrow {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gulf);
+    margin-bottom: 1.2rem;
+  }
+  .guide-hero h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(2.25rem, 4.8vw, 3.4rem);
+    line-height: 1.07;
+    letter-spacing: -0.022em;
+    color: var(--ink);
+  }
+  .guide-hero h1 em {
+    font-style: italic;
+    color: var(--gulf-deep);
+  }
+  .pre-license-banner {
+    margin-top: 1.6rem;
+    padding: 1rem 1.3rem;
+    background: var(--sand);
+    border: 1px solid var(--line-strong);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+  }
+  .pre-license-banner p {
+    font-size: 0.93rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin: 0;
+  }
+  .pre-license-banner strong { color: var(--ink); }
+  .lede {
+    font-size: 1.18rem;
+    color: var(--ink-soft);
+    margin-top: 1.5rem;
+    line-height: 1.6;
+  }
+  .lede strong { color: var(--ink); }
+
+  .guide-section {
+    max-width: var(--max-prose);
+    margin: 0 auto;
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--line);
+  }
+  .guide-section h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(1.6rem, 3.2vw, 2.1rem);
+    line-height: 1.15;
+    letter-spacing: -0.018em;
+    color: var(--ink);
+    margin-bottom: 1.2rem;
+  }
+  .guide-section p {
+    font-size: 1.06rem;
+    color: var(--ink-soft);
+    margin-bottom: 1.1rem;
+    line-height: 1.7;
+  }
+  .guide-section p:first-of-type { color: var(--ink); }
+  .guide-section .section-sub {
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    margin-top: -0.4rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .bullets {
+    margin: 0 0 1.2rem 0;
+    padding-left: 1.4rem;
+    color: var(--ink-soft);
+  }
+  .bullets li {
+    margin-bottom: 0.85rem;
+    line-height: 1.65;
+  }
+  .bullets li strong { color: var(--ink); }
+
+  .callout {
+    background: var(--sand);
+    border-left: 3px solid var(--gulf);
+    padding: 1.1rem 1.3rem;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.98rem !important;
+    color: var(--ink) !important;
+    margin-top: 1.2rem;
+  }
+  .callout strong { color: var(--gulf-deep); }
+
+  /* Hero figure — full prose-max width, just under the lede */
+  .hero-figure {
+    max-width: var(--max);
+    margin: 0 auto 3rem;
+    padding: 0 1.5rem;
+  }
+  .hero-figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 14px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  /* Inline figures — single wide, or 2-up grid */
+  .inline-figure {
+    margin: 1.5rem 0 0.4rem;
+  }
+  .inline-figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  .inline-figure-wide img {
+    aspect-ratio: 16 / 9;
+  }
+  .inline-figure figcaption {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin-top: 0.45rem;
+    text-align: center;
+  }
+  .inline-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .inline-pair .inline-figure {
+    margin: 0;
+  }
+  @media (max-width: 640px) {
+    .inline-pair { grid-template-columns: 1fr; }
+  }
+
+  /* Neighborhood grid — 2-up on desktop, 1-up mobile */
+  .neighborhood-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .zone-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .zone-card-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+  .zone-card-body {
+    padding: 1.5rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .zone-code {
+    display: inline-block;
+    background: var(--gulf);
+    color: var(--paper);
+    font-family: var(--serif);
+    font-weight: 600;
+    padding: 0.25rem 0.7rem;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.7rem;
+    align-self: flex-start;
+  }
+  .zone-card h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.22rem;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+  .walk-tag {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.95rem !important;
+    color: var(--gulf-deep) !important;
+    margin-bottom: 0.7rem !important;
+  }
+  .zone-blurb {
+    font-size: 0.97rem !important;
+    color: var(--ink) !important;
+    margin-bottom: 0.7rem !important;
+    line-height: 1.55 !important;
+  }
+  .zone-detail {
+    font-size: 0.92rem !important;
+    color: var(--ink-soft) !important;
+    line-height: 1.55 !important;
+    margin-bottom: 0 !important;
+  }
+  @media (max-width: 760px) {
+    .neighborhood-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Schools — simple row layout */
+  .school-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin: 1.2rem 0 1rem;
+    padding: 1.2rem 1.4rem;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+  }
+  .school-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 1rem;
+    align-items: baseline;
+  }
+  .school-level {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    color: var(--gulf);
+  }
+  .school-name {
+    font-size: 0.98rem;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .school-note {
+    font-size: 0.92rem !important;
+    color: var(--ink-soft) !important;
+    font-style: italic;
+  }
+  @media (max-width: 560px) {
+    .school-row { grid-template-columns: 1fr; gap: 0.1rem; }
+  }
+
+  /* Market beats — definition list */
+  .beats {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.2rem;
+  }
+  .beat {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--gulf);
+    border-radius: 0 10px 10px 0;
+    padding: 1rem 1.3rem;
+  }
+  .beat dt {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    color: var(--gulf-deep);
+    margin-bottom: 0.3rem;
+  }
+  .beat dd {
+    font-size: 0.98rem;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  .cta-block {
+    max-width: var(--max-prose);
+    margin: 4rem auto 0;
+    padding: 2.5rem 2rem;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    text-align: center;
+  }
+  .cta-block h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: var(--ink);
+    margin-bottom: 0.8rem;
+  }
+  .cta-block p {
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+  .cta-note {
+    font-size: 0.82rem !important;
+    color: var(--ink-soft) !important;
+    font-style: italic;
+    margin-bottom: 0 !important;
+  }
+
+  .sources {
+    max-width: var(--max-prose);
+    margin: 3rem auto 0;
+    padding: 1.6rem 1.8rem;
+    background: var(--sand);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+  }
+  .sources h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.8rem;
+  }
+  .sources ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+  .sources li {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    padding: 0.35rem 0;
+    border-bottom: 1px dashed var(--line-strong);
+  }
+  .sources li:last-child { border-bottom: none; }
+  .sources-note {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin: 0;
+  }
+</style>

@@ -18,6 +18,7 @@ const crumbNames: Record<string, string> = {
   "pass-christian": "Pass Christian", "moss-point": "Moss Point", "long-beach": "Long Beach",
   "food-and-dining": "Food & Dining", "town-guide": "Town Guide",
   "coastal-ms-flood-zones": "Coast Flood Zones", "ms-homestead-exemption": "MS Homestead Exemption",
+  "wind-and-flood-insurance": "Wind & Flood Insurance", "ms-property-condition-disclosure": "MS Property Condition Disclosure",
 };
 const pretty = (s: string) => crumbNames[s] ?? s.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
 const breadcrumbs = segments.length ? {
@@ -64,6 +65,7 @@ const breadcrumbs = segments.length ? {
       <a href="/#about">About</a>
       <a href="/#areas">Areas</a>
       <a href="/explore">Explore</a>
+      <a href="/guides">Guides</a>
       <a href="/#help">How I Help</a>
       <a href="/#contact" class="cta-link">Contact</a>
     </div>

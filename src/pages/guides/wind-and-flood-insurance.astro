@@ -1,0 +1,358 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+
+const policyStack = [
+  {
+    policy: 'Homeowners, excluding wind',
+    covers: 'Fire, theft, liability, most non-storm perils. On the lower Coast the wind peril is usually carved out by endorsement.',
+  },
+  {
+    policy: 'Wind & hail (often the Wind Pool / MWUA)',
+    covers: 'Wind and hail damage — including hurricane wind. Written by the private market where it will, and by the Mississippi Windstorm Underwriting Association where it won\'t.',
+  },
+  {
+    policy: 'Flood (NFIP or private)',
+    covers: 'Rising water — storm surge, overflowing bayous, rain-driven flooding. Never covered by homeowners or wind policies. Required by lenders in A and V zones.',
+  },
+];
+---
+
+<SiteLayout
+  title="Wind & Flood Insurance on the MS Coast | Rob Recio"
+  description="The three-policy reality of insuring a Coast home — the Wind Pool, named-storm deductibles with real dollar math, NFIP vs private flood, and FORTIFIED savings."
+  robots="index, follow"
+>
+
+  <main class="guide">
+
+    <header class="guide-hero">
+      <p class="eyebrow">Coast Guides · Flood &amp; Insurance</p>
+      <h1>Wind and flood insurance, <em>the three-policy reality.</em></h1>
+
+      <aside class="pre-license-banner" role="note" aria-label="Pre-licensure notice">
+        <p><strong>Heads up.</strong> I'm a licensed Mississippi real estate salesperson (License #S-62221) with Real Broker, LLC — not an insurance agent. This guide is general information, not insurance, legal, or financial advice, and not a quote. Get real numbers from a Coast-local licensed insurance agent before you rely on any figure here.</p>
+      </aside>
+
+      <p class="lede">Inland, one homeowners policy covers the house. South of I-10 on the Mississippi Gulf Coast, it usually takes <strong>three policies</strong> — homeowners with the wind carved out, a separate wind policy (often through the state's Wind Pool), and flood. This guide explains why, what the named-storm percentage deductibles actually cost in dollars, and the honest ways to make the whole stack smaller. It's the companion to my <a href="/guides/coastal-ms-flood-zones">flood-zone guide</a> — read that one first if you don't know your zone letters yet.</p>
+    </header>
+
+    <section class="guide-section">
+      <h2>Why three policies</h2>
+      <p>After the big storms, most standard carriers stopped covering wind near the Coast — many exclude it from homeowners policies south of I-10, and some stopped writing new Coast policies altogether. And flood has <em>never</em> been part of homeowners coverage anywhere; it's its own federal-and-private market. So the typical near-water Coast home carries:</p>
+
+      <div class="zone-grid neighborhood-grid">
+        {policyStack.map(p => (
+          <div class="zone-card">
+            <div class="zone-card-body">
+              <h3>{p.policy}</h3>
+              <p class="zone-detail">{p.covers}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <p>Representative totals on a roughly $300K home south of I-10 run <strong>$5,000–$13,000+ per year</strong> combined — the full breakdown is in the <a href="/guides/coastal-ms-flood-zones">flood-zone guide</a>. North of I-10 and in X zones, many homes still carry one homeowners policy that includes wind, plus optional cheap flood. Where you buy sets which world you're in — which is exactly why the area guides on this site lead with flood profiles.</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>The Wind Pool, in plain terms</h2>
+      <p>The <strong>Mississippi Windstorm Underwriting Association (MWUA)</strong> — everyone here says "the Wind Pool" — is the state's wind-and-hail market of last resort. It writes wind and hail coverage only, only in the six lower counties: <strong>Hancock, Harrison, Jackson, Pearl River, Stone, and George</strong>. If a private carrier will write your wind, great; if not (common near the water), the Wind Pool is the backstop, placed through any licensed Mississippi agent.</p>
+      <ul class="bullets">
+        <li><strong>It's coverage of last resort, not a discount club.</strong> Wind Pool premiums are real money, and the deductible options are where the fine print lives.</li>
+        <li><strong>Rate history worth knowing:</strong> Wind Pool rates were essentially flat from 2014 through 2023 thanks to state-subsidized reinsurance. As those subsidies wound down, MID approved a 14.8% homeowner increase in 2024 and a 17.2% dwelling increase effective January 2026. Budget for the current number, not a neighbor's 2022 story.</li>
+        <li><strong>Ask about every mitigation credit.</strong> The Wind Pool and private wind carriers file discounts for FORTIFIED construction, roof shape and age, opening protection, and build era — more below.</li>
+      </ul>
+    </section>
+
+    <section class="guide-section">
+      <h2>Named-storm deductibles — the dollar math nobody does</h2>
+      <p>Here's the part that surprises buyers at the closing table. Coast wind policies typically carry a <strong>named-storm deductible expressed as a percentage of your dwelling coverage</strong> — commonly 2% to 5% — not a flat $1,000 or $2,500. It triggers when the damage comes from a storm the National Hurricane Center has named (Mississippi's insurance department defines these triggers by regulation).</p>
+
+      <p class="callout"><strong>Worked example — a $300,000 dwelling limit.</strong> A 2% named-storm deductible means the first <strong>$6,000</strong> of hurricane wind damage is yours. At 5%, it's <strong>$15,000</strong>. Now stack the policies: if the same storm pushes surge into the house, your flood policy's deductible applies <em>separately</em> on top of the wind deductible — a bad night can mean $20,000+ out of pocket before either policy pays dollar one. That number belongs in your emergency fund plan, not in the fine print.</p>
+
+      <p>Three practical rules:</p>
+      <ul class="bullets">
+        <li><strong>Ask for the deductible in dollars, not percent.</strong> Make the agent write "$6,000" next to "2%." Percentages hide the size.</li>
+        <li><strong>The percentage applies to dwelling coverage, not your damage.</strong> A $10,000 roof claim on a $300K policy with a 5% named-storm deductible pays you nothing.</li>
+        <li><strong>Deductible choices are premium levers.</strong> A higher percentage buys a lower premium — a fair trade only if you genuinely hold the cash to cover it.</li>
+      </ul>
+    </section>
+
+    <section class="guide-section">
+      <h2>Flood: NFIP vs. private</h2>
+      <ul class="bullets">
+        <li><strong>NFIP (the federal program)</strong> is the default: capped at <strong>$250,000 building / $100,000 contents</strong> for residential, priced per-property under Risk Rating 2.0 (distance to water, elevation, rebuild cost — not just the zone letter). Lenders accept it everywhere.</li>
+        <li><strong>Private flood</strong> can offer higher limits, replacement-cost contents, and sometimes a lower price on well-elevated homes. Two cautions: confirm your lender accepts the specific policy, and don't create a coverage gap when switching — some NFIP discounts depend on continuous coverage.</li>
+        <li><strong>If your rebuild cost tops $250K</strong> — most newer elevated construction does — NFIP alone leaves a gap. That's a private-flood or excess-flood conversation with your agent.</li>
+        <li><strong>Buying an existing policy's history matters.</strong> Ask what the seller pays now <em>and</em> what the renewal notice projects; some legacy NFIP policies are still ramping toward full-risk rates.</li>
+      </ul>
+    </section>
+
+    <section class="guide-section">
+      <h2>How to make the stack smaller</h2>
+      <p>The premiums aren't fixed costs — they're a function of the house you pick and the roof you put on it. In rough order of impact:</p>
+      <ol class="bullets steps">
+        <li><strong>Buy elevation and build era.</strong> Post-2011-maps elevated construction is the single biggest lever on the Coast — it can move the flood premium by thousands and makes wind markets friendlier. X-zone ground (north Long Beach, most of Diamondhead's ridge, north of I-10 generally) skips the mandatory-flood conversation entirely.</li>
+        <li><strong>Get a FORTIFIED roof.</strong> The IBHS FORTIFIED standard (sealed roof deck, ring-shank nails, enhanced edges) earns filed premium discounts from the Wind Pool and private wind carriers. On a reroof, the upgrade cost is modest; the discount recurs every year.</li>
+        <li><strong>Use the Strengthen Mississippi Homes grant.</strong> The state relaunched the program in the 2026 session (SB 2409, effective July 1, 2026): grants of up to <strong>$10,000</strong> toward a FORTIFIED-standard roof retrofit, administered by the Mississippi Insurance Department, awarded by lottery. It's for single-family primary residences (not condos or manufactured homes) that carry wind coverage — and flood coverage where required. The rollout starts with the Coast, with a statewide expansion expected in 2027. Details and applications at <a href="https://www.mid.ms.gov/mississippi-insurance-department/preparedness/mitigation/smh/" target="_blank" rel="noopener">mid.ms.gov</a>.</li>
+        <li><strong>Get the elevation certificate.</strong> $400–$1,000 from a licensed surveyor, and on elevated homes it routinely proves a lower flood premium. If the seller has one, demand it early.</li>
+        <li><strong>Protect the openings.</strong> Rated shutters, impact glass, and rated garage doors all carry credits — and matter more than they cost.</li>
+        <li><strong>Shop it with a Coast-local independent agent.</strong> Online estimators from national sites are reliably wrong here. A local independent can quote the private wind market, the Wind Pool, NFIP, and private flood side by side.</li>
+      </ol>
+    </section>
+
+    <section class="guide-section">
+      <h2>How this plays in a purchase or sale</h2>
+      <ul class="bullets">
+        <li><strong>Buyers:</strong> get a real three-policy quote <em>before</em> you write the offer, and put the stacked deductibles in your emergency-fund math. My <a href="/buy">buying guide</a> builds this into the process from day one.</li>
+        <li><strong>Sellers:</strong> a FORTIFIED certificate, elevation certificate, or post-2011 build era is a pricing asset — surface it in the listing, because it lowers your buyer's monthly cost. That's the heart of how I <a href="/sell">price Coast homes</a>.</li>
+        <li><strong>Both sides:</strong> Mississippi's seller disclosure form asks directly about flood damage and flood insurance — my <a href="/guides/ms-property-condition-disclosure">PCDS guide</a> covers what it asks and why clean answers protect everyone.</li>
+      </ul>
+    </section>
+
+    <section class="cta-block">
+      <h2>Want the real number on a specific house?</h2>
+      <p>I'll pull the flood panel, flag the build era and mitigation features, and point you to Coast-local agents who quote all three policies honestly — before you're emotionally committed to the porch.</p>
+      <div class="cta-buttons">
+        <a href="tel:+12283251502" class="btn btn-primary">Call or text Rob — (228) 325-1502</a>
+        <a href="mailto:rob@robrecio.com" class="btn btn-ghost">Email Rob</a>
+      </div>
+      <p class="cta-note">Rob Recio is a licensed Mississippi real estate salesperson (#S-62221) with Real Broker, LLC. Not insurance, legal, or financial advice — confirm coverage and pricing with a licensed Mississippi insurance agent.</p>
+    </section>
+
+    <aside class="sources">
+      <h3>Sources & cross-links</h3>
+      <ul>
+        <li>Mississippi Windstorm Underwriting Association — <a href="https://www.msplans.com/mwua" target="_blank" rel="noopener">msplans.com/mwua</a> (coverage territory, deductible options)</li>
+        <li>MS Insurance Department — <a href="https://www.mid.ms.gov" target="_blank" rel="noopener">mid.ms.gov</a> (named-storm deductible regulation, Part 1 Ch. 41; rate filings)</li>
+        <li>Strengthen Mississippi Homes — <a href="https://www.mid.ms.gov/mississippi-insurance-department/preparedness/mitigation/smh/" target="_blank" rel="noopener">mid.ms.gov/…/smh</a> · SB 2409 (2026) coverage: Magnolia Tribune (Apr 2026), WLOX (May 2026)</li>
+        <li>NFIP coverage limits &amp; Risk Rating 2.0 — <a href="https://www.floodsmart.gov" target="_blank" rel="noopener">floodsmart.gov</a> / FEMA</li>
+        <li>IBHS FORTIFIED standard — <a href="https://fortifiedhome.org" target="_blank" rel="noopener">fortifiedhome.org</a></li>
+        <li>Hurricane deductible background — Insurance Information Institute (<a href="https://www.iii.org/article/background-on-hurricane-and-windstorm-deductibles" target="_blank" rel="noopener">iii.org</a>)</li>
+        <li>Related on this site: <a href="/guides/coastal-ms-flood-zones">Flood zones</a> · <a href="/buy">Buying on the Coast</a> · <a href="/sell">Selling on the Coast</a> · <a href="/guides/ms-property-condition-disclosure">PCDS guide</a> · <a href="/guides/retiring-on-the-ms-gulf-coast">Retiring on the Coast</a></li>
+      </ul>
+      <p class="sources-note"><strong>Drafted July 2026.</strong> Rates, deductible options, and the Strengthen Mississippi Homes program rules move with each filing and legislative cycle — verify current numbers with a licensed agent and at mid.ms.gov. Next planned refresh: after MID's 2027 rate filings.</p>
+    </aside>
+
+  </main>
+
+</SiteLayout>
+
+<style>
+  .guide {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 3rem 1.5rem 4rem;
+  }
+
+  .guide-hero {
+    max-width: var(--max-prose);
+    margin: 0 auto 4rem;
+    text-align: left;
+  }
+  .eyebrow {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gulf);
+    margin-bottom: 1.2rem;
+  }
+  .guide-hero h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(2.25rem, 4.8vw, 3.4rem);
+    line-height: 1.07;
+    letter-spacing: -0.022em;
+    color: var(--ink);
+  }
+  .guide-hero h1 em {
+    font-style: italic;
+    color: var(--gulf-deep);
+  }
+  .pre-license-banner {
+    margin-top: 1.6rem;
+    padding: 1rem 1.3rem;
+    background: var(--sand);
+    border: 1px solid var(--line-strong);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+  }
+  .pre-license-banner p {
+    font-size: 0.93rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin: 0;
+  }
+  .pre-license-banner strong { color: var(--ink); }
+  .lede {
+    font-size: 1.18rem;
+    color: var(--ink-soft);
+    margin-top: 1.5rem;
+    line-height: 1.6;
+  }
+  .lede strong { color: var(--ink); }
+
+  .guide-section {
+    max-width: var(--max-prose);
+    margin: 0 auto;
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--line);
+  }
+  .guide-section h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(1.6rem, 3.2vw, 2.1rem);
+    line-height: 1.15;
+    letter-spacing: -0.018em;
+    color: var(--ink);
+    margin-bottom: 1.2rem;
+  }
+  .guide-section p {
+    font-size: 1.06rem;
+    color: var(--ink-soft);
+    margin-bottom: 1.1rem;
+    line-height: 1.7;
+  }
+  .guide-section p:first-of-type { color: var(--ink); }
+  .guide-section .section-sub {
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    margin-top: -0.4rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .bullets {
+    margin: 0 0 1.2rem 0;
+    padding-left: 1.4rem;
+    color: var(--ink-soft);
+  }
+  .bullets li {
+    margin-bottom: 0.85rem;
+    line-height: 1.65;
+  }
+  .bullets li strong { color: var(--ink); }
+  ol.steps { padding-left: 1.6rem; }
+
+  .callout {
+    background: var(--sand);
+    border-left: 3px solid var(--gulf);
+    padding: 1.1rem 1.3rem;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.98rem !important;
+    color: var(--ink) !important;
+    margin-top: 1.2rem;
+  }
+  .callout strong { color: var(--gulf-deep); }
+
+  /* Policy-stack cards (borrowed from the area-page zone grid) */
+  .neighborhood-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .zone-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .zone-card-body {
+    padding: 1.5rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .zone-card h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .zone-detail {
+    font-size: 0.92rem !important;
+    color: var(--ink-soft) !important;
+    line-height: 1.55 !important;
+    margin-bottom: 0 !important;
+  }
+  @media (max-width: 760px) {
+    .neighborhood-grid { grid-template-columns: 1fr; }
+  }
+
+  .cta-block {
+    max-width: var(--max-prose);
+    margin: 4rem auto 0;
+    padding: 2.5rem 2rem;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    text-align: center;
+  }
+  .cta-block h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: var(--ink);
+    margin-bottom: 0.8rem;
+  }
+  .cta-block p {
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+  .cta-note {
+    font-size: 0.82rem !important;
+    color: var(--ink-soft) !important;
+    font-style: italic;
+    margin-bottom: 0 !important;
+  }
+
+  .sources {
+    max-width: var(--max-prose);
+    margin: 3rem auto 0;
+    padding: 1.6rem 1.8rem;
+    background: var(--sand);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+  }
+  .sources h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.8rem;
+  }
+  .sources ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+  .sources li {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    padding: 0.35rem 0;
+    border-bottom: 1px dashed var(--line-strong);
+  }
+  .sources li:last-child { border-bottom: none; }
+  .sources-note {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin: 0;
+  }
+</style>
