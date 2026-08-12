@@ -77,9 +77,12 @@ const breadcrumbs = segments.length ? {
   <footer>
     <div class="footer-inner">
       <p class="disclosure">
-        Rob Recio · <strong>Licensed Mississippi Real Estate Salesperson #S-62221</strong> · <strong>Real Broker, LLC</strong> · Equal Housing Opportunity.
+        <strong>Robert Recio</strong> (Rob Recio) · <strong>Licensed Mississippi Real Estate Salesperson #S-62221</strong> · <strong>Real Broker, LLC</strong> · Equal Housing Opportunity.
       </p>
-      <p class="copy">© {new Date().getFullYear()} Rob Recio · Ocean Springs, MS</p>
+      <p class="legal-links">
+        <a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a>
+      </p>
+      <p class="copy">© {new Date().getFullYear()} Robert Recio · Ocean Springs, MS</p>
     </div>
   </footer>
 
@@ -217,6 +220,17 @@ const breadcrumbs = segments.length ? {
     line-height: 1.55;
   }
   .disclosure strong { color: var(--ink); }
+  .legal-links {
+    font-size: 0.8rem;
+    text-align: center;
+    margin-top: 1rem;
+  }
+  .legal-links a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line-strong);
+  }
+  .legal-links a:hover { color: var(--gulf); border-color: var(--gulf); }
   .copy {
     font-size: 0.78rem;
     color: var(--ink-soft);
