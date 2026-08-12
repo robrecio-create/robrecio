@@ -1,0 +1,231 @@
+---
+// 10DLC-compliant lead capture form.
+//
+// Carrier/TCR review rules this markup satisfies (Lofty 10DLC Best Practices):
+//   1. Phone field is OPTIONAL — no `required` attribute, label says "optional".
+//   2. Both consent checkboxes are UNCHECKED by default — no `checked` attribute.
+//   3. Neither checkbox is required to submit the form.
+//   4. SMS consent wording is Lofty's Sole Proprietor language verbatim.
+//   5. Consent is a separate, standalone checkbox — not bundled into the submit button.
+//
+// Do not add `required` or `checked` to the two consent inputs. That is the single
+// most common reason a 10DLC campaign gets rejected on resubmission.
+
+const AGENT_LEGAL_NAME = "Robert Recio";
+---
+
+<form class="lead-form" id="lead-form" method="POST" action="/api/lead" novalidate>
+  <div class="lf-row">
+    <div class="lf-field">
+      <label for="lf-first">First name <span class="lf-req">*</span></label>
+      <input type="text" id="lf-first" name="firstName" autocomplete="given-name" required />
+    </div>
+    <div class="lf-field">
+      <label for="lf-last">Last name</label>
+      <input type="text" id="lf-last" name="lastName" autocomplete="family-name" />
+    </div>
+  </div>
+
+  <div class="lf-row">
+    <div class="lf-field">
+      <label for="lf-email">Email <span class="lf-req">*</span></label>
+      <input type="email" id="lf-email" name="email" autocomplete="email" required />
+    </div>
+    <div class="lf-field">
+      <label for="lf-phone">Phone <span class="lf-opt">(optional)</span></label>
+      <input type="tel" id="lf-phone" name="phone" autocomplete="tel" inputmode="tel" />
+    </div>
+  </div>
+
+  <div class="lf-field">
+    <label for="lf-message">What can I help with?</label>
+    <textarea id="lf-message" name="message" rows="4" placeholder="Buying, selling, relocating, or just have a question about the Coast…"></textarea>
+  </div>
+
+  <!-- Consent block. Both boxes unchecked by default and neither is required. -->
+  <div class="lf-consent">
+    <label class="lf-check" for="lf-sms-consent">
+      <input type="checkbox" id="lf-sms-consent" name="smsConsent" value="yes" />
+      <span>
+        By checking this box, I agree to receive text messages from {AGENT_LEGAL_NAME}
+        regarding real estate services, property inquiries, scheduling, and related
+        communications. Message frequency varies. Message and data rates may apply.
+        Reply HELP for help or STOP to opt out.
+      </span>
+    </label>
+
+    <label class="lf-check" for="lf-terms-consent">
+      <input type="checkbox" id="lf-terms-consent" name="termsConsent" value="yes" />
+      <span>
+        By checking this box, I agree to the
+        <a href="/terms">Terms of Service</a> and
+        <a href="/privacy">Privacy Policy</a> of this website.
+      </span>
+    </label>
+
+    <p class="lf-note">
+      Consent to receive texts is not a condition of purchase, and it is not required to
+      submit this form or to work with me.
+    </p>
+  </div>
+
+  <!-- Honeypot: bots fill this, humans never see it. -->
+  <div class="lf-hp" aria-hidden="true">
+    <label for="lf-company">Company</label>
+    <input type="text" id="lf-company" name="company" tabindex="-1" autocomplete="off" />
+  </div>
+
+  <button type="submit" class="btn btn-primary lf-submit">Send it to Rob</button>
+  <p class="lf-status" id="lf-status" role="status" aria-live="polite"></p>
+</form>
+
+<style>
+  .lead-form {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 1.9rem 2rem 2rem;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .lf-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  @media (max-width: 600px) {
+    .lf-row { grid-template-columns: 1fr; }
+    .lead-form { padding: 1.4rem 1.25rem 1.6rem; }
+  }
+  .lf-field { margin-bottom: 1rem; }
+  .lf-field label {
+    display: block;
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.35rem;
+  }
+  .lf-req { color: var(--accent); font-weight: 600; }
+  .lf-opt { color: var(--ink-soft); font-weight: 400; }
+  .lf-field input,
+  .lf-field textarea {
+    width: 100%;
+    font-family: var(--sans);
+    font-size: 0.97rem;
+    color: var(--ink);
+    background: var(--bg);
+    border: 1px solid var(--line-strong);
+    border-radius: 10px;
+    padding: 0.7rem 0.85rem;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .lf-field input:focus,
+  .lf-field textarea:focus {
+    outline: none;
+    border-color: var(--gulf);
+    box-shadow: 0 0 0 3px rgba(42, 111, 140, 0.15);
+  }
+  .lf-field textarea { resize: vertical; }
+
+  .lf-consent {
+    background: var(--sand);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1.1rem 1.2rem 0.9rem;
+    margin: 1.2rem 0 1.4rem;
+  }
+  .lf-check {
+    display: flex;
+    gap: 0.7rem;
+    align-items: flex-start;
+    font-size: 0.8rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    cursor: pointer;
+    margin-bottom: 0.85rem;
+  }
+  .lf-check input[type="checkbox"] {
+    flex: 0 0 auto;
+    width: 17px;
+    height: 17px;
+    margin-top: 0.15rem;
+    accent-color: var(--gulf);
+    cursor: pointer;
+  }
+  .lf-note {
+    font-size: 0.74rem;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--line-strong);
+    padding-top: 0.7rem;
+    margin: 0;
+  }
+
+  .lf-hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .lf-submit {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    font-family: var(--sans);
+  }
+  .lf-submit[disabled] { opacity: 0.6; cursor: default; }
+
+  .lf-status {
+    font-size: 0.87rem;
+    margin-top: 0.9rem;
+    text-align: center;
+    min-height: 1.2rem;
+  }
+  .lf-status.ok { color: var(--gulf-deep); font-weight: 600; }
+  .lf-status.err { color: #b4442b; }
+</style>
+
+<script>
+  const form = document.getElementById("lead-form") as HTMLFormElement | null;
+  const status = document.getElementById("lf-status");
+
+  if (form && status) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector<HTMLButtonElement>(".lf-submit");
+
+      const first = (form.elements.namedItem("firstName") as HTMLInputElement)?.value.trim();
+      const email = (form.elements.namedItem("email") as HTMLInputElement)?.value.trim();
+      if (!first || !email) {
+        status.textContent = "Please add your first name and email so I can get back to you.";
+        status.className = "lf-status err";
+        return;
+      }
+
+      if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
+      status.textContent = "";
+      status.className = "lf-status";
+
+      const payload = Object.fromEntries(new FormData(form).entries());
+
+      try {
+        const res = await fetch("/api/lead", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        if (!res.ok) throw new Error(String(res.status));
+        form.reset();
+        status.textContent = "Got it — thanks. I'll reach out personally, usually same day.";
+        status.className = "lf-status ok";
+        if (btn) btn.textContent = "Sent";
+      } catch {
+        status.className = "lf-status err";
+        status.innerHTML =
+          'Something went wrong on my end. Please call or text me directly at <a href="tel:+12283251502">(228) 325-1502</a>.';
+        if (btn) { btn.disabled = false; btn.textContent = "Send it to Rob"; }
+      }
+    });
+  }
+</script>

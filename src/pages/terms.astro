@@ -1,0 +1,188 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+
+// 10DLC / TCR review note:
+// The "Text Messaging Terms" section below is mandatory for A2P 10DLC registration.
+// Reviewers look for these three things, close to verbatim:
+//   • "Carriers are not liable for delayed or undelivered messages."
+//   • STOP / HELP instructions
+//   • "Message and data rates may apply."
+// Do not reword, summarize, or split those sentences.
+
+const effective = 'August 12, 2026';
+---
+
+<SiteLayout
+  title="Terms of Service | Rob Recio · Mississippi Gulf Coast Real Estate"
+  description="Terms of Service for robrecio.com, including text messaging terms, STOP and HELP instructions, and message and data rate disclosures."
+  robots="index, follow"
+>
+
+  <main class="legal">
+    <header class="legal-hero">
+      <p class="eyebrow">Legal</p>
+      <h1>Terms of Service</h1>
+      <p class="legal-meta">Effective {effective} · Robert Recio (Rob Recio) · Ocean Springs, Mississippi</p>
+    </header>
+
+    <div class="legal-body">
+
+      <p>
+        These Terms of Service govern your use of <strong>www.robrecio.com</strong> (the "Site"),
+        operated by Robert Recio, a licensed Mississippi real estate salesperson (License
+        #S-62221) affiliated with Real Broker, LLC. By using the Site or submitting a form on it,
+        you agree to these terms.
+      </p>
+
+      <h2>Use of the Site</h2>
+      <p>
+        The Site is provided for general information about Mississippi Gulf Coast real estate and
+        to let you get in touch with me. You agree to use it lawfully and not to interfere with
+        its operation, scrape it, or submit false information through its forms.
+      </p>
+
+      <h2 id="sms">Text Messaging Terms</h2>
+      <p>
+        By providing your mobile number and checking the text-message consent box on a form on
+        this Site, you agree to receive text messages from Robert Recio regarding real estate
+        services, property inquiries, scheduling, and related communications.
+      </p>
+      <ul>
+        <li><strong>Consent is not a condition of purchase.</strong> You are not required to agree to receive text messages in order to submit a form, receive information, or work with me.</li>
+        <li><strong>Message frequency varies</strong> depending on your inquiry and our ongoing conversation.</li>
+        <li><strong>Message and data rates may apply.</strong> Charges are set by your mobile carrier, not by me.</li>
+        <li><strong>To opt out, reply STOP</strong> to any message. You will receive a single confirmation and no further messages.</li>
+        <li><strong>For assistance, reply HELP</strong> to any message, or contact me at (228) 325-1502 or rob@robrecio.com.</li>
+        <li><strong>Carriers are not liable for delayed or undelivered messages.</strong></li>
+        <li>Supported carriers may change without notice. Text messaging is available on most major U.S. wireless carriers.</li>
+      </ul>
+      <p>
+        Text messaging originator opt-in data and consent will not be shared with any third
+        parties. See the <a href="/privacy#sms">Privacy Policy</a> for how this information is
+        handled.
+      </p>
+
+      <h2>No agency relationship until agreed in writing</h2>
+      <p>
+        Contacting me through the Site, or receiving information from me, does not by itself
+        create a brokerage or agency relationship. A representation agreement is established only
+        in a signed written agreement, as required by Mississippi law and Real Broker, LLC.
+      </p>
+
+      <h2>Property information</h2>
+      <p>
+        Listing details, market figures, guides, and area information on the Site are gathered
+        from sources believed reliable but are not guaranteed accurate and are subject to change
+        or withdrawal without notice. Nothing on the Site is an offer to buy or sell real
+        property. Verify all information independently before relying on it.
+      </p>
+
+      <h2>Not legal, tax, insurance, or financial advice</h2>
+      <p>
+        Content on the Site — including guides covering flood zones, insurance, homestead
+        exemption, and disclosures — is general information, not professional advice. Consult a
+        qualified attorney, tax professional, insurance agent, or lender about your situation.
+      </p>
+
+      <h2>Fair housing</h2>
+      <p>
+        I am committed to the letter and the spirit of U.S. policy for the achievement of equal
+        housing opportunity throughout the nation. All real estate advertised on this Site is
+        subject to the federal Fair Housing Act and Mississippi law, which make it illegal to
+        indicate any preference, limitation, or discrimination based on race, color, religion,
+        sex, handicap, familial status, or national origin.
+      </p>
+
+      <h2>Third-party links</h2>
+      <p>
+        The Site links to other websites I do not control. Those links are provided for
+        convenience, and I am not responsible for their content, accuracy, or privacy practices.
+      </p>
+
+      <h2>Limitation of liability</h2>
+      <p>
+        The Site is provided "as is" without warranties of any kind. To the fullest extent
+        permitted by law, Robert Recio is not liable for any indirect, incidental, or
+        consequential damages arising from your use of the Site or reliance on its content.
+      </p>
+
+      <h2>Governing law</h2>
+      <p>
+        These terms are governed by the laws of the State of Mississippi, without regard to its
+        conflict of law rules.
+      </p>
+
+      <h2>Changes to these terms</h2>
+      <p>
+        These terms may be updated from time to time. The revised version will be posted here
+        with a new effective date, and continued use of the Site means you accept it.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Robert Recio (Rob Recio)<br />
+        Licensed Mississippi Real Estate Salesperson #S-62221 · Real Broker, LLC<br />
+        Ocean Springs, Mississippi<br />
+        Phone / text: <a href="tel:+12283251502">(228) 325-1502</a><br />
+        Email: <a href="mailto:rob@robrecio.com">rob@robrecio.com</a>
+      </p>
+
+      <p class="legal-crosslink">
+        See also: <a href="/privacy">Privacy Policy</a>
+      </p>
+
+    </div>
+  </main>
+
+</SiteLayout>
+
+<style>
+  .legal {
+    max-width: var(--max-prose);
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 1rem;
+  }
+  .legal-hero { margin-bottom: 2.5rem; }
+  .eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+  .legal h1 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 5vw, 2.7rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+  }
+  .legal-meta {
+    font-size: 0.87rem;
+    color: var(--ink-soft);
+    margin-top: 0.7rem;
+  }
+  .legal-body { font-size: 1rem; color: var(--ink-soft); }
+  .legal-body h2 {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    margin: 2.2rem 0 0.8rem;
+  }
+  .legal-body p { margin-bottom: 1rem; }
+  .legal-body ul {
+    margin: 0 0 1.2rem 1.1rem;
+    padding-left: 0.4rem;
+  }
+  .legal-body li { margin-bottom: 0.55rem; }
+  .legal-body strong { color: var(--ink); }
+  .legal-crosslink {
+    margin-top: 2.5rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.9rem;
+  }
+</style>
