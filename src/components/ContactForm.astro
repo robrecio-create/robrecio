@@ -69,10 +69,17 @@ const AGENT_LEGAL_NAME = "Robert Recio";
     </p>
   </div>
 
-  <!-- Honeypot: bots fill this, humans never see it. -->
+  <!-- Honeypot: bots fill this, humans never see it.
+       Two things here are deliberate and must not be "tidied up":
+       1. The field name is nonsense (`refCode2`). Do NOT name it something real like
+          `company`, `address`, or `url` — those are standard autocomplete tokens, and
+          Chrome will happily autofill them even on a hidden field, which silently
+          throws away a genuine lead.
+       2. It is hidden with `display: none`, not with off-screen positioning. Chrome
+          skips display:none fields when autofilling; it does NOT skip off-screen ones. -->
   <div class="lf-hp" aria-hidden="true">
-    <label for="lf-company">Company</label>
-    <input type="text" id="lf-company" name="company" tabindex="-1" autocomplete="off" />
+    <label for="lf-ref-code-2">Leave this field blank</label>
+    <input type="text" id="lf-ref-code-2" name="refCode2" tabindex="-1" autocomplete="off" />
   </div>
 
   <button type="submit" class="btn btn-primary lf-submit">Send it to Rob</button>
@@ -160,13 +167,8 @@ const AGENT_LEGAL_NAME = "Robert Recio";
     margin: 0;
   }
 
-  .lf-hp {
-    position: absolute;
-    left: -9999px;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-  }
+  /* display:none, not off-screen — see the comment on the honeypot markup above. */
+  .lf-hp { display: none; }
 
   .lf-submit {
     width: 100%;

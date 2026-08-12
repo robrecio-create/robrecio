@@ -57,13 +57,32 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   const data = await readBody(request);
 
   // Honeypot — bots fill hidden fields, humans don't. Return 200 so they don't retry.
-  if (str(data.company)) return json({ ok: true }, 200);
+  //
+  // ALWAYS log when this trips. A silent discard here once ate a real submission
+  // (Chrome autofilled the hidden field back when it was named `company`), and the
+  // 200 response made it look like everything worked. If leads ever go missing again,
+  // grep the runtime logs for "honeypot" before suspecting Lofty.
+  if (str(data.refCode2)) {
+    console.warn(
+      `[lead] honeypot tripped — discarded submission from ` +
+        `${str(data.firstName)} <${str(data.email)}>. If this is a real person, the ` +
+        `honeypot field is being autofilled and needs renaming.`,
+    );
+    return json({ ok: true }, 200);
+  }
 
   const firstName = str(data.firstName, 30);
   const lastName = str(data.lastName, 30);
   const email = str(data.email, 120);
   const phone = str(data.phone, 20);
   const message = str(data.message, 1500);
+
+  // Entry log, so "did the submission even reach the server?" is always answerable
+  // from the runtime logs without redeploying to add instrumentation.
+  console.log(
+    `[lead] received: first=${firstName ? "y" : "n"} email=${email ? "y" : "n"} ` +
+      `phone=${phone ? "y" : "n"} smsConsent=${isChecked(data.smsConsent) ? "y" : "n"}`,
+  );
 
   if (!firstName || !email) {
     return json({ ok: false, error: "First name and email are required." }, 400);
